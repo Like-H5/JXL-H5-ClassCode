@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>08-序选择器</title>
+    <style>
+        .box>p:first-child {
+            color: red;
+        }
+        .box>p:nth-child(2) {
+            color: green;
+        }
+        .box>p:nth-child(3) {
+            color: blue;
+        }
+
+        .box>p:last-child {
+            color: darkcyan;
+            font-size: 30px;
+        }
+        .box>p:first-letter {
+            font-size: 28px;
+        }
+        /*.box>p:nth-col(2) {*/
+        /*    font-size: 50px;*/
+        /*}*/
+
+
+        input[name='ah'] {
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <p>第一名</p>
+    <p>第二名</p>
+    <p>第三名</p>
+    <p>第四名</p>
+    <p>第五名</p>
+</div>
+
+
+<input type="text" name="ah">
+<input type="text" name="ah">
+<input type="text" name="xx">
+
+
+</body>
+</html>

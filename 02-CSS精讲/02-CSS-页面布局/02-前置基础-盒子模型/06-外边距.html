@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>06-外边距</title>
+<!--    <style>-->
+<!--        .box {-->
+<!--            width: 500px;-->
+<!--            height: 400px;-->
+<!--            background-color: tomato;-->
+<!--            border: 10px solid cyan;-->
+<!--        }-->
+<!--        .box:first-child {-->
+<!--            /*margin: 20px;*/-->
+<!--            margin-bottom: 20px;-->
+<!--        }-->
+<!--        .box:last-child {-->
+<!--            margin-top: 30px;-->
+<!--        }-->
+<!--    </style>-->
+
+    <style>
+        .big {
+            width: 500px;
+            height: 500px;
+            background-color: tomato;
+            /*padding-top: 1px;*/
+            /*border-top: 1px solid cyan;*/
+            overflow: hidden;
+        }
+        .big .small {
+            width: 300px;
+            height: 300px;
+            background-color: cyan;
+            /*margin: 50px;*/
+            margin: 0 auto;
+        }
+        span {
+            background-color: orangered;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="big">
+    <div class="small">
+        <span>span标签</span>
+        <span>span标签</span>
+        <span>span标签</span>
+    </div>
+</div>
+
+
+<!--<div class="box">-->
+<!--    box1-->
+<!--</div>-->
+
+<!--<div class="box">-->
+<!--    box2-->
+<!--</div>-->
+
+
+</body>
+</html>

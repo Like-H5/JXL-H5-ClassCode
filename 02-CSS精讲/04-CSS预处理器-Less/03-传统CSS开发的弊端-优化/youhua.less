@@ -1,0 +1,58 @@
+
+@themeColor: cyan;
+
+.box1 {
+  width: 500px;
+  height: 500px;
+  background-color: tomato;
+  .box2 {
+    width: 300px;
+    height: 300px;
+    background-color: darkcyan;
+    .box3 {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      p {
+        font-size: 20px;
+        color: grey;
+        &:hover {
+          color: @themeColor;
+        }
+      }
+    }
+  }
+}
+
+
+.border(@w: 1, @style, @color) {
+  border: @arguments;
+}
+
+.circle(@wh: 100, @bgColor: tomato, @border-w: 10) {
+  width: @wh * 1px;
+  height:  @wh * 1px;
+  background-color: @bgColor;
+  /*50%; 参考的是整个盒子的尺寸*/
+  /*border-radius: 50%;*/
+  border-radius: @wh / 2px;
+  text-align: center;
+  /*公式: height - 2 * 边框宽度*/
+  line-height: @wh - 2 * 10px;
+  //border: 10px solid cyan;
+  .border(@border-w * 1px, solid, @themeColor);
+  box-sizing: border-box;
+}
+
+.c1 {
+  .circle;
+  &:hover {
+    color: @themeColor;
+  }
+}
+.c2 {
+  .circle(80);
+  &:hover {
+    color: @themeColor;
+  }
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03-css-三大特性-特异性</title>
+    <style>
+        /*0. 直接选中 > 间接选中*/
+
+        /*p {*/
+        /*    color: orangered;*/
+        /*}*/
+
+        /*.box3 {*/
+        /*    color: cyan;*/
+        /*}*/
+
+    </style>
+    <style>
+        /*1. 对于单个选择器*/
+        /*选择器相同: 就近原则, 谁写到最后, 谁生效*/
+        /*.ooo {*/
+        /*    color: orangered;*/
+        /*}*/
+        /*.xxx {*/
+        /*    color: cyan;*/
+        /*}*/
+        /*p {*/
+        /*    color: cyan;*/
+        /*}*/
+
+        /*p {*/
+        /*    color: orangered;*/
+        /*}*/
+
+        /*id > 类 > 标签 > 通配符 > 浏览器默认*/
+
+
+        /*p {*/
+        /*    color: tomato;*/
+        /*}*/
+        /*#one {*/
+        /*    color: palegreen;*/
+        /*}*/
+        /** {*/
+        /*    color: deeppink;*/
+        /*}*/
+
+        /*.xxx {*/
+        /*    color: pink;*/
+        /*}*/
+
+    </style>
+
+    <style>
+        /*2. 对于多个选择器(也适用于单个选择器)*/
+        /* 0,0,0,1 */
+        /*p {*/
+        /*    color: red;*/
+        /*}*/
+        /* 0,0,1,0 */
+        /*.xxx {*/
+        /*    color: darkcyan;*/
+        /*}*/
+        /* 0,1,0,0 */
+        /*#one {*/
+        /*    color: cyan;*/
+        /*}*/
+
+    </style>
+
+    <style>
+
+        p {
+            font-size: 40px;
+            color: palegreen !important;
+        }
+        /* 0, 0, 2, 1*/
+        p.xxx.ooo {
+            color: red;
+        }
+
+        /* 0, 0, 1, 1*/
+        p.ooo {
+            color: green;
+        }
+        /* 0, 1, 0, 0 */
+        #one {
+            color: orchid;
+        }
+        /* 0, 1, 0, 1 */
+        p#one {
+            color: #bda571;
+        }
+        /* 0, 1, 1, 0 */
+        #one.xxx {
+            color: grey;
+        }
+
+
+
+    </style>
+
+
+
+</head>
+<body>
+
+
+<div id="container">
+    <div class="box1">
+        <div class="box2">
+            <div class="box3">
+                <!--1,0,0,0-->
+                <p id="one" class="xxx ooo" style="color: mediumpurple">撩课</p>
+<!--                <p id="one" class="xxx ooo">撩课</p>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

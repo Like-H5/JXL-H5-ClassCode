@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单标签</title>
+</head>
+<body>
+
+<!--https://www.baidu.com/s?wd=%E6%92%A9%E8%AF%BE-->
+<!--
+url: https://www.baidu.com/s
+method: get
+params: wd = 关键字
+-->
+
+<!--
+1. 定义一个表单域
+form:
+action: 到时候, 表单域内部的表单控件, 采集的信息, 一旦被提交之后, 往哪一个地址, 去提交
+method
+-->
+<form action="https://www.baidu.com/s" method="get">
+
+    <!--表单控件-->
+    <label>
+        百度搜索(关键字): <input type="text" name="wd">
+    </label>
+    <input type="submit" value="小撩搜索">
+</form>
+
+
+<form action="http://lxt.itlike.com/api/manager/article/new_article" method="post">
+
+    <label>
+        文章标题: <input type="text" name="title">
+    </label>
+
+    <label>
+        文章简介: <input type="text" name="intro">
+    </label>
+
+    <label>
+        文章内容: <input type="text" name="content">
+    </label>
+
+    <input type="submit" value="新增文章">
+</form>
+
+
+
+
+</body>
+</html>

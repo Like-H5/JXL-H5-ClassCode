@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01-过渡动画</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 300px;
+            background-color: rgb(100, 120, 130);
+            margin: 100px auto;
+            border: 5px dashed pink;
+            opacity: 1;
+            transition: all 2s ease-in-out 0s;
+        }
+        .box:hover {
+            /*transform: rotate(50deg);*/
+            width: 400px;
+            height: 500px;
+            background-color: cyan;
+
+            /*border: 10px solid deeppink;*/
+
+            opacity: 0;
+
+            /*过渡动画*/
+            /*transition: border 2s linear 1s;*/
+
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="box">
+
+</div>
+
+
+</body>
+</html>

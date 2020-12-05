@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01-Flex基本使用</title>
+    <style>
+        .box {
+            width: 90%;
+            height: 600px;
+            background-color: tomato;
+            margin: 100px auto;
+            display: flex;
+
+            /*内部的子元素, 都会按照主轴的方向进行排列; 默认(主轴: 行)*/
+
+            /*主轴方向设定;*/
+            flex-direction: column;
+
+            /*控制主轴方向的对齐范式*/
+            justify-content: space-between;
+
+            /*侧轴方向的对齐方式*/
+            align-items: flex-end;
+        }
+        .c1 {
+            width: 100px;
+            height: 150px;
+            background-color: darkcyan;
+        }
+        .c2 {
+            width: 150px;
+            height: 200px;
+            background-color: orange;
+        }
+        .c3 {
+            width: 200px;
+            height: 50px;
+            background-color: deeppink;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="box">
+    <div class="c1">
+        c1
+    </div>
+    <div class="c2">
+        c2
+    </div>
+    <div class="c3">
+        c3
+    </div>
+
+
+</div>
+
+
+
+</body>
+</html>

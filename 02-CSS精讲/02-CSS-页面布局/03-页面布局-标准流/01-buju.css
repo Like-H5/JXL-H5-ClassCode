@@ -1,0 +1,25 @@
+.top {
+    height: 100px;
+    background-color: tomato;
+}
+.content {
+    height: 500px;
+    background-color: grey;
+}
+.content>.left {
+    width: 20%;
+    height: 100%;
+    display: inline-block;
+    background-color: orangered;
+}
+.content>.right {
+    width: 80%;
+    height: 100%;
+    display: inline-block;
+    background-color: cyan;
+    vertical-align: top;
+}
+.bottom {
+    height: 60px;
+    background-color: darkcyan;
+}

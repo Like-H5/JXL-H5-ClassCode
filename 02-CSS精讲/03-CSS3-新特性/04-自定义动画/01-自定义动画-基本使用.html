@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01-自定义动画-基本使用</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 300px;
+            background-color: tomato;
+            margin: 100px auto;
+
+            /*transition: all 1s linear 0s;*/
+
+            /*2. 自定义动画使用*/
+            /*1. 做的动画名称 2. 动画做的时长 3. 动画曲线 4. 延迟时间 5. 循环次数  6. 是否轮流反转做动画*/
+            animation: like_animation 2s linear 0s infinite alternate;
+            /*animation: like_animation 2s linear 0s 1 alternate;*/
+
+            /*animation-fill-mode: backwards;*/
+        }
+        .box:hover {
+            animation-play-state: paused;
+        }
+        /*1. 定义动画*/
+        @keyframes like_animation {
+            from {
+                width: 100px;
+                height: 100px;
+                background-color: cyan;
+            }
+            to {
+                width: 400px;
+                height: 500px;
+                background-color: darkcyan;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="box">
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>04-常用的选择器</title>
+    <style>
+        a {
+            text-decoration: none;
+            color: grey;
+        }
+
+        /*.one {*/
+        /*    color: red;*/
+        /*}*/
+        /*.three {*/
+        /*    color: red;*/
+        /*}*/
+        /*.five {*/
+        /*    color: red;*/
+        /*}*/
+
+        .red-color {
+            color: red;
+        }
+        .green-color {
+            color: green;
+        }
+
+        a.one {
+            font-size: 30px;
+        }
+
+        p.one {
+            text-align: right;
+        }
+
+        #navbar {
+            width: 400px;
+            height: 200px;
+            background-color: tomato;
+            color: white;
+        }
+        #item-1 {
+
+        }
+
+        /*#one>.item {*/
+        /*    */
+        /*}*/
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<!--
+[
+"chifan",
+"睡觉",
+"敲代码"
+]
+-->
+
+<ul id="one">
+    <li class="item">1</li>
+    <li class="item">2</li>
+    <li class="item">3</li>
+
+<!--    <li id="item-1"></li>-->
+<!--    <li id="item-2"></li>-->
+<!--    <li id="item-3"></li>-->
+</ul>
+
+<ul id="two">
+    <li class="item">4</li>
+    <li class="item">5</li>
+    <li class="item">6</li>
+</ul>
+
+
+
+<div id="navbar">
+    ceshi 测试
+</div>
+
+
+<!--一个元素可以拥有多个类名; 多个雷明之间, 是通过 空格 做分割-->
+<!--class类名, 可以重复; -->
+<a href="#" class="one red-color">第一个链接</a>
+<a href="#" class="two">第二个链接</a>
+<a href="#" class="three red-color">第三个链接</a>
+<a href="#" class="four red-color">第四个链接</a>
+
+<p class="one">这是一个段落</p>
+
+<div class="box">
+    <a href="#" class="five green-color">第5个链接</a>
+</div>
+
+
+</body>
+</html>

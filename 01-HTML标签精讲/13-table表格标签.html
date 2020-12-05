@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>13-table表格标签</title>
+    <style>
+        table {
+            border-collapse:collapse
+        }
+    </style>
+</head>
+<body>
+
+<table border="1">
+    <tr>
+        <td>11</td>
+        <td>12</td>
+        <td rowspan="2">13</td>
+    </tr>
+    <tr>
+        <td>21</td>
+        <td>22</td>
+<!--        <td>23</td>-->
+    </tr>
+    <tr>
+        <td colspan="3">31</td>
+    </tr>
+</table>
+<table border="1">
+    <tr>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+    </tr>
+    <tr>
+        <td>sz</td>
+        <td>18</td>
+        <td>男</td>
+    </tr>
+    <tr>
+        <td>小花</td>
+        <td>16</td>
+        <td>女</td>
+    </tr>
+</table>
+
+
+<table border="1" width="600px" align="center" bgColor="#d3d3d3" background="other.jpg">
+    <caption>表格的标题</caption>
+    <thead>
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td colspan="3">这是表格的底部</td>
+        </tr>
+    </tfoot>
+    <tbody>
+        <tr align="center">
+            <td height="100px" valign="top">sz</td>
+            <td>18</td>
+            <td>男</td>
+        </tr>
+        <tr align="right">
+            <td>sz2</td>
+            <td align="left">16</td>
+            <td>女</td>
+        </tr>
+        <tr>
+            <td>小芳</td>
+            <td>16</td>
+            <td>女</td>
+        </tr>
+        <tr>
+            <td>姓名</td>
+            <td><input type="text" placeholder="请输入你的姓名"></td>
+        </tr>
+    </tbody>
+</table>
+
+
+<!--tr>td{$}*8-->
+
+
+
+</body>
+</html>

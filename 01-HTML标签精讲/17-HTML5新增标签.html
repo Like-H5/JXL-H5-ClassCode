@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>17-HTML5新增标签</title>
+</head>
+<body>
+
+
+<form action="">
+
+    <input type="text" list="dt" name="wangzhi">
+    <datalist id="dt">
+        <option label="百度" value="https://www.baidu.com">
+        <option label="撩课" value="http://www.itlike.com">
+    </datalist>
+
+
+    <label>url<input name="url" type="url"></label>
+    <label>email<input name="email" type="email"></label>
+    <label>number<input name="number" type="number" min="0" max="100" step="2"></label>
+    <label>range<input name="range" type="range" min="0" max="10"></label>
+    <label>color<input name="color" type="color"></label>
+    <label>date<input name="date" type="date"></label>
+
+    <input type="submit">
+
+</form>
+
+
+<!--autoplay-->
+<video src="https://qiubai-video-web.qiushibaike.com/XOPKEB2DA4VZOGZF_hd.mp4" controls 	muted loop width="500" height="500" poster="other.jpg">
+
+</video>
+
+
+<audio src="http://audio.xmcdn.com/group23/M03/C8/79/wKgJL1i2P4_DTRzpACwFED8I3Cs987.m4a" controls
+autoplay muted loop
+></audio>
+
+<!--做视频格式的兼容处理-->
+<!--<video width="320" height="240" controls="controls">-->
+<!--    <source src="movie.ogg" type="video/ogg">-->
+<!--    <source src="movie.mp4" type="video/mp4">-->
+<!--    Your browser does not support the video tag.-->
+<!--</video>-->
+
+</body>
+</html>

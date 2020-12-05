@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>15-表单控件精讲</title>
+</head>
+<body>
+
+<!--<form action="/">-->
+
+<!--    <label for="bbb">关联标签</label>-->
+<!--    <input type="text" name="account" id="aaa">-->
+<!--    <input type="text" name="pwd" id="bbb">-->
+
+<!--    <input type="text">-->
+
+<!--    <input type="password">-->
+
+<!--    <input type="radio">-->
+
+<!--    <input type="checkbox">-->
+
+<!--    <input type="hidden">-->
+
+<!--    <input type="file">-->
+<!--</form>-->
+
+
+<!--<form action="">-->
+
+<!--    <label for="ac">账号:</label>-->
+<!--    <input type="text" name="account" id="ac" value="123" maxlength="5" minlength="3" disabled>-->
+<!--    <input type="text" name="account" id="ab" readonly>-->
+
+
+<!--    <input type="text" placeholder="请输入账号" value="123" required>-->
+<!--    <input type="text" autofocus placeholder="请输入密码" required>-->
+
+
+<!--    <label>-->
+<!--        密码: <input type="password" name="pwd">-->
+<!--    </label>-->
+
+<!--    性别:-->
+<!--    <label><input type="radio" name="sex" value="male">男</label>-->
+<!--    <label><input type="radio" name="sex" value="female" checked>女</label>-->
+
+<!--    -->
+<!--    爱好:-->
+<!--    <label><input name="ah" value="b1" type="checkbox" checked>篮球</label>-->
+<!--    <label><input name="ah" value="b2" type="checkbox" checked>足球</label>-->
+<!--    <label><input name="ah" value="b3" type="checkbox">高尔夫球</label>-->
+<!--    <label><input name="ah" value="b4" type="checkbox">乒乓球</label>-->
+<!--    <label><input name="ah" value="b5" type="checkbox">排球</label>-->
+
+<!--    <input type="submit" value="提交测试">-->
+<!--</form>-->
+
+
+<!--https://image.baidu.com/search/index?tn=baiduimage&word=关键字-->
+
+<!--<form action="https://image.baidu.com/search/index" method="get">-->
+
+<!--    <input type="text" name="tn" hidden value="baiduimage">-->
+<!--    <input type="text" name="word" placeholder="图片关键字...">-->
+
+<!--    <input type="submit" value="搜索图片">-->
+<!--</form>-->
+
+
+<!--<form action="http://lxt.itlike.com/api/manager/teacher/upload_teacher_header" method="post" enctype="multipart/form-data">-->
+
+<!--    <input type="file" name="header" accept="image/jpeg, image/png">-->
+<!--    <input type="submit" value="上传图片">-->
+
+<!--</form>-->
+
+
+<form action="">
+
+<!--    <input id="name" type="text" placeholder="请输入姓名" name="name" value="sz">-->
+<!--    <textarea name="content" id="content" cols="60" rows="10" style="resize: none">这是默认值</textarea>-->
+
+    <select name="address" size="6" multiple>
+        <optgroup label="上海">
+            <option value="songjiang">松江区</option>
+            <option value="qingpu">黄浦区</option>
+            <option>青浦区</option>
+        </optgroup>
+
+        <optgroup label="北京">
+            <option selected>顺义区</option>
+            <option>区1</option>
+            <option>区2</option>
+        </optgroup>
+
+        <optgroup label="广东">
+            <option>广州</option>
+            <option>深圳</option>
+        </optgroup>
+
+    </select>
+
+
+
+    <input type="submit" value="保存">
+<!--    <input type="reset" value="清空">-->
+<!--    <input type="image">-->
+<!--    <input type="image" src="other.jpg" alt="">-->
+<!--    <input type="button" value="自定义按钮" onclick="clearAll()">-->
+
+</form>
+
+<script>
+    function clearAll() {
+        console.log("123")
+        let nameDOM = document.getElementById("name");
+        nameDOM.value = ""
+    }
+</script>
+
+
+</body>
+</html>

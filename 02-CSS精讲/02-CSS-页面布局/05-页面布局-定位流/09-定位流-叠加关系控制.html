@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>09-定位流-叠加关系控制</title>
+    <style>
+        .box1,
+        .box2 {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+        }
+        .box1 {
+
+            background-color: tomato;
+            top: 50px;
+            left: 50px;
+            z-index: 10;
+        }
+        .box2 {
+            background-color: darkcyan;
+            z-index: 11;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box1">
+
+</div>
+
+<div class="box2">
+
+</div>
+
+
+</body>
+</html>

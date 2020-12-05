@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>18-布局标签</title>
+    <style>
+        .top {
+            height: 50px;
+            background-color: tomato;
+        }
+        .content {
+            height: 300px;
+            background-color: lightgray;
+        }
+        .content>.left {
+            width: 50%;
+            height: 100%;
+            background-color: #fff;
+            float: left;
+        }
+        .content>.right {
+            width: 50%;
+            height: 100%;
+            background-color: palegreen;
+            float: right;
+        }
+        .content>.right>.r_top {
+            height: 50%;
+            background-color: grey;
+        }
+        .content>.right>.r_bottom {
+            height: 50%;
+            background-color: chocolate;
+        }
+        .footer {
+            height: 40px;
+            background-color: darkcyan;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="top">
+    111
+</div>
+
+<div class="content">
+    <div class="left">left</div>
+    <div class="right">
+        <div class="r_top"></div>
+        <div class="r_bottom"></div>
+    </div>
+</div>
+
+<div class="footer">
+    <p style="margin: 0">这是一段话, 很<span style="color: orangered; font-size: 30px">棒</span>!</p>
+</div>
+
+</body>
+</html>

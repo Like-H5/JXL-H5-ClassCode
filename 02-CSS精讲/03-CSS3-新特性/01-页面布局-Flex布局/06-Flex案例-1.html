@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>06-Flex案例-1</title>
+    <style>
+        .container {
+            width: 800px;
+            height: 500px;
+            background-color: tomato;
+            margin: 50px auto;
+            display: flex;
+            flex-direction: column;
+        }
+        .top {
+            background-color: cyan;
+            height: 50px;
+        }
+        .content {
+            background-color: orangered;
+            flex: 1;
+
+            display: flex;
+        }
+        .bottom {
+            background-color: pink;
+            height: 50px;
+        }
+        .content>.left {
+            width: 80px;
+            background-color: palegreen;
+        }
+        .content>.right {
+            background-color: #bda571;
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="top">
+
+    </div>
+    <div class="content">
+        <div class="left">
+            left
+        </div>
+        <div class="right">
+            right
+        </div>
+    </div>
+    <div class="bottom">
+
+    </div>
+</div>
+
+
+</body>
+</html>

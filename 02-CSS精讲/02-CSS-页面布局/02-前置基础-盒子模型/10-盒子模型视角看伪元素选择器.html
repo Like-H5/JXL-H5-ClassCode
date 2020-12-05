@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>10-盒子模型视角看伪元素选择器</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: tomato;
+            position: relative;
+            margin-top: 200px;
+        }
+        .box::before {
+            content: "";
+            /*background-color: cyan;*/
+            width: 0;
+            height: 0;
+            display: inline-block;
+            border: 30px solid transparent;
+            border-bottom-color: cyan;
+
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -60px;
+        }
+        .box::after {
+            content: "美元";
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    123
+</div>
+
+
+</body>
+</html>

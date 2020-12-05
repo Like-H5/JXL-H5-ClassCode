@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>08-Flex案例-3</title>
+    <style>
+        .big {
+            width: 600px;
+            height: 600px;
+            background-color: tomato;
+            margin: 0 auto;
+        }
+        .small {
+            width: 100px;
+            height: 100px;
+            background-color: cyan;
+        }
+    </style>
+
+    <style>
+        /*标准流控制居中*/
+        /*.big {*/
+        /*    overflow: hidden;*/
+        /*}*/
+        /*.small {*/
+        /*    margin: 250px auto;*/
+        /*}*/
+
+    </style>
+
+    <style>
+        /*定位流控制居中*/
+
+        /*.big {*/
+        /*    position: relative;*/
+        /*}*/
+        /*.small {*/
+        /*    position: absolute;*/
+        /*    top: 50%;*/
+        /*    left: 50%;*/
+        /*    transform: translate(-50%, -50%);*/
+        /*}*/
+
+    </style>
+
+    <style>
+        /*Flex控制居中*/
+        .big {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+    </style>
+
+</head>
+<body>
+
+
+<div class="big">
+    <div class="small">
+        small
+    </div>
+</div>
+
+
+</body>
+</html>

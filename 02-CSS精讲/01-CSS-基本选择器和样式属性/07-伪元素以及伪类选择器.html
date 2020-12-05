@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>07-伪元素以及伪类选择器</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+            color: #fff;
+        }
+        .box:hover {
+            width: 200px;
+            height: 200px;
+            background-color: darkcyan;
+            color: grey;
+        }
+    </style>
+
+    <style>
+        .price::before {
+            content: "$";
+        }
+        .price::after {
+            content: "美元";
+        }
+
+        .rmb::after {
+            content: "元";
+            color: tomato;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="box">
+    box
+</div>
+
+
+<p class="price">1.23</p>
+<p class="price">4.5</p>
+
+
+<p class="rmb">199</p>
+
+</body>
+</html>

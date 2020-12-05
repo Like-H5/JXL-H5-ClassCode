@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>09-谷歌Logo</title>
+    <style>
+        /*.google-logo>span:first-child,*/
+        /*.google-logo>span:nth-child(4) {*/
+        /*    font-size: 60px;*/
+        /*    color: rgb(49, 116, 240);*/
+        /*    font-weight: bold;*/
+        /*}*/
+        /*.google-logo>span:nth-child(2),*/
+        /*.google-logo>span:nth-child(6) {*/
+        /*    font-size: 60px;*/
+        /*    color: rgb(229, 49, 37);*/
+        /*    font-weight: bold;*/
+        /*}*/
+        /*.google-logo>span:nth-child(3) {*/
+        /*    font-size: 60px;*/
+        /*    color: rgb(251, 176, 3);*/
+        /*    font-weight: bold;*/
+        /*}*/
+        /*.google-logo>span:nth-child(5) {*/
+        /*    font-size: 60px;*/
+        /*    color: rgb(0, 128, 0);*/
+        /*    font-weight: bold;*/
+        /*}*/
+        /*.google-logo>span:last-child {*/
+        /*    transform: rotateZ(-10deg);*/
+        /*    display: inline-block;*/
+        /*}*/
+    </style>
+
+    <style>
+        .logo-base {
+            font-size: 80px;
+            font-weight: bold;
+        }
+        .blue {
+            color: rgb(49, 116, 240);
+        }
+        .red {
+            color: rgb(229, 49, 37);
+        }
+        .yellow {
+            color: rgb(251, 176, 3);
+        }
+        .green {
+            color: rgb(0, 128, 0);
+        }
+        .rotate {
+            transform: rotateZ(-10deg);
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+<!--
+bootstrap.css 通过类名, 定义了很多很多好用的样式;
+link把样式文件, 引入过来
+写对应的类名, 就可以使用对应的样式
+-->
+<div class="google-logo">
+    <span class="logo-base blue">G</span>
+    <span class="logo-base red">o</span>
+    <span class="logo-base yellow">o</span>
+    <span class="logo-base blue">g</span>
+    <span class="logo-base green">l</span>
+    <span class="logo-base red rotate">e</span>
+</div>
+
+
+</body>
+</html>

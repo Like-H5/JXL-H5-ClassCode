@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>05-定位流-轮播图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 590px;
+            height: 470px;
+            background-color: tomato;
+            margin: 50px auto;
+
+            position: relative;
+        }
+        .images {
+            width: 100%;
+            height: 100%;
+            background-color: cyan;
+            list-style: none;
+
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .images>li {
+            width: 100%;
+            height: 100%;
+            background-color: cadetblue;
+
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            display: none;
+        }
+        .images>li>img {
+            width: 100%;
+            height: 100%;
+        }
+        .images>li.current {
+            display: block;
+        }
+        .left,
+        .right {
+            width: 25px;
+            height: 36px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            text-align: center;
+            line-height: 36px;
+            position: absolute;
+        }
+
+        .left {
+            border-radius: 0 20px 20px 0;
+            left: 0;
+            top: 50%;
+            /*margin-top: -50%;*/
+            transform: translateY(-50%);
+        }
+        .right {
+            border-radius: 20px 0 0 20px;
+            right: 0;
+            top: 50%;
+            /*margin-top: -50%;*/
+            transform: translateY(-50%);
+        }
+        .pointer {
+            width: 113px;
+            height: 15px;
+            /*background-color: orangered;*/
+
+            position: absolute;
+            left: 100px;
+            bottom: 60px;
+        }
+        .pointer>.circle {
+            width: 8px;
+            height: 8px;
+            margin-right: 4px;
+            border: 1px solid rgba(0,0,0,.05);
+            background: rgba(255,255,255,.4);
+            display: inline-block;
+            border-radius: 50%;
+        }
+        .pointer>.circle.current {
+            background-color: #fff;
+            width: 9px;
+            height: 9px;
+            position: relative;
+            top: 2px;
+            left: 0;
+            border: 3px solid rgba(0,0,0,.1);
+        }
+
+    </style>
+</head>
+<body>
+
+
+<div class="box">
+    <p>xxx</p>
+    <ul class="images">
+        <li class="current">
+            <img src="https://img11.360buyimg.com/babel/s1180x940_jfs/t1/123296/12/19174/84691/5fb49133E42e2545e/7a84f4eaa151b764.jpg.webp" alt="">
+        </li>
+        <li>
+            <img src="https://img10.360buyimg.com/pop/s1180x940_jfs/t1/146665/26/10512/83008/5f842f91E10cdf7b5/b1875ed9e5726b0f.jpg.webp" alt="">
+        </li>
+        <li>
+            <img src="https://img13.360buyimg.com/pop/s1180x940_jfs/t1/134177/6/17385/90980/5fbf818aE863adbc4/bca3e8ab1ada8149.jpg.webp" alt="">
+        </li>
+        <li>
+            <img src="https://imgcps.jd.com/ling4/100015654184/5Lqs6YCJ5aW96LSn/5L2g5YC85b6X5oul5pyJ/p-5bd8253082acdd181d02fa02/52d69ce9/cr/s/q.jpg" alt="">
+        </li>
+    </ul>
+    <div class="left">&lt;</div>
+    <div class="right">&gt;</div>
+    <div class="pointer">
+        <span class="circle current"></span>
+        <span class="circle"></span>
+        <span class="circle"></span>
+        <span class="circle"></span>
+    </div>
+</div>
+
+
+
+</body>
+</html>

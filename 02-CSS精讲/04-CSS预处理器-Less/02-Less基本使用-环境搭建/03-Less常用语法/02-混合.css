@@ -1,0 +1,13 @@
+.c1 {
+  background-color: darkcyan;
+}
+.c2 {
+  background-color: deeppink;
+  width: 60px;
+  height: 60px;
+  border: 6px solid tomato;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 60px;
+}
+/*# sourceMappingURL=02-混合.css.map */

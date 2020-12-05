@@ -1,0 +1,30 @@
+
+.border(@wh, @style, @color) {
+  //border: @wh @style @color;
+  border: @arguments;
+}
+
+.circle(@radius: 30, @b-wh: 1) when (isnumber(@radius)){
+  width: @radius * 2px;
+  height: @radius * 2px;
+  //border:@b-wh * 1px  solid tomato;
+  .border(@b-wh * 1px, solid, tomato);
+  border-radius: 50%;
+
+  text-align: center;
+  line-height: @radius * 2px;
+
+  //box-sizing: border-box;
+}
+
+// less 混合
+.c1 {
+  background-color: darkcyan;
+  //.circle(50, 10)
+  .circle(red, 10);
+}
+
+.c2 {
+  background-color: deeppink;
+  .circle(@b-wh: 6)
+}

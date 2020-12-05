@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03-Flex基本使用-尺寸比例分配</title>
+    <style>
+        .big {
+            width: 800px;
+            height: 400px;
+            background-color: tomato;
+            margin: 100px auto;
+
+            display: flex;
+        }
+        .one,
+        .two,
+        .three {
+            /*width: 100px;*/
+        }
+        .one {
+            /*flex: 1;*/
+            width: 150px;
+            height: 100px;
+            background-color: darkcyan;
+        }
+        .two {
+            flex: 2;
+            /*height: 150px;*/
+            background-color: cyan;
+        }
+        .three {
+            flex: 3;
+            /*height: 200px;*/
+            background-color: deeppink;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="big">
+    <div class="one">one</div>
+    <div class="two">two</div>
+    <div class="three">three</div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>07-定位流-固定定位</title>
+    <style>
+        body {
+            height: 1000px;
+        }
+        .box {
+            width: 500px;
+            height: 500px;
+            background-color: tomato;
+            margin: 100px auto;
+            /*position: relative;*/
+        }
+        .small {
+            width: 100px;
+            height: 100px;
+            background-color: cyan;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        .other {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div class="box">
+
+    <div class="small">
+        small
+    </div>
+
+    <div class="other">
+        other
+    </div>
+
+
+</div>
+
+
+
+</body>
+</html>

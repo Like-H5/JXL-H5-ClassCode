@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>16-个人信息采集</title>
+</head>
+<body>
+
+
+<form action="">
+    <table border="1px" align="center" style="border-collapse: collapse" width="500px">
+        <caption>用户数据采集</caption>
+        <thead>
+        <tr>
+            <th>采集字段</th>
+            <th>输入数据</th>
+        </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="2" align="center">
+                    请认真填写各个字段
+                    <input type="submit" value="提交">
+                </td>
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr>
+                <td>
+                    <label for="name">姓名: </label>
+                </td>
+                <td>
+                    <input type="text" placeholder="请输入姓名" name="p_name" id="name">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    性别:
+                </td>
+                <td>
+                    <label>
+                        <input type="radio" name="sex" checked value="male">男
+                    </label>
+                    <label>
+                        <input type="radio" name="sex" value="female">女
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="age">年龄: </label>
+                </td>
+                <td>
+                    <input type="number" min="0" max="200" id="age" name="age" value="18">
+                </td>
+            </tr>
+            <tr>
+                <td>爱好:</td>
+                <td>
+                    <label>
+                        <input type="checkbox" name="ah" value="lanqiu">篮球
+                    </label>
+                    <label>
+                        <input type="checkbox" name="ah" checked value="zuqiu">足球
+                    </label>
+                    <label>
+                        <input type="checkbox" name="ah" value="paiqiu">排球
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>地址:</td>
+                <td>
+                    <label>
+                        <select name="address">
+                            <optgroup label="北京">
+                                <option value="shunyi">顺义区</option>
+                                <option value="changping">昌平区</option>
+                            </optgroup>
+                            <optgroup label="上海">
+                                <option value="pudong">浦东区</option>
+                                <option value="songjiang" selected>松江区</option>
+                            </optgroup>
+                        </select>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="intro">简介:</label>
+                </td>
+                <td>
+                    <textarea id="intro" name="intro"></textarea>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</form>
+
+
+<!--<form action="">-->
+
+<!--    &lt;!&ndash;    姓名&ndash;&gt;-->
+<!--    &lt;!&ndash;    普通文本&ndash;&gt;-->
+
+<!--    <label>-->
+<!--        姓名: <input type="text" placeholder="请输入姓名">-->
+<!--    </label>-->
+
+<!--    &lt;!&ndash;    性别&ndash;&gt;-->
+<!--    &lt;!&ndash;    单选&ndash;&gt;-->
+<!--    性别:-->
+<!--    <label>-->
+<!--        <input type="radio" name="sex">男-->
+<!--    </label>-->
+<!--    <label>-->
+<!--        <input type="radio" name="sex">女-->
+<!--    </label>-->
+
+<!--    &lt;!&ndash;    年龄&ndash;&gt;-->
+<!--    &lt;!&ndash;    数字&ndash;&gt;-->
+<!--    <label>-->
+<!--        年龄: <input type="number" min="0" max="200">-->
+<!--    </label>-->
+<!--    &lt;!&ndash;    爱好&ndash;&gt;-->
+<!--    &lt;!&ndash;    多选&ndash;&gt;-->
+<!--    爱好:-->
+<!--    <label>-->
+<!--        <input type="checkbox">篮球-->
+<!--    </label>-->
+<!--    <label>-->
+<!--        <input type="checkbox">足球-->
+<!--    </label>-->
+<!--    <label>-->
+<!--        <input type="checkbox">排球-->
+<!--    </label>-->
+<!--    &lt;!&ndash;    地址&ndash;&gt;-->
+<!--    &lt;!&ndash;    下拉单选&ndash;&gt;-->
+<!--    地址:-->
+<!--    <label>-->
+<!--        <select>-->
+<!--            <optgroup label="北京">-->
+<!--                <option>顺义区</option>-->
+<!--                <option>昌平区</option>-->
+<!--            </optgroup>-->
+<!--            <optgroup label="上海">-->
+<!--                <option>浦东区</option>-->
+<!--                <option>松江区</option>-->
+<!--            </optgroup>-->
+<!--        </select>-->
+<!--    </label>-->
+<!--    &lt;!&ndash;    简介&ndash;&gt;-->
+<!--    &lt;!&ndash;    多行文本&ndash;&gt;-->
+<!--    <label>-->
+<!--        简介: <textarea></textarea>-->
+<!--    </label>-->
+
+<!--</form>-->
+
+
+</body>
+</html>
