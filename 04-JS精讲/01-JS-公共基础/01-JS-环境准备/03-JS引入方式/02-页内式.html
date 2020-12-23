@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02-页内式</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+            margin: 100px auto;
+        }
+    </style>
+<!--   <script>-->
+<!--       console.log(123)-->
+<!--   </script>-->
+</head>
+<body>
+
+
+<script type="text/javascript">
+    // 仅仅适用于, JS操作, 涉及DOM的操作
+    // let box = document.getElementsByClassName("box")[0];
+    // box.onclick = function () {
+    //     alert(123)
+    // }
+    // box.onmouseover = function () {
+    //     console.log("进来了")
+    // }
+    // box.onmouseout = function () {
+    //     console.log("出去了")
+    // }
+</script>
+
+
+<img src="http://lxt.itlike.com/course/images/1604742162220.jpg" alt="">
+<img src="http://lxt.itlike.com/course/images/1604742199757.jpg" alt="">
+<div class="box">
+    撩课
+</div>
+
+
+<script>
+
+    // 在这里, 界面还没有被渲染(把所有的元素, 给在内存里面, 创建了对应的对象而已)
+    // 在这里, 是一段非常耗时的JS操作, 那么就会导致一个问题: 延迟渲染
+
+    // 绑定一个事件, 加载事件
+    // 只有整个网页内, 所有的资源都加载渲染完毕之后, 才会执行这个函数
+    window.onload = function () {
+        alert(123)
+    }
+    
+</script>
+
+
+</body>
+</html>

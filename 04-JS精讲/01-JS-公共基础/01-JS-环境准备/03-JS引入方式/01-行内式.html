@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01-行内式</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="box" onclick="handlerClick()" onmouseover="handlerOver()" onmouseout="handlerOut()">
+    撩课
+</div>
+
+
+<script>
+
+    function handlerClick() {
+        alert(123)
+    }
+    function handlerOver() {
+        console.log(1)
+        console.log(1)
+        console.log(1)
+        console.log(1)
+        console.log(1)
+        console.log(1)
+        console.log('进来了')
+    }
+    function handlerOut() {
+        console.log('出去了')
+    }
+
+</script>
+
+
+
+
+</body>
+</html>

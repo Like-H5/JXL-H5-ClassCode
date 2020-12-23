@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>07-综合案例-体脂率计算</title>
+</head>
+<body>
+
+<script>
+
+    // 1. 采集用户的信息数据
+
+    // 采集的数据: 体重(kg) 身高(m) 年龄() 性别(男为1，女为0) 姓名
+    let name = prompt("请输入你的姓名: ");
+    let age = +prompt("请输入你的年龄: ");
+    let height = +prompt("请输入你的身高(m): ");
+    let weight = +prompt("请输入你的体重(kg): ");
+    let sex = +confirm("你确定是男士吗?");
+
+    console.log(name, age, height, weight, sex);
+
+
+
+    // 2. 参照对应的计算公式, 处理数据, 得出结果
+    // （1）BMI=体重（公斤）÷（身高×身高）（米）；
+    // （2）体脂率：1.2×BMI+0.23×年龄-5.4-10.8×性别（男为1，女为0）。
+	// 25%
+    const BMI = weight / (height * height);
+    const TZL = 1.2 * BMI + 0.23 * age - 5.4 - 10.8 * sex;
+    console.log(TZL);
+
+    // 男正常体脂率约在10～20%之间，女约在17～30%之间
+    let max_value = sex ? 20 : 30;
+    let min_value = sex ? 10 : 17;
+
+    let result = TZL > max_value ? "偏胖" : (TZL < min_value ? "偏瘦" : "正常");
+
+    // 3. 把结果打印出来
+    let jcbg = `${name} ${sex ? "先生" : "女士"}; 你的体脂率是${TZL}%; 结果: ${result}`;
+    console.log(jcbg);
+
+
+</script>
+
+
+
+
+</body>
+</html>

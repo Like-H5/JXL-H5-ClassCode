@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>05-数据类型之间的转化</title>
+</head>
+<body>
+
+
+<script type="text/html">
+
+    // 1. 接收用户的输入
+    let num = +prompt("请输入一个数值:");
+    console.log(typeof num);
+
+    // 2. 输入的值 + 6
+    // "2" + 6 = > "26"
+    let result = num + 6;
+
+    // 3. 打印结果
+    console.log(`${num} + 6 = ${result}`);
+
+
+</script>
+
+<script type="text/html">
+    // 其他类型 -> String
+
+    // 布尔 -> string
+    // let value = false;
+    // let value = 10;
+    // let result = value.toString(2);
+    // console.log(value, result);
+
+
+    // let value = undefined;
+    // let result = String(value);
+    // console.log(value, result)
+
+    let result = "" + 1 + 2 + 3;
+    console.log(result)
+
+
+</script>
+
+<script type="text/html">
+    // 其他类型 -> Number
+    let value = "true";
+    // let result = Number(value);
+    // let result = value-0;
+    let result = parseInt(value, 2);
+    // let result = parseFloat(value);
+
+    console.log(value, result);
+
+</script>
+
+<script>
+    // 其他类型 -> 布尔类型
+    let value = undefined;
+    let result = Boolean(value);
+    console.log(value, result);
+
+    if (123) {
+        console.log("yes")
+    }
+
+
+</script>
+
+</body>
+</html>

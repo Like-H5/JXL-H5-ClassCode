@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>06-运算符详解</title>
+</head>
+<body>
+
+<script type="text/html">
+
+    // let result = 10 / 0;
+    // let result = 12 % 3; // 3 --- 0
+    // let result = 12 * 12 * 12;
+    // let result = Math.pow(12, 3);
+    // let result =  12 ** 3;
+    // let result = "12" + 3;
+    let result = +"12" + 3;
+    console.log(result);
+
+
+</script>
+<script type="text/html">
+
+    // let result = 8 > 10 < 1;
+    // let result = 10 >= 2;
+    // let result = "1" === 1;
+    // let result = "a" < 1;
+    // let result = "c" > "baaaaa";
+    // console.log(result);
+
+    let result = 10 / "a";
+    console.log(isNaN(result))
+
+</script>
+<script type="text/html">
+    // let result = 2 > 1 && 5 < 3;
+    // && 短路运算符: 一假全假
+    //
+    // let result = 2 > 1 && console.log("xxx");
+    // let result = 0 && console.log("xxx");
+    // console.log(result);
+
+
+    // 一真全真
+
+    // let result = 2 < 1 || console.log("test");
+    // console.log(result)
+
+    let result = !!"";
+    // let result = Boolean(2);
+    console.log(result)
+
+</script>
+<script type="text/html">
+    // console.log(typeof 1);
+    // let val = "123";
+    // if (typeof val === "number") {
+    //     console.log("是数值");
+    // }
+
+    // let num = 1;
+    // // let result = num++;
+    // // let result = ++num;
+    // let result = num--;
+    // // num++ ; ++num;  num 肯定自增 1
+    //
+    // console.log(num, result);
+
+    // for (let i = 0; i < 10; i++) {
+    //
+    // }
+
+    // let num = 1;
+    // // num : 1
+    // //
+    // let bds = 1 - 1;
+    // console.log(num, bds);
+
+
+    // let age = 18;
+    // let a = 0;
+    // let b = 0;
+    // let result = age >= 19 ? a = 3: b = 4;
+    // console.log(a, b, result)
+
+    let num = 123;
+    // let result = num = 100 + 1;
+    // console.log(num, result)
+
+    // num ++;
+    // num = num + 1;
+    // num = num + 1;
+    num += 2; // num = num + 2
+    console.log(num);
+</script>
+<script>
+    // let result = !(0 + 1);
+    // console.log(result);
+
+    // 1. 接收用户输入三个数值
+    let num1 = +prompt("请输入数值1: ");
+    let num2 = +prompt("请输入数值2: ");
+    let num3 = +prompt("请输入数值3: ");
+    // console.log(num1, num2, num3);
+
+    // 2. 求出三个数值当中的最大值
+    let temp = num1 > num2 ? num1 : num2;
+    let result = temp > num3 ? temp : num3;
+
+    // 3. 打印出最大值
+    console.log(`你输入的数据有${num1}, ${num2}, ${num3}; 其中最大值是${result}`);
+
+
+</script>
+
+</body>
+</html>

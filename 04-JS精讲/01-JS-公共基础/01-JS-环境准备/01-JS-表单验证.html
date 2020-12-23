@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01-JS-表单验证</title>
+</head>
+<body>
+
+<form id="like-form" action="http://www.baidu.com">
+
+    <label>
+        <input name="tel" type="text" placeholder="请输入手机号">
+    </label>
+    <label>
+        <input name="email" type="text" placeholder="请输入邮箱地址">
+    </label>
+
+    <input type="submit" value="注册">
+
+</form>
+
+
+<script>
+    // js代码s
+    // 1. 拿到表单dom
+    let form = document.getElementById("like-form");
+    let telDOM = document.getElementsByName("tel")[0];
+    let emailDOM = document.getElementsByName("email")[0];
+
+
+    // 2. 监听表单的提交动作
+    form.onsubmit = function (e) {
+        e.preventDefault();
+        let tel = telDOM.value;
+        let email = emailDOM.value;
+        console.log("表单提交了", tel, email)
+
+        // 1. 手机号验证 (11, 1, 3456789, 数字9)
+        if (!/^1[3456789]\d{9}$/.test(tel)) {
+            alert("手机号码格式有问题, 请检查后提交")
+            telDOM.focus()
+            telDOM.value = ""
+        }else if (!email.includes("@")) {
+            alert("邮箱格式有问题, 请检查后提交")
+            emailDOM.focus()
+            emailDOM.value = ""
+        } else {
+
+            // 在这个里面, 代表数据格式验证通过
+            // 提交表单 / js ajax发送网络请求
+            form.submit();
+        }
+
+    }
+
+</script>
+
+
+</body>
+</html>
