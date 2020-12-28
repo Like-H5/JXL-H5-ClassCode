@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>04-常用的对象操作</title>
+</head>
+<body>
+
+
+<script type="text/html">
+    let num = 123;
+    console.log(num.toString(2));
+    console.log(num.toFixed(2))
+
+</script>
+<script type="text/html">
+    let str = "    abc-    1231b   ";
+    // console.log(str.length);
+    // console.log(str.indexOf("b"));
+    // console.log(str.lastIndexOf("b"));
+    // console.log(str.includes("bd"));
+    // console.log(str.substr(2, 3));
+    // console.log(str.replace("1", "one"));
+    // console.log(str.replaceAll("1", "one"));
+
+    // male female
+    // let sex = prompt("请输入性别: ");
+    // if (sex.toLowerCase() === "male") {
+    //     console.log("男")
+    // } else if (sex.toLowerCase() === "female") {
+    //     console.log("女")
+    // }
+
+    // console.log(str.trim())
+    // console.log(str)
+
+
+    str = "安徽-合肥-xx区";
+    console.log(str.split("-"));
+
+
+</script>
+
+<script type="text/html">
+
+    setInterval(function () {
+        let date = new Date();
+        date.setMonth(1);
+        let year = date.getFullYear();
+        let month = date.getMonth() + 1;
+        let day = date.getDate();
+        let hour = date.getHours();
+        let minutes = date.getMinutes();
+        let seconds = date.getSeconds();
+        let ms = date.getMilliseconds();
+        let formatTime = `${year}年${month}月${day}日 ${hour}:${minutes}:${seconds} ${ms}`;
+        console.log(formatTime);
+    }, 1000)
+
+
+
+
+</script>
+
+<script>
+
+    let num = 123.25;
+    // console.log(Math.PI)
+
+    // console.log(Math.round(num));
+
+    // console.log(Math.sqrt(9));
+    // console.log(Math.abs(-9));
+
+    // console.log(Math.floor(num))
+    // // 1.2
+    // // 2
+    // console.log(Math.ceil(num))
+
+    console.log(Math.min(3, 1, 5, 2))
+    console.log(Math.max(3, 1, 5, 2))
+
+</script>
+
+</body>
+</html>

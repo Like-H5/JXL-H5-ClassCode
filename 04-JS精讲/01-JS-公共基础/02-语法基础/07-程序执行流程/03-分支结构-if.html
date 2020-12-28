@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03-分支结构</title>
+</head>
+<body>
+
+<script type="text/html">
+    // if 单分支
+
+    console.log(1);
+    let num = Math.random();
+    // 默认: 如果条件满足, 执行的是, 紧跟在if () 后面的这一条语句
+
+    // if (条件表达式) {
+    //
+    // }
+    if (num > 0.5) {
+    console.log(2);
+    console.log(3);
+    }
+
+
+</script>
+
+<script type="text/html">
+
+    let score = 50;
+
+    if (score >= 60) {
+    console.log("及格");
+    console.log("奖励一个棒棒糖");
+    } else {
+    console.log("不及格");
+    console.log("奖励一个搓衣板")
+    }
+
+    console.log("结果打印");
+
+</script>
+
+<script type="text/html">
+    // if 多分支
+    // 男正常体脂率约在10～20
+    // 多分支实现: if的嵌套, 实现
+    let TZL = 18;
+    if (TZL > 20) {
+    console.log("偏胖");
+    } else {
+    // TZL 范围: <= 20
+    if (TZL < 10) {
+    console.log("偏瘦")
+    } else {
+    // 20 >= TZL >= 10
+    console.log("正常")
+    }
+
+    }
+
+
+</script>
+
+<script type="text/html">
+
+
+    let TZL = 8;
+    if (TZL > 20) {
+    console.log("偏胖");
+    } else if (TZL < 10) {
+    console.log("偏瘦")
+    } else {
+    // 20 >= TZL >= 10
+    console.log("正常")
+    }
+
+
+</script>
+
+<script type="text/html">
+
+    if (1 > 2);
+    console.log(1)
+    console.log(2)
+
+
+</script>
+
+<script type="text/html">
+    // 从键盘输入一个整数，判断其是否是偶数，如果是偶数就输出YES，否则输出NO；
+
+    // 1. 接收用户的数据输入;(数据的合法性判定: 数值, 整数);
+    let num = parseInt(prompt("请输入一个整数数据: "));
+    // console.log(num);
+    if (isNaN(num)) {
+    alert("请输入一个合法的整数:");
+    } else {
+    // 算不算, 数据没有问题?
+    console.log(num);
+    // 2. 计算它, 是否是一个偶数
+    let result = num % 2 === 0;
+    // 3. 根据判定结果, 给出不同的提示
+    if (result) {
+    console.log("YES");
+    } else {
+    console.log("No")
+    }
+    }
+
+
+</script>
+
+<script>
+
+    /* 输入一个分数, 给出成绩级别
+     SSS 100分
+     A级 90+
+     B级 80+
+     C级 60+
+     D级 60-
+     */
+
+    let score = 56;
+    let level = "";
+
+    // 做一个范围的有效性检查
+    if (score < 0 || score > 100) {
+        alert("请输入合理的分数(0 -- 100)")
+    } else if (score === 100) {
+        level = "SSS";
+    } else if (score >= 90) {
+        // !== 100
+        // 90+
+        level = "A级";
+    } else if (score >= 80) {
+        // 90 -
+        // 80 +
+        level = "B级";
+    } else if (score >= 60) {
+        // 80 -
+        // 60 +
+        level = "C级";
+    } else {
+        level = "D级";
+    }
+
+    alert("当前的分数级别是: " + level)
+
+</script>
+
+</body>
+</html>

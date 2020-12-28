@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>04-函数的进阶补充</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: tomato;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="box"></div>
+
+<script type="text/html">
+    // function add(num1, num2) {
+    //     return num1 + num2;
+    // }
+    //
+    // console.log(add(2, 3));
+
+
+    // let add = function (num1, num2) {
+    //     return num1 + num2;
+    // }
+    //
+    // console.log(add(2, 3));
+
+    let box = document.getElementsByClassName("box")[0];
+    // box.onclick = function () {
+    //     console.log("box盒子被点击了!")
+    // }
+
+    function handlerClick() {
+        console.log("box盒子被点击了!")
+    }
+
+    box.onclick = handlerClick;
+
+</script>
+
+<script type="text/html">
+
+
+    // function xxx(a) {
+    //     // console.log(a + "sz");
+    //     // if (a) {
+    //     //     console.log("yes");
+    //     // }
+    //     a();
+    // }
+    //
+    // xxx(function () {
+    //     console.log("xxx")
+    // })
+
+
+    function circleInfo(r, PI=3.14, cb) {
+        // 在函数内部定义的变量, 外界根本就无法访问
+        let zc = 2 * PI * r;
+        let mj = PI * r ** 2;
+
+        if (typeof cb === "function") {
+            cb(zc, mj);
+        }
+        // return [zc, mj];
+    }
+
+    circleInfo(3, 3.1415, function (zhouchang, mianji) {
+        console.log(zhouchang, mianji);
+    })
+
+
+</script>
+
+
+<script type="text/html">
+
+    function log(zc, mj) {
+        console.log(zc, mj);
+    }
+    function sz_alert(zc, mj) {
+        alert(zc + "" + mj)
+    }
+
+    function circleInfo(r, PI=3.14, f) {
+        // 在函数内部定义的变量, 外界根本就无法访问
+        let zc = 2 * PI * r;
+        let mj = PI * r ** 2;
+
+        f(zc, mj)
+    }
+    circleInfo(3, 3.14, log);
+    circleInfo(4, 3.1415, sz_alert);
+
+
+
+
+
+</script>
+
+<script type="text/html">
+
+
+
+
+    // function circleInfo(r, PI=3.14, f) {
+    //     // 在函数内部定义的变量, 外界根本就无法访问
+    //     let zc = 2 * PI * r;
+    //     let mj = PI * r ** 2;
+    //
+    //     f(zc, mj)
+    // }
+    //
+    //
+    // circleInfo(3, 3.14, function (zc, mj) {
+    //     console.log(zc, mj);
+    // });
+    //
+    // circleInfo(4, 3.1415, function (zc, mj) {
+    //     alert(zc + "" + mj)
+    // });
+    //
+    // circleInfo(4, 3.1415, function (zc, mj) {
+    //     document.write(`周长: ${zc}  面积: ${mj}`);
+    // });
+
+
+
+
+</script>
+
+<script>
+
+    // 多久之后来做事情
+    // 具体做什么事情, 内部能写死???
+    setTimeout(function () {
+        console.log("撩课-sz")
+    }, 1000)
+
+
+    setTimeout(function () {
+        alert("撩课-sz")
+    }, 2000)
+
+
+
+</script>
+
+</body>
+</html>

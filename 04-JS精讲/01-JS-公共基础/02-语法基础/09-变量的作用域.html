@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>09-变量的作用域</title>
+</head>
+<body>
+
+<script type="text/html">
+
+    let num = 123;
+    console.log(num);
+
+    function test() {
+        console.log(num)
+        let func = "abc";
+
+    }
+    test();
+
+    // console.log(func);
+
+    if (true) {
+        console.log(num);
+        let ifV = "ifif";
+    }
+    console.log(ifV);
+
+
+
+</script>
+
+<script type="text/html">
+
+    // console.log(g);
+    let g = "sz";
+
+
+    // console.log(g);
+
+    function test() {
+        // console.log(g);
+        function other() {
+            console.log(g);
+        }
+        other()
+    }
+    test();
+
+</script>
+
+
+<script type="text/html">
+
+    // function test() {
+    //     let num = 123;
+    //     if (true) {
+    //         console.log(num);
+    //     }
+    // }
+    // test();
+    // console.log(num);
+
+    if(true) {
+        let num = 123;
+    }
+    console.log(num);
+
+
+</script>
+
+
+<script>
+    // 作用域链: 通过局部作用嵌套的关系, 形成的一个链条;
+    // 访问限制: 内 访问到 外
+
+
+    {
+        let one = "1";
+
+        {
+            // let one = "11";
+            let two = "2";
+            {
+                let three = "3";
+                // let one = "111";
+                console.log(one);
+            }
+        }
+
+        // console.log(one);
+        // console.log(two);
+        // console.log(three);
+    }
+
+
+
+
+</script>
+
+
+</body>
+</html>

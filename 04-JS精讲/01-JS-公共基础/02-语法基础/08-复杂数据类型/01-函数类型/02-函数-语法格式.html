@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02-函数-语法格式</title>
+</head>
+<body>
+
+
+<script type="text/html">
+
+    // 定义了一个新的函数
+    // 函数的功能 {} 写的一个代码
+    function jiecheng3() {
+    let n = 3;
+    let result = 1;
+    for (let i = 1; i <= n; i++) {
+    // console.log(i);
+    result *= i;
+    }
+    console.log(result);
+    }
+
+    function jiecheng4() {
+    let n = 4;
+    let result = 1;
+    for (let i = 1; i <= n; i++) {
+    // console.log(i);
+    result *= i;
+    }
+    console.log(result);
+    }
+
+    jiecheng3()
+    jiecheng4()
+
+
+</script>
+
+<script>
+
+    // TS
+
+    function jiecheng(num) {
+
+        if (typeof num !== "number") {
+            console.warn("请传入数值类型!");
+            return;
+        }
+        let result = 1;
+        for (let i = 1; i <= num; i++) {
+            // console.log(i);
+            result *= i;
+        }
+        // console.log(result);
+        // alert(result);
+
+        return result;
+
+
+        // if (typeof num !== "number") {
+        //     console.warn("请传入数值类型!");
+        // }else {
+        //     let result = 1;
+        //     for (let i = 1; i <= num; i++) {
+        //         // console.log(i);
+        //         result *= i;
+        //     }
+        //     // console.log(result);
+        //     // alert(result);
+        //
+        //     return result;
+        // }
+
+    }
+
+
+    console.log(jiecheng("a"));
+
+    // let n1 = jiecheng(3);
+    // let n2 = jiecheng(4);
+    // let n3 = jiecheng(5);
+    // console.log(n1);
+    // alert(n2);
+    // document.write(n3);
+
+</script>
+
+<script type="text/html">
+    function test(a, b) {
+    console.log(a, b);
+    }
+
+    test(1, 2, 3, 4)
+
+
+</script>
+
+<script type="text/html">
+
+
+    function sum() {
+    return;
+    // 在函数内部, 有一个特定的变量名
+    // arguments
+    // 保存, 其实就是所有的额参数列表
+    let result = 0;
+    for (let i = 0; i < arguments.length; i++) {
+    result += arguments[i];
+    }
+    // 1. return 只能在函数内部来使用
+    // 2. 函数内部的代码, 只要碰到return, 就会立马结束执行
+    return result;
+    console.log("123");
+    }
+    // 3, 4, 5
+    let result = sum(2, 3, 4, 5, 8, 3);
+    console.log(result);
+
+
+</script>
+
+</body>
+</html>

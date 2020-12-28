@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>06-循环结构-while</title>
+</head>
+<body>
+
+<script type="text/html">
+
+    // let account = prompt("请输入账号信息: ");
+    // let password = prompt("请输入密码: ");
+    //
+    // if (account === "itlike" && password === "sz") {
+    //     console.log("正确通过")
+    // }else {
+    //     console.log("账号或者密码错误, 请重新输入")
+    // }
+    //
+    // 输入账号和密码
+    // 验证操作: 不正确 -> 重新输入
+
+    // for (let account = prompt("请输入账号信息: "), password = prompt("请输入密码: "); account!=="itlike" || password !== "sz"; ) {
+    //     console.log("账号或者密码错误, 请重新输入")
+    //     account = prompt("请输入账号信息: ")
+    //     password = prompt("请输入密码: ")
+    // }
+    // console.log("正确通过")
+
+    // for (;;) {
+    //     console.log("xxx")
+    // }
+
+    let account = prompt("请输入账号信息: ");
+    let password = prompt("请输入密码: ");
+    while (account!=="itlike" || password !== "sz") {
+    console.log("账号或者密码错误, 请重新输入")
+    account = prompt("请输入账号信息: ")
+    password = prompt("请输入密码: ")
+    }
+    console.log("正确通过")
+
+
+</script>
+
+<script type="text/html">
+    // 1）提示用户输入一个正整数n， 计算1 + 2 + 3 + ...n的和
+
+    // let n = 10;
+    // let result = 0;
+    // for (let i = 1; i <= n; i++) {
+    //     console.log(i);
+    //     // result = result + i;
+    //     result += i;
+    // }
+    // console.log(result);
+
+    // 1 + 2 + 3 + ...n
+    // n + n-1 + n-2 + 1
+    let n = 10;
+    let result = n;
+    while (--n > 0) {
+    // console.log(n);
+    result += n;
+    }
+    console.log(result);
+
+
+</script>
+
+<script type="text/html">
+
+    // 2）获取1～100之间 7的倍数的个数并打印，并统计个数
+    // let count = 0;
+    // for (let i = 1; i <= 100; i++) {
+    //     // console.log(i);
+    //     if (i % 7 === 0) {
+    //         console.log(i);
+    //         count++;
+    //     }
+    // }
+    // console.log("count: ", count);
+    // let count = 0;
+    // // 7 14 21 28
+    // for (let i = 7; i <= 100; i += 7) {
+    //     console.log(i);
+    //     count++;
+    // }
+    // console.log("count: ", count);
+
+    // let num = 7, count = 0;
+    // while (num <= 100) {
+    //     // console.log(num);
+    //     if (num % 7 === 0) {
+    //         console.log(num);
+    //         count++;
+    //     }
+    //     num+=7;
+    // }
+    // console.log("count: ", count);
+
+
+</script>
+
+<script>
+
+    // let num = 10;
+    // while (num !== 10) {
+    //     console.log("撩课-sz");
+    // }
+    // do {
+    //     console.log("撩课-sz");
+    // } while (num !== 10)
+
+    let account, password;
+    do {
+        account = prompt("请输入账号信息: ");
+        password = prompt("请输入密码: ");
+    } while (account!=="itlike" || password !== "sz")
+
+    console.log("正确通过")
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03-函数设计规范</title>
+</head>
+<body>
+
+
+<script type="text/html">
+    // 1) 请写出一个判断一个数是不是偶数的函数?
+    // 函数名称: isEven
+    // 参数: 数值  (整数)
+    // 返回值: 是否是偶数(boolean)
+    // function isEven(num) {
+    //     if (num % 2 === 0) {
+    //         return true
+    //     } else {
+    //         return false;
+    //     }
+    // }
+    //
+    // function isEven(num) {
+    //     if (num % 2 === 0) {
+    //         return true
+    //     }
+    //     return false;
+    // }
+
+    // function isEven(num) {
+    //     return num % 2 === 0;
+    // }
+
+    /**
+     * 判定一个整数是否是偶数
+     * @param num {number} 需要被判定的整数
+     * @returns {boolean} 是否是偶数(结果)
+     * @example
+     * isEven(3) -> false
+     */
+    function isEven(num) {
+        // 容错处理
+        // 参数的类型和参数的值范围
+        // if (typeof num !== "number") {
+        //     console.warn("请输入正确的数据类型!");
+        //     return;
+        // }
+        // if (num !== parseInt(num)) {
+        //     console.warn("请输入整数!");
+        //     return;
+        // }
+
+        if (typeof num !== "number" || num !== parseInt(num)) {
+            console.warn("请输入正确的数据(数值+整数)!");
+            return;
+        }
+        return !(num % 2);
+    }
+
+
+    console.log(isEven("a"));
+
+
+</script>
+
+<script type="text/html">
+
+    // 2) 请写出一个计算n个数值, 偶数之和的函数?
+
+    /**
+     * 计算参数列表中, 所有的偶数之和
+     * @returns {number} 偶数之和
+     */
+    function sumEven() {
+
+        // 保存的就是所有调用这个函数的时候, 传递过来的参数
+        let result = 0;
+        for (let i = 0, len=arguments.length; i < len; i++) {
+            let num = arguments[i];
+            if (typeof num === "number" && num % 2 === 0) {
+                result += num;
+            }
+        }
+        return result;
+
+    }
+
+    console.log(sumEven(1, "2", 4, 6));
+
+
+
+
+</script>
+
+<script>
+    // 3) 求圆的周长和面积
+    function circleInfo(r, PI=3.14) {
+        // 参数默认值的设计
+        // PI = PI || 3.14;
+
+        if (typeof r !== "number" || r < 0) {
+            console.warn("非法参数(大于等于0的数值)")
+            return;
+        }
+
+
+        let zc = 2 * PI * r;
+        let mj = PI * r ** 2;
+
+        // console.log(zc, mj);
+        // return zc, mj;
+        return [zc, mj];
+        // cb(zc, mj);
+    }
+
+    console.log(circleInfo("a", 3.141592654));
+
+    // circleInfo(3, function (zc, mj) {
+    //     console.log(zc);
+    //     console.log(mj);
+    // })
+
+
+</script>
+
+</body>
+</html>

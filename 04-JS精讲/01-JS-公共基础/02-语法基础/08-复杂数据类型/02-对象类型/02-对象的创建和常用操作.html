@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02-对象的创建和常用操作</title>
+</head>
+<body>
+
+<script type="text/html">
+
+
+    let obj = {
+        name: "sz",
+        age: 18
+    }
+    // let obj2 = new Object();
+    // let obj3 = {};
+
+    let obj2 = obj;
+
+    obj2.name = "xiaoliao";
+
+    console.log(obj, obj2);
+
+</script>
+<script type="text/html">
+
+    let person = {
+        name: "sz",
+        age: 18,
+        0: "xxx"
+    }
+
+    // person.address = "上海";
+    //
+    // console.log(person);
+
+    let xxx = "age";
+
+    console.log(person.name);
+    console.log(person[xxx])
+
+
+</script>
+
+<script type="text/html">
+
+    // 对象的内部, 属性名时唯一的, 不可能重复!
+    let obj = {};
+    obj.name = "sz";
+    obj["age"] = 18;
+
+    obj.age = 19;
+    obj.run = function () {
+        console.log("跑起来!")
+        return 123;
+    }
+
+    // console.log(obj);
+
+    // console.log(obj.name, obj["name"]);
+
+    console.log(obj.run());
+
+
+</script>
+
+<script type="text/html">
+
+    let person = {
+        name: "sz",
+        age: 18,
+        address: "上海"
+    }
+
+    // 1. 获取到所有的key
+    // let keys = Object.keys(person);
+    // for (let i = 0; i < keys.length; i++) {
+    //     let key = keys[i];
+    //     let value = person[key];
+    //     console.log(key, value);
+    // }
+
+    // for (const personKey in person) {
+    //     console.log(personKey, person[personKey])
+    // }
+
+    console.log("name2" in person)
+
+
+</script>
+
+
+<script type="text/html">
+    let person = {
+        name: "sz",
+        age: 18,
+        address: "上海"
+    }
+
+    // 删除
+    // 让它没有;
+    console.log(delete person.name2);
+
+    // person["age"] = 20;
+    // person.name = "xxx";
+    console.log(person);
+
+
+</script>
+
+<script>
+
+    // let person = {
+    //     name: "sz",
+    //     age: 18,
+    //     run: function () {
+    //         // this???
+    //         // arguments
+    //         // this: 默认代表的就是, 方法的调用者
+    //         console.log(this.name, "跑跑跑!")
+    //     },
+    //     eat: function () {
+    //         console.log(this.age, "吃吃吃!")
+    //     }
+    // }
+    // // person.run();
+    // // person.eat();
+    //
+    // let p2 = {
+    //     name: "sz222",
+    //     age: 18888
+    // }
+    // p2.run = person.run;
+    // p2.run();
+
+
+    // let Math = {
+    //     random: function () {},
+    //     floor: function () {},
+    // }
+    //
+    // // 对象的封装性
+    // //
+    // Math.random()
+    // Math.floor();
+    // Math.ceil();
+    // Math.round();
+
+    function random() {
+
+    }
+
+    random = 123;
+
+    random();
+
+
+
+</script>
+
+
+</body>
+</html>

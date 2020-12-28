@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01-数组定义和使用场景</title>
+</head>
+<body>
+
+
+<script type="text/html">
+
+    // let obj = {name: "sz", age: 18}
+    let arr = ["a", "b", "c"];
+    // let arr2 = arr;
+    // let arr3 = new Array(1, 2, 3)
+    // console.log(arr, arr2, arr3);
+
+
+</script>
+
+<script type="text/html">
+    let arr = ["a", "b", "c"];
+
+    // 会在数组的末尾处添加新的元素
+    // 整个数组最终的长度
+    // let result = arr.push(1, 2);
+    // let result = arr.unshift(1, 2);
+    // arr[arr.length] = "d";
+    // arr[arr.length] = "e";
+    // console.log(arr);
+
+    // 从数组的末尾处删除一个元素, 并返回该元素
+    // let result = arr.pop();
+    // let result = arr.shift();
+    // let result = arr.splice(1, 1)
+    // console.log(arr, result);
+
+    // arr[8] = "xxx";
+    // console.log(arr);
+
+</script>
+
+<script type="text/html">
+    // 0 -- arr.length - 1
+    // let arr = ["a", "b", "c", "d"];
+    //
+    // // console.log(arr[3])
+    // for (let i = 0; i < arr.length; i++) {
+    //     console.log(i, arr[i]);
+    // }
+
+
+
+</script>
+
+<script type="text/html">
+    let arr = [];
+    // 随机生成 10个  0---100分数, 放到一个数组内部
+    for (let i = 0; i < 10; i++) {
+        let random = Math.random() * 100;
+        arr.push(+random.toFixed(2));
+    }
+    // console.log(arr);
+
+    // let result = [];
+    for (let i = 0; i < arr.length; i++) {
+        let score = arr[i];
+        let level = score >= 60 ? "及格" : "不及格";
+        arr[i] = level;
+        // result.push(level);
+    }
+
+    console.log(arr);
+    // console.log(arr, result);
+
+
+
+
+
+
+</script>
+
+<script>
+
+    // let arr = ["a", "b", "c", "b"];
+    // console.log(arr.indexOf("b", 2));
+    // console.log(arr.lastIndexOf("b", 2));
+
+    // arr.length = 3;
+    // console.log(arr);
+
+
+    // let date = "2020-12-12";
+    // let dateArr = date.split("-");
+    // console.log(dateArr.join("/"));
+
+    let a = ["a", "b"];
+    let b = [1, 2];
+    // console.log((a +","+ b).split(","));
+
+    let result = a.concat(b);
+    console.log(result, a, b)
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>05-循环结构</title>
+</head>
+<body>
+
+<script type="text/html">
+
+    for (let i = 0; i < 5; i++) {
+        console.log("撩课-Sz", i);
+    }
+
+</script>
+
+<script type="text/html">
+
+    // 好友列表1 - 2
+    for (let j = 1; j < 3; j++) {
+        console.log("好友列表"+j);
+
+        // 好友1 - 2 - 3
+        for (let i = 1; i < 4; i++) {
+            console.log("好友"+i);
+        }
+    }
+
+
+</script>
+
+<script>
+
+    for (let j = 1; j <= 9; j++) {
+        // console.log(j);
+
+        // 给我一个数值; 组装成一行的乘法表达式
+        // 3
+        // 1 * 3 = 3;  2 * 3 = 6  3 * 3 = 9
+        // let num = j;
+        let temp = ""
+        for (let i = 1; i <= j; i++) {
+            temp += `${i}*${j}=${i * j}\t`
+        }
+        console.log(temp);
+    }
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

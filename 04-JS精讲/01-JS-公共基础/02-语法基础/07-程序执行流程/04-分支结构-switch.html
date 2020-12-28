@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>04-分支结构-switch</title>
+</head>
+<body>
+
+
+<script type="text/html">
+
+    // ABCD -> 薪资 + 福利待遇
+
+    // let level = prompt("请输入级别: ");
+
+    // if (level === "A") {
+    //     console.log("薪资2000, 福利200");
+    // } else if (level === "B") {
+    //     console.log("薪资1500, 福利150");
+    // }else if (level === "C") {
+    //     console.log("薪资1000, 福利100");
+    // }else if (level === "D") {
+    //     console.log("薪资500, 福利50");
+    // }
+
+    // ==
+    let level = "v";
+    switch (level) {
+    case "A":
+    console.log("薪资2000, 福利200");
+    break;
+    case "B":
+    console.log("薪资1500, 福利150");
+    break;
+    case "C":
+    console.log("薪资1000, 福利100");
+    break;
+    case "D":
+    console.log("薪资500, 福利50");
+    break;
+    default:
+    console.log("级别没有对应上");
+    break;
+    }
+
+
+</script>
+
+<script type="text/html">
+    /*
+
+    if(test === "A") {
+
+    } else if (test === "B") {
+
+    }
+
+    */
+    /* 输入一个分数, 给出成绩级别
+    SSS 100分
+    A级 90+
+    B级 80+
+    C级 60+
+    D级 60-*/
+
+    let score = 66;
+
+    score = Math.floor(score / 10);
+
+    switch (score) {
+    case 10:
+    console.log("SSS");
+    break;
+    case 9:
+    console.log("A级")
+    break;
+    case 8:
+    console.log("B级")
+    break;
+    case 7:
+    case 6:
+    console.log("C级")
+    break;
+    default:
+    console.log("D级")
+
+    }
+
+
+</script>
+
+<script type="text/html">
+
+
+    // 1. 接收一些数据(两个参数, 一个运算符)
+    let val1 = +prompt("请输入数值1: ");
+    let val2 = +prompt("请输入数值2: ");
+    let operation = prompt("请输入运算符: ");
+
+    // 2. 看一下运算符, 是什么 + - * /
+    let result = NaN;
+    switch (operation) {
+    case "+":
+    result = val1 + val2;
+    break;
+    case "-":
+    result = val1 - val2;
+    break;
+    case "*":
+    result = val1 * val2;
+    break;
+    case "/":
+    result = val1 / val2;
+    break;
+    default:
+    console.warn("当前功能暂未开发, 请等待!")
+    break;
+    }
+
+    // 3. 打印计算结果
+    if (!isNaN(result)) {
+    console.log(`${val1} ${operation} ${val2} = ${result}`)
+    }
+
+
+</script>
+
+<script>
+
+    // 2. 从键盘输入一个月份,输出对应季节 12~2 冬季 3~5 春季 6~ 8 夏季 9~11 秋季(用switch)
+
+    let month = +prompt("请输入一个月份: ");
+    let desc = "";
+    switch (month) {
+        case 12:
+        case 1:
+        case 2:
+            desc = "冬季";
+            break;
+        case 3:
+        case 4:
+        case 5:
+            desc = "春季";
+            break;
+        case 6:
+        case 7:
+        case 8:
+            desc = "夏季";
+            break;
+        case 9:
+        case 10:
+        case 11:
+            desc = "秋季";
+            break;
+        default:
+            desc = "未知"
+    }
+
+    console.log(desc)
+
+</script>
+
+</body>
+</html>

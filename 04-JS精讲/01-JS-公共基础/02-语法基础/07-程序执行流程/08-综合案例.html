@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>08-综合案例</title>
+</head>
+<body>
+
+<script type="text/html">
+   /* 不断输入人员信息, 进行判定, 抓到后停止
+    性别 年龄 身高
+    嫌犯数据
+    性别 女
+    年龄 18
+    身高 168
+    */
+
+   while (true) {
+       // 1. 录入人员的信息
+       let sex = prompt("请输入人员性别: ");
+       let age = prompt("请输入人员年龄: ");
+       let height = prompt("请输入人员身高: ");
+
+       // 2. 判定是否是嫌疑犯
+       if (sex === "女" && age === "18" && height === "168") {
+           console.log("嫌疑犯逮到了!");
+           break;
+       } else {
+           console.log("此人不是, 请录入新的人员信息: ")
+       }
+   }
+
+
+</script>
+
+<script type="text/html">
+    while (true) {
+        // 1. 录入人员的信息
+        let sex = prompt("请输入人员性别: ");
+        if (sex !== "女") {
+            alert("此人不是, 请录入新的人员信息: ")
+            continue;
+        }
+        let age = prompt("请输入人员年龄: ");
+        if (age !== "18") {
+            alert("此人不是, 请录入新的人员信息: ")
+            continue;
+        }
+        let height = prompt("请输入人员身高: ");
+        if (height !== "168") {
+            alert("此人不是, 请录入新的人员信息: ")
+            continue;
+        }
+
+        /// 意味着什么?
+        alert("逮住了!")
+        break;
+
+    }
+
+
+</script>
+
+<script>
+  /*  随机生成一个数字(1 - 10)
+    猜数字, 3次机会, 没猜出来就算输
+    5
+    每次猜的时候, 给用户提示
+    太大了
+    太小了*/
+
+  // 1. 生成一个随机数(1 - 10)
+  // [0, 1) * 10 = [0 - 10)
+  // 1 - 10
+  // [0, 9) + 1 === [1, 10)
+  let num = Math.round(Math.random() * 9 + 1);
+  console.log(num);
+
+  let count = 0;
+  while(true) {
+
+      count++;
+      if (count > 3) {
+          console.log("你已经输了, 超过了3次!");
+          break;
+      }
+
+      // 2. 让用户猜(采集用户结果数据)
+      let result = +prompt("请输入你猜的数值: ");
+      // 3. 判定大小, 并且给出提示
+      if (result > num) {
+          console.log("太大了")
+      } else if(result < num) {
+          console.log("太小了")
+      } else {
+          console.log("猜对了");
+          break;
+      }
+  }
+
+
+
+</script>
+
+</body>
+</html>

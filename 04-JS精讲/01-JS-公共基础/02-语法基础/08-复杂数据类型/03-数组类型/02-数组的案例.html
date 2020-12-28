@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02-数组的案例</title>
+</head>
+<body>
+
+<script type="text/html">
+    /*1. 键盘接收数值, 根据奇偶存入两个不同数组中, 最后输出
+    用户输入次数不限制
+    如果输入exit, 则退出*/
+
+
+    // 1. 接收用户的输入:
+    let evenArray = [];
+    let oddArray = [];
+
+
+    while (true) {
+    let value = prompt("请输入一个数据(exit退出): ")
+
+    // 2. 判定输入内容: exit  数值: 奇偶
+    if (value.toLowerCase() === "exit") {
+    // 退出处理
+    break;
+    } else {
+    let num = +value;
+    if (isNaN(num)) {
+    continue;
+    }
+    if (num % 2 === 0) {
+    // 添加到偶数数组当中
+    evenArray.push(num);
+    } else {
+    // 添加到奇数的数组当中
+    oddArray.push(num);
+    }
+    }
+    }
+
+
+    // 3. 统一做一个结果输出
+    // [[], []]
+    console.log(evenArray, oddArray)
+
+
+</script>
+
+<script type="text/html">
+    // 1. 接收用户的输入:
+    let resultArray = [[], []]
+
+    while (true) {
+    let value = prompt("请输入一个数据(exit退出): ")
+
+    // 2. 判定输入内容: exit  数值: 奇偶
+    if (value.toLowerCase() === "exit") {
+    // 退出处理
+    break;
+    } else {
+    let num = +value;
+    if (isNaN(num)) {
+    continue;
+    }
+    resultArray[num % 2].push(num);
+    }
+    }
+
+
+    // 3. 统一做一个结果输出
+    // [[], []]
+    console.log(resultArray)
+</script>
+
+<script type="text/html">
+    let resultObj = {
+    even: [],
+    odd: []
+    }
+
+    while (true) {
+    let value = prompt("请输入一个数据(exit退出): ")
+
+    // 2. 判定输入内容: exit  数值: 奇偶
+    if (value.toLowerCase() === "exit") {
+    // 退出处理
+    break;
+    } else {
+    let num = +value;
+    if (isNaN(num)) {
+    continue;
+    }
+
+    // resultObj[num % 2 === 0 ? "even": "odd"].push(num)
+    resultObj[num % 2 ? "odd": "even"].push(num)
+    }
+    }
+
+
+    // 3. 统一做一个结果输出
+    // [[], []]
+    console.log(resultObj)
+
+
+</script>
+
+
+<script>
+
+    // 2. 将数组中值为0的元素删除
+    let arr = [0, "刘备", 0,0, "关羽", 0,0, "张飞", 0];
+
+    let index = arr.indexOf(0);
+    while (index !== -1) {
+        arr.splice(index, 1);
+        index = arr.indexOf(0);
+    }
+    console.log(arr);
+
+    // for (let i = 0; i < arr.length; i++) {
+    //     let value = arr[i];
+    //     if (value === 0) {
+    //         arr.splice(i, 1)
+    //         i--;
+    //     }
+    // }
+    // console.log(arr);
+
+
+</script>
+
+</body>
+</html>
