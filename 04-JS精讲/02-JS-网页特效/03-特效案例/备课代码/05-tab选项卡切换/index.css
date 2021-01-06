@@ -1,0 +1,68 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.box {
+  width: 604px;
+  height: 342px;
+  background-color: orangered;
+  margin: 100px auto;
+  display: flex;
+  flex-direction: column;
+}
+.box .tabbar {
+  height: 44px;
+}
+.box .tabbar ul {
+  list-style: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background-color: #2c2c34;
+}
+.box .tabbar ul li {
+  flex: 1;
+  background-color: #2c2c34;
+  color: #b1b2be;
+  text-align: center;
+  line-height: 44px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.box .tabbar ul li.active {
+  background: rgba(255, 255, 255, 0.15);
+  color: #f3c258;
+}
+.box .container {
+  flex: 1;
+  background-color: yellowgreen;
+  position: relative;
+  overflow: hidden;
+}
+.box .container ul {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: red;
+  list-style: none;
+  display: flex;
+  width: fit-content;
+  width: -moz-fit-content;
+  transition: all 1s ease-in-out;
+}
+.box .container ul li {
+  width: 604px;
+  height: 298px;
+  background-color: green;
+  box-sizing: border-box;
+}
+.box .container ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.box .container ul li a img {
+  width: 100%;
+  height: 100%;
+}
+/*# sourceMappingURL=index.css.map */

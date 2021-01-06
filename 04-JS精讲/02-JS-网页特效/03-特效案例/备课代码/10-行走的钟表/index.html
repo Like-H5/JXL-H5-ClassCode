@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>钟表</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<div class="box">
+    <div class="hour"></div>
+    <div class="minutes"></div>
+    <div class="seconds"></div>
+</div>
+
+
+<script>
+
+    // 2. 根据三个取值, 分别旋转时分秒
+    let hour = document.getElementsByClassName("hour")[0];
+    let minutes = document.getElementsByClassName("minutes")[0];
+    let seconds = document.getElementsByClassName("seconds")[0];
+
+
+    setInterval(function () {
+        // 1. 先获取当前的时间
+        // 时间: 时 分 秒
+        let date = new Date();
+
+        // 15: 30: 20 -- 500
+        // 毫秒 500
+        let m_seconds_v = date.getMilliseconds()
+        let seconds_v = date.getSeconds() + m_seconds_v / 1000;
+        let minutes_v = date.getMinutes() + seconds_v / 60;
+        let hour_v = date.getHours() + minutes_v / 60;
+
+        // 60 / 60  ----> 1 === 6deg
+        seconds.style.transform = `rotate(${seconds_v * 6}deg)`;
+
+        // 360 / 60  ----> 1 === 6deg
+        // 20
+        minutes.style.transform = `rotate(${minutes_v * 6}deg)`;
+
+        // 15
+        // 360 / 12 ---> 1 === 30deg
+        hour.style.transform = `rotate(${hour_v * 30}deg)`
+    }, 10)
+
+
+
+
+
+
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>皮肤切换</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+
+<div class="box">
+    <ul class="skin-small">
+    </ul>
+</div>
+
+<script>
+    let data = [
+        {
+            skinS: "//game.gtimg.cn/images/yxzj/img201606/heroimg/118/118-smallskin-6.jpg",
+            skinB: "//game.gtimg.cn/images/yxzj/img201606/skin/hero-info/118/118-bigskin-6.jpg",
+            title: "天狼运算者"
+        },
+        {
+            skinS: "//game.gtimg.cn/images/yxzj/img201606/heroimg/118/118-smallskin-5.jpg",
+            skinB: "//game.gtimg.cn/images/yxzj/img201606/skin/hero-info/118/118-bigskin-5.jpg",
+            title: "归虚梦演"
+        },
+        {
+            skinS: "//game.gtimg.cn/images/yxzj/img201606/heroimg/118/118-smallskin-4.jpg",
+            skinB: "//game.gtimg.cn/images/yxzj/img201606/skin/hero-info/118/118-bigskin-4.jpg",
+            title: "妖精王"
+        },
+        {
+            skinS: "//game.gtimg.cn/images/yxzj/img201606/heroimg/118/118-smallskin-3.jpg",
+            skinB: "//game.gtimg.cn/images/yxzj/img201606/skin/hero-info/118/118-bigskin-3.jpg",
+            title: "天使之翼"
+        },
+        {
+            skinS: "//game.gtimg.cn/images/yxzj/img201606/heroimg/118/118-smallskin-2.jpg",
+            skinB: "//game.gtimg.cn/images/yxzj/img201606/skin/hero-info/118/118-bigskin-2.jpg",
+            title: "未来旅行"
+        },
+        {
+            skinS: "//game.gtimg.cn/images/yxzj/img201606/heroimg/118/118-smallskin-1.jpg",
+            skinB: "//game.gtimg.cn/images/yxzj/img201606/skin/hero-info/118/118-bigskin-1.jpg",
+            title: "逆流之时"
+        }
+    ]
+
+    let skinUL = document.getElementsByClassName("skin-small")[0];
+    for (let i = 0; i < data.length; i++) {
+        let skinObj = data[i];
+        let newLi = `
+            <li class="${i === 0 ? "current" : ""}">
+                <img src="${skinObj.skinS}" alt="">
+                <span class="skin-title">${skinObj.title}</span>
+            </li>
+        `
+        skinUL.innerHTML += newLi;
+    }
+
+</script>
+
+
+<script>
+    // 皮肤切换效果实现
+    let currentIndex = 0;
+    let box = document.getElementsByClassName("box")[0];
+    // 1. 获取所有的小皮肤 li
+    let smallSkinLis = document.querySelectorAll(".skin-small>li");
+
+    // 2. 监听每一个里, 鼠标放上去事件
+    for (let i = 0; i < smallSkinLis.length; i++) {
+        let smallSkinLi = smallSkinLis[i];
+        smallSkinLi.onmouseover = function () {
+
+            smallSkinLis[currentIndex].className = "";
+            smallSkinLis[i].className = "current";
+            currentIndex = i;
+            
+            // 3. 控制盒子box, 元素 ,背景图片, 切换对应的源
+            box.style.backgroundImage = `url(${data[i].skinB})`
+        }
+    }
+
+</script>
+
+
+</body>
+</html>

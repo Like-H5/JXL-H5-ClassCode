@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>行走的钟表</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+
+<div class="box">
+    <div class="hour"></div>
+    <div class="minute"></div>
+    <div class="second"></div>
+</div>
+
+<script>
+
+    let hourDOM = document.getElementsByClassName("hour")[0];
+    let minuteDOM = document.getElementsByClassName("minute")[0];
+    let secondDOM = document.getElementsByClassName("second")[0];
+
+
+    setInterval(function () {
+        let now = new Date();
+
+        let ms_v = now.getMilliseconds();
+        let second_v = now.getSeconds() + ms_v / 1000;
+        let minute_v = now.getMinutes() + second_v / 60;
+        let hour_v = now.getHours() + minute_v / 60;
+
+        // 3: 40: 30: 500
+
+        // 360 / 60: 1秒钟 = 6deg
+        let second_deg = second_v * 6;
+
+        // 360 / 60: 1分钟 = 6deg
+        let minute_deg = minute_v * 6;
+
+        // 360 / 12: 1小时 === 30deg
+        let hour_deg = hour_v * 30;
+
+
+
+        hourDOM.style.transform = `rotate(${hour_deg}deg)`;
+        minuteDOM.style.transform = `rotate(${minute_deg}deg)`;
+        secondDOM.style.transform = `rotate(${second_deg}deg)`;
+    }, 10)
+
+
+
+
+</script>
+
+
+</body>
+</html>

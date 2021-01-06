@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片放大镜</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<div class="box">
+    <div class="big-box">
+        <img src="images/l1.jpg" alt="" class="big-img">
+    </div>
+    <div class="container">
+        <img src="images/m1.jpg" alt="" class="middle-img">
+    </div>
+    <div class="tab-bar">
+        <ul>
+            <li class="active"><img src="images/s1.jpg" alt="1"></li>
+            <li><img src="images/s2.jpg" alt="2"></li>
+            <li><img src="images/s3.jpg" alt="3"></li>
+            <li><img src="images/s4.jpg" alt="4"></li>
+            <li><img src="images/s5.jpg" alt="5"></li>
+        </ul>
+    </div>
+</div>
+
+<script>
+
+    // 图片切换特效
+    // 1. 获取tab-bar 所有的 li
+    let tabs = document.querySelectorAll(".box>.tab-bar>ul>li");
+
+    // 获取中等图片和大图片元素
+    let middleImg = document.querySelector(".box>.container>.middle-img")
+    let bigImg = document.querySelector(".box>.big-box>.big-img")
+
+
+    // 2. 遍历 li 数组, 然后, 给每个li 绑定一个 onmouseover 事件
+    for (let i = 0; i < tabs.length; i++) {
+        let tab = tabs[i];
+
+        // 绑定一个 onmouseover 事件
+        tab.onmouseover = function () {
+            // 这一个tab 对应的索引值
+
+            // 1. 加选中的标识 指示效果
+            tabs.forEach(li_tag=>li_tag.className = "");
+            tab.className = "active";
+
+            // 2. 切换图片源(中等图片, 大图片)
+            let m_img_src = `images/m${i+1}.jpg`
+            let b_img_src = `images/l${i+1}.jpg`
+            middleImg.src = m_img_src;
+            bigImg.src = b_img_src;
+            // 2.1 要切换哪一张图片
+            // 2.2 给哪一个元素 赋值
+
+        }
+    }
+
+
+</script>
+
+
+
+</body>
+</html>

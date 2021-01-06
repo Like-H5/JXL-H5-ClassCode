@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>08-DOM的内容操作</title>
+</head>
+<body>
+
+
+<div id="box">
+<!--    注释-->
+    123
+    <span>
+        abc
+    </span>
+</div>
+
+
+<script>
+    let box = document.getElementById("box");
+    // console.log(box.innerText)
+    // console.log(box.innerHTML)
+
+    // box.innerText = "123<h1>456</h1>";
+    box.innerHTML = "123<h1>456</h1>";
+
+</script>
+
+
+</body>
+</html>

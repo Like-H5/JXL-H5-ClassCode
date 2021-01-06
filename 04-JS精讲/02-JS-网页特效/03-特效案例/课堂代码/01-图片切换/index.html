@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片切换</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<div class="box">
+    <img src="images/1.png" alt="">
+    <div class="left"></div>
+    <div class="right"></div>
+</div>
+
+<script>
+    // 点击盒子右侧 +
+    // 点击盒子左侧 -
+    let leftDOM = document.getElementsByClassName("left")[0];
+    let rightDOM = document.getElementsByClassName("right")[0];
+
+    let image = document.querySelector(".box>img");
+    let currentIndex = 1;
+
+    leftDOM.onclick = function () {
+        console.log("left")
+        currentIndex--;
+        if (currentIndex <= 0) {
+            currentIndex = 13;
+        }
+        image.src = `images/${currentIndex}.png`
+    }
+    rightDOM.onclick = function () {
+        console.log("right");
+        currentIndex++;
+        if (currentIndex > 13) {
+            currentIndex = 1;
+        }
+        image.src = `images/${currentIndex}.png`
+    }
+
+
+</script>
+
+
+</body>
+</html>

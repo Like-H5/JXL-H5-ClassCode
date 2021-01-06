@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tab选项卡切换</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+
+<div class="box">
+    <div class="container">
+        <ul>
+            <li><a href="#"><img src="images/1.jpeg" alt="1"></a></li>
+            <li><a href="#"><img src="images/2.jpeg" alt="2"></a></li>
+            <li><a href="#"><img src="images/3.jpeg" alt="3"></a></li>
+            <li><a href="#"><img src="images/4.jpeg" alt="4"></a></li>
+            <li><a href="#"><img src="images/5.jpeg" alt="5"></a></li>
+        </ul>
+    </div>
+    <div class="tabbar">
+        <ul>
+            <li class="active">投稿倒计时</li>
+            <li>周边上新抽皮肤</li>
+            <li>世冠夏令营</li>
+            <li>世冠淘汰赛分组</li>
+            <li>一往无前的电竞人</li>
+        </ul>
+    </div>
+</div>
+
+
+<script>
+    let tabs = document.querySelectorAll(".box>.tabbar>ul>li")
+    let container_ul = document.querySelector(".box>.container>ul")
+
+    let container = document.getElementsByClassName("container")[0];
+
+    let tl = tabs.length;
+    let li_w = container.offsetWidth
+    for (let i = 0; i < tl; i++) {
+        let tab = tabs[i];
+        tab.onmouseover = function () {
+            console.log("xxx")
+            // 1. 把被鼠标放上来的tab, 添加一个 类名 active
+            // 其他的都得移除 active
+            tabs.forEach(item=>item.className="");
+            tab.className = "active";
+            // 移动ul left 值
+            // 604
+            container_ul.style.left = - i * li_w + "px";
+        }
+    }
+
+
+</script>
+
+
+
+</body>
+</html>

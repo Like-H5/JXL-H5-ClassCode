@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>07-DOM属性操作</title>
+    <style>
+        /*.box {*/
+        /*    width: 200px;*/
+        /*    height: 200px;*/
+        /*    background-color: tomato;*/
+        /*}*/
+    </style>
+</head>
+<body>
+
+<img src="http://lxt.itlike.com/teacher/images/1604739369631.jpg" alt="abc">
+
+<div class="box circle" id="test" data-xxx="123" abcd="aaaaa" style="width: 200px;height: 200px;background-color:cyan;">
+    box
+</div>
+
+
+<input id="account" type="text" value="123">
+
+<input id="account2" type="checkbox" value="abc">
+
+
+<select>
+    <option value="1">篮球1</option>
+    <option value="2" selected>篮球2</option>
+</select>
+
+<script type="text/html">
+
+    // 1. 普通的标准属性(系统自带的属性)
+    // 存储位置: 对象的一级属性列表当中 + attributes
+
+    // 2. 数据绑定属性(data-xxx)
+    // 存储位置: 对象.dataset ===> {xxx: 值} + attributes
+
+    // 3. 自定义属性
+    // 存储位置: attributes
+
+    let box = document.getElementById("test");
+    // console.dir(box);
+
+    console.log(box.id, box.dataset.xxx, box.getAttribute("abcd"))
+
+
+    // console.log(box.dataset.xxx)
+    // console.log(box.id, box.className, box.classList);
+    // box.classList.push("ccc")
+
+    // let img = document.getElementsByTagName("img")[0];
+    // // console.dir(img);
+    // img.onmouseover = function () {
+    //     img.src = "http://lxt.itlike.com/teacher/images/1604739369631.jpg"
+    // }
+    // img.onmouseout = function () {
+    //     img.src = "http://lxt.itlike.com/teacher/images/1604739462281.jpg"
+    // }
+
+</script>
+
+<script type="text/html">
+
+    // let account = document.getElementById("account");
+    // account.disabled = true;
+    // account.onblur = function () {
+    //     console.log(account.value);
+    // }
+
+    let a2 = document.getElementById("account2");
+    a2.checked = false;
+
+
+
+</script>
+
+<script>
+    let box = document.getElementById("test");
+    console.dir(box.style.backgroundColor)
+    box.style.backgroundColor = "green";
+    box.style.width = "300px";
+    box.style.border = "5px dashed red";
+
+</script>
+
+</body>
+</html>

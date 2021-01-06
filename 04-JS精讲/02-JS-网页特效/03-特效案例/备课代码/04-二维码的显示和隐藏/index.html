@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>二维码</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+
+<div class="box">
+    <img src="images/e_coder_normal.png" alt="" class="ewm"/>
+    <img src="images/sz.jpg" alt="" class="detail">
+</div>
+
+
+<script>
+
+    let ewm = document.querySelector(".box>.ewm");
+    let detail = document.querySelector(".box>.detail");
+
+    ewm.onmouseover = function () {
+        ewm.src = "images/e_coder_selected.png"
+        detail.style.display = "block";
+    }
+
+    ewm.onmouseout = function () {
+        ewm.src = "images/e_coder_normal.png"
+        detail.style.display = "none";
+    }
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>05-DOM事件类型</title>
+    <style>
+        body {
+            height: 1000px;
+        }
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: tomato;
+            color: #fff;
+            text-align: center;
+            line-height: 200px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    box
+</div>
+
+
+<form class="login" action="#">
+    <label>
+        <input type="text" name="account">
+    </label>
+    <input type="submit" value="提交">
+    <input type="reset" value="清空">
+</form>
+
+
+<script type="text/html">
+    // let box = document.querySelector(".box");
+    let box = document.getElementsByClassName("box")[0];
+    box.onclick = function () {
+        console.log("鼠标单击")
+    }
+    box.onmouseover = function () {
+        console.log("鼠标上面")
+    }
+    box.onmouseout = function () {
+        console.log("鼠标外面")
+    }
+
+    box.onmousedown = function () {
+        console.log("鼠标按下")
+    }
+    box.onmouseup = function () {
+        console.log("鼠标松开")
+    }
+    box.onmousemove = function () {
+        console.log("鼠标移动")
+    }
+
+    box.onkeydown = function () {
+        console.log("键盘上某一个键位被按下")
+    }
+
+
+</script>
+
+<script type="text/html">
+    let account = document.getElementsByName("account")[0];
+    account.onkeydown = function (event) {
+        console.log("键盘被按下", event)
+    }
+    account.onkeyup = function () {
+        console.log("键位被松开")
+    }
+
+
+</script>
+
+<script type="text/html">
+    // let form = document.getElementsByClassName("login")[0];
+    // form.onsubmit = function (event) {
+    //     event.preventDefault()
+    //     console.log("表单被提交")
+    // }
+    // form.onreset = function (event) {
+    //     event.preventDefault()
+    //     console.log("清空内容")
+    // }
+
+    let account = document.getElementsByName("account")[0];
+    account.onfocus = function () {
+        console.log("获取焦点")
+        account.style.borderWidth = "10px";
+    }
+    account.onblur = function () {
+        console.log("失去焦点!")
+        account.style.borderStyle = "dashed";
+    }
+
+    // account.onchange = function () {
+    //     console.log("内容改变")
+    // }
+    account.onkeyup = function () {
+        console.log(account.value)
+    }
+
+    
+</script>
+
+
+<script>
+
+    // window.onresize = function () {
+    //     console.log("窗口尺寸发生变化")
+    // }
+
+    document.body.onscroll = function () {
+        console.log("滚动了")
+    }
+
+    document.onvisibilitychange = function () {
+        let v = document.visibilityState;
+        if (v === "visible") {
+            document.title = "你来啦!"
+        }else if (v === "hidden") {
+            document.title = "你滚了吗?快点回来!"
+        }
+
+    }
+
+</script>
+
+</body>
+</html>

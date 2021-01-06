@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>王者荣耀选项卡切换效果</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<div class="box">
+    <div class="content">
+        <ul>
+            <li><a href="#"><img src="images/1.jpeg" alt="1"></a></li>
+            <li><a href="#"><img src="images/2.jpeg" alt="2"></a></li>
+            <li><a href="#"><img src="images/3.jpeg" alt="3"></a></li>
+            <li><a href="#"><img src="images/4.jpeg" alt="4"></a></li>
+            <li><a href="#"><img src="images/5.jpeg" alt="5"></a></li>
+        </ul>
+    </div>
+    <div class="tabs">
+        <ul>
+            <li class="active">投稿倒计时</li>
+            <li>周边上新抽皮肤</li>
+            <li>世冠夏令营</li>
+            <li>世冠淘汰赛分组</li>
+            <li>一往无前的电竞人</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+
+    let currentIndex = 0;
+    let timerID;
+
+        // 1. 获取 所有的标题 li, 以及 图片 ul
+    let titles = document.querySelectorAll(".box>.tabs>ul>li")
+    let contentUL = document.querySelector(".box>.content>ul")
+    let contentW = document.querySelector(".box>.content").offsetWidth;
+
+    function goToIndex(index) {
+        // 3. 根据放上去的标题li, 索引, 来去控制ul, Left值的变化:
+        // 0    left: 0
+        // 1    left: - 1 * contentW(604)
+        // 2    left: - 2 * contentW(604)
+        contentUL.style.left = - index * contentW + "px";
+        titles[currentIndex].className = "";
+        titles[index].className = "active";
+        currentIndex = index;
+    }
+
+
+    // 2. 监听每一个标题li, 鼠标放上去事件
+    for (let i = 0; i < titles.length; i++) {
+        let titleLi = titles[i];
+        titleLi.onmouseover = function () {
+            clearInterval(timerID)
+            goToIndex(i)
+        }
+        titleLi.onmouseout = function () {
+            autoChange()
+        }
+    }
+
+
+    // 自动轮播
+    // 定时器, 不断的 ++ 索引值
+    function autoChange() {
+        clearInterval(timerID)
+        timerID = setInterval(function () {
+            let newIndex = currentIndex + 1;
+            // 范围 0 ---
+            newIndex = newIndex % contentUL.children.length;
+            goToIndex(newIndex)
+        }, 2000)
+    }
+
+    autoChange()
+
+
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02-DOM的获取</title>
+    <script>
+        window.onload = function () {
+
+        }
+    </script>
+</head>
+<body>
+
+<div class="box">
+    <span id="one">one</span>
+    <span id="two">two</span>
+    <span class="three">three</span>
+    <span class="three">3</span>
+
+    <form action="#">
+        <label>
+            <input type="text" name="like">
+        </label>
+        <label>
+            <input type="text" name="like">
+        </label>
+    </form>
+</div>
+
+<div class="box2">
+    <span class="three">3333</span>
+    <span class="three">three-three</span>
+    <span class="three">three-three</span>
+</div>
+
+
+
+<script type="text/html">
+    console.dir(document);
+</script>
+
+<script>
+    // 根据ID, 来获取
+    // 获取到的结果, 只有一个
+    // let doms = document.getElementById("one");
+    // console.dir(doms)
+
+
+    // 根据标签名称来获取
+    // let doms = document.getElementsByTagName("span");
+    // // console.log(doms);
+    // for (let i = 0; i < doms.length; i++) {
+    //     let dom = doms[i];
+    //     dom.innerText += "-sz";
+    //     console.log(dom);
+    // }
+
+
+    // 根据name来获取元素
+    // let doms = document.getElementsByName("like");
+    // console.log(doms);
+    //
+    // for (let i = 0; i < doms.length; i++) {
+    //     let dom = doms[i];
+    //     dom.value = "撩课-sz" + i
+    // }
+
+    // 根据类名来获取元素
+    // let doms = document.getElementsByClassName("three");
+    // console.log(doms);
+
+
+
+    // 根据选择器来获取元素
+    // let doms = document.querySelectorAll(".box2>.three");
+    let doms = document.querySelector(".box2>.three");
+    // console.log(doms);
+    // 根据关系再去找元素
+    // console.log(doms.parentElement);
+    console.log(doms.nextElementSibling);
+</script>
+
+<script>
+
+    window.onload = function () {
+
+    }
+
+
+</script>
+
+</body>
+</html>

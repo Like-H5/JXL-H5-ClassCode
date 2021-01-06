@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01-BOM相关的对象</title>
+</head>
+<body>
+
+
+<a href="t1.html">t1</a>
+
+<script>
+    console.log(window);
+</script>
+
+
+<script type="text/html">
+
+    // 当整个的页面, 加载完毕, 并且渲染好之后, 才会执行对应的函数
+    // window.onload = function () {
+    //     // dom
+    //     for (let i = 0; i < 999999; i++) {
+    //         console.log(i)
+    //     }
+    //
+    // }
+
+
+    // window.open()
+    // while (true) {
+    //     open("http://www.baidu.com");
+    // }
+
+    // setTimeout(function () {
+    //     close();
+    // }, 2000)
+
+
+    // console.log("aaa")
+    // setTimeout(function () {
+    //     console.log("bbb");
+    // }, 1000)
+    // console.log("ccc");
+
+    // setInterval(function () {
+    //     console.log("bbb");
+    // }, 1000)
+
+
+    let num = 10;
+
+    let timerID = setInterval(function () {
+        num--;
+        console.log(num);
+        if (num <= 0) {
+            clearInterval(timerID)
+        }
+    }, 1000)
+
+
+
+
+</script>
+<script type="text/html">
+    // console.log(location)
+
+    // setTimeout(function () {
+    //     // location = "https://www.baidu.com";
+    //     // location.href = "https://www.baidu.com";
+    //     // location.assign("https://www.baidu.com")
+    //     location.replace("https://www.baidu.com")
+    // }, 1000)
+
+</script>
+
+<script>
+
+    console.log(navigator);
+
+</script>
+
+</body>
+</html>

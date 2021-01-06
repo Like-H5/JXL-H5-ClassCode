@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>06-DOM事件对象信息</title>
+</head>
+<body>
+
+<!--<input type="text" name="account">-->
+<textarea class="test"></textarea>
+
+<script type="text/html">
+    let account = document.getElementsByName("account")[0];
+    // account.onmousedown = function (evt) {
+    //     // console.log(evt)
+    //     let cKey = evt.ctrlKey;
+    //     let sKey = evt.shiftKey;
+    //     let button = evt.button === 0;
+    //     if (cKey && sKey && button) {
+    //         console.log("按了组合键: ctrl + shift + 单击")
+    //     }
+    // }
+
+
+    account.onkeyup = function (evt) {
+        // console.log(evt)
+        if (evt.key === "Enter") {
+            console.log("按了回车")
+        }
+    }
+
+
+</script>
+
+<script>
+    let test = document.getElementsByClassName("test")[0];
+    test.onkeydown = function (evt) {
+        // console.log(evt);
+        if (evt.key === "Enter") {
+            evt.preventDefault()
+            console.log("按了回车")
+            alert(test.value)
+            test.value = ""
+        }
+    }
+
+
+
+</script>
+
+</body>
+</html>

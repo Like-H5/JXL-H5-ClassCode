@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>随机广告</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<div class="box">
+    <div class="close"></div>
+</div>
+
+
+<script>
+
+    function showPane(dom) {
+        dom.style.bottom = "10px";
+        dom.style.right = "10px";
+    }
+    function hidePane(dom) {
+        let boxH = dom.offsetHeight;
+        let boxW = dom.offsetWidth;
+        if(Math.random() >= 0.5){
+            dom.style.right = `-${boxW}px`;
+        } else {
+            dom.style.bottom = `-${boxH}px`;
+        }
+    }
+
+
+    let box = document.getElementsByClassName("box")[0];
+
+    // 1s之后显示广告
+    setTimeout(function () {
+        showPane(box)
+    }, 1000)
+    // 如果用户5秒之后, 还没有关闭, 就自动关闭
+    let timer = setTimeout(function () {
+        hidePane(box)
+    }, 5000)
+    // 用户手动点击关闭按钮后关闭广告
+    let close = document.getElementsByClassName("close")[0];
+    close.onclick = function () {
+        clearTimeout(timer);
+        hidePane(box);
+    };
+
+
+
+
+</script>
+
+</body>
+</html>

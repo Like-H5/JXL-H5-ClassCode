@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02-scroll家族</title>
+    <style>
+        .big {
+            width: 200px;
+            height: 300px;
+            background-color: tomato;
+            border: 10px solid darkcyan;
+            overflow: auto;
+        }
+        .small {
+            width: 400px;
+            height: 600px;
+            background-color: cyan;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="big">
+    <div class="small">
+
+    </div>
+</div>
+
+<script>
+
+    let big = document.getElementsByClassName("big")[0];
+    let small = document.getElementsByClassName("small")[0];
+
+    big.onscroll = function () {
+        // console.log("滚")
+        // console.log("可滚动的区域", big.scrollWidth, big.scrollHeight)
+        console.log("卷出的距离", big.scrollTop, big.scrollLeft)
+    }
+
+    big.onclick = function () {
+        console.log("点击")
+        big.scrollTo(0, 0);
+    }
+
+
+</script>
+
+
+</body>
+</html>

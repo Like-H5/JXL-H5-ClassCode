@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02-图片切换</title>
+    <link rel="stylesheet" href="index.css">
+
+</head>
+<body>
+
+<div class="box">
+
+
+</div>
+
+
+<script>
+    let box = document.getElementsByClassName("box")[0];
+
+    for (let i = 0; i < 15; i++) {
+        // 1. 创建15个扑克牌卡片 -> 设定扑克片图片
+        let card = document.createElement("div");
+        card.className = "card";
+        // card.style.width = "142px";
+        // card.style.height = "199px";
+        // card.style.border = "1px dashed green";
+        // card.style.backgroundImage = "url(images/扑克牌.jpg)";
+
+        // 每一个卡片位置
+        // 列号 = i % 5;
+        // 行号 = Math.floor(i / 5)
+
+        // x = 列号 * 元素宽度(+间距 157)
+        // y = 行号 * 元素的高度(+间距 207)
+        //
+        let col = i % 5;
+        let row = Math.floor(i / 5)
+        let x = -col * 160 + "px";
+        let y = -row * 208 + "px";
+
+
+        card.style.backgroundPosition = `${x} ${y}`;
+
+
+        // 2. 把创建的元素, 添加到box盒子内容
+        box.appendChild(card)
+    }
+
+
+</script>
+
+</body>
+</html>

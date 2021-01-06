@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03-DOM事件的绑定</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: tomato;
+            margin: 100px auto;
+            text-align: center;
+            line-height: 200px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+
+<!--<div class="box" onclick="handlerClick()">-->
+<div class="box">
+    box
+</div>
+
+
+<script type="text/html">
+    function handlerClick() {
+        alert(123);
+    }
+</script>
+
+<script>
+    // 1. 获取box盒子 DOM对象
+    let box = document.getElementsByClassName("box")[0];
+
+
+    // 2. 绑定事件
+    // box.onmouseover = function () {
+    //     console.log("鼠标上来了!")
+    // }
+    // box.onmouseout = function () {
+    //     console.log("鼠标在外面!")
+    // }
+    // box.onclick = function () {
+    //     console.log("111")
+    // }
+    // box.onclick = function () {
+    //     console.log("222")
+    // }
+
+
+    // 绑定方式2
+    box.addEventListener("click", function () {
+        console.log("111")
+    })
+
+    let handler2 = function () {
+        console.log("222")
+    }
+    box.addEventListener("click", handler2)
+    box.removeEventListener("click", handler2);
+
+    // IE78
+    // box.attachEvent('onclick', function () {
+    //     console.log("123")
+    // });
+
+    // function addEventListener(element, type, fn) {
+    //     if (element.addEventListener) {
+    //         element.addEventListener(type, fn, false);
+    //     } else if (element.attachEvent){
+    //         element.attachEvent('on' + type,fn);
+    //     } else {
+    //         element['on'+type] = fn;
+    //     }
+    // }
+
+</script>
+
+
+</body>
+</html>

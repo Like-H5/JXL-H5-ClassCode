@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>09-DOM元素的创建</title>
+</head>
+<body>
+
+<h2>h2222</h2>
+
+<div class="box">
+    <div class="a">aaa</div>
+    <div class="b">bbb</div>
+</div>
+
+<script type="text/html">
+
+    document.write("123");
+    document.write("abc");
+    document.write("<h1>h1</h1>")
+
+    document.body.innerHTML = "<h1>h1</h1>";
+    document.body.innerHTML += "<h1>h1</h1>";
+    let box = document.getElementsByClassName("box")[0];
+    box.innerHTML = "abc<a href='#'>xxx</a>"
+
+</script>
+
+<script type="text/html">
+    let box = document.getElementsByClassName("box")[0];
+
+    let newDom = document.createElement("h1");
+    newDom.innerText = "sz";
+    newDom.style.color = "cyan";
+    newDom.id = "abc";
+    newDom.className = "xxx";
+
+    // console.log(newDom)
+    // box.appendChild(newDom);
+
+    let bDOM = document.getElementsByClassName("b")[0];
+    // box.insertBefore(newDom, bDOM)
+
+    setTimeout(function () {
+        // box.removeChild(bDOM)
+        box.replaceChild(newDom, bDOM);
+    }, 1000)
+</script>
+
+<script>
+    let box = document.getElementsByClassName("box")[0];
+
+    let newDom = document.createElement("h1");
+    newDom.innerText = "sz";
+    newDom.style.color = "cyan";
+    newDom.id = "abc";
+    newDom.className = "xxx";
+
+    // 克隆一个一模一样的元素
+    let other = newDom.cloneNode(true)
+    console.log(newDom, other)
+    box.appendChild(newDom);
+    box.appendChild(other);
+
+    setTimeout(function () {
+        box.remove()
+    }, 1000)
+
+
+</script>
+
+</body>
+</html>

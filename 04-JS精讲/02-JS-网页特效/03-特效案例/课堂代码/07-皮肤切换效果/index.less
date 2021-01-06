@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.box {
+  min-width: 1200px;
+  width: 100%;
+  height: 798px;
+  //background-color: tomato;
+  background-image: url(//game.gtimg.cn/images/yxzj/img201606/skin/hero-info/118/118-bigskin-6.jpg);
+  background-position: center 0;
+  position: relative;
+  .skin-small {
+    list-style: none;
+    width: fit-content;
+    width: -moz-fit-content;
+    height: 96px;
+    //background-color: cyan;
+    position: absolute;
+    right: 100px;
+    bottom: 15px;
+    display: flex;
+    &::after {
+      content: "皮肤";
+      width: 25px;
+      height: 77px;
+      background-color: #f3c258;
+      position: absolute;
+      border-radius: 5px;
+      text-align: center;
+      //line-height: 77px;
+      padding-top: 20px;
+      box-sizing: border-box;
+      right: -30px;
+      top: 0;
+    }
+    li {
+      width: 75px;
+      //background-color: darkcyan;
+      margin-right: 15px;
+      display: flex;
+      flex-direction: column;
+
+      &.current {
+        img {
+          border-color: #f3c258;
+        }
+      }
+      img {
+        width: 100%;
+        border: solid 4px #7a7a7a;
+        border-radius: 0 12px;
+        box-sizing: border-box;
+      }
+      .skin-title {
+        flex: 1;
+        font-size: 14px;
+        color: #FFF;
+        text-align: center;
+        text-shadow: 0 1px 2px #000;
+      }
+    }
+  }
+}

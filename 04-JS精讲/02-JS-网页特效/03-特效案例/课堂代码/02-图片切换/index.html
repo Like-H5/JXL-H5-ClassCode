@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片切换</title>
+    <link rel="stylesheet" href="index.css">
+
+</head>
+<body>
+
+<div class="box">
+    <img src="images/1.png" alt="">
+</div>
+
+
+<script>
+    window.onload = function () {
+        let image = document.querySelector(".box>img");
+        let currentIndex = 1;
+
+        function preImage() {
+            currentIndex--;
+            if (currentIndex <= 0) {
+                currentIndex = 13;
+            }
+            image.src = `images/${currentIndex}.png`
+        }
+        function nextImage() {
+            currentIndex++;
+            if (currentIndex > 13) {
+                currentIndex = 1;
+            }
+            image.src = `images/${currentIndex}.png`
+        }
+
+
+        let box = document.getElementsByClassName("box")[0];
+        let boxW = box.offsetWidth;
+        box.onclick = function (evt) {
+            let xPos = evt.offsetX;
+            if (xPos > boxW / 2) {
+                console.log("右侧")
+                nextImage();
+            } else {
+                console.log("左侧")
+                preImage();
+            }
+        }
+    }
+
+</script>
+
+</body>
+</html>

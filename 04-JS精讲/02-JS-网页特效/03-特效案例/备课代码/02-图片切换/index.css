@@ -1,0 +1,26 @@
+.box {
+  width: 180px;
+  height: 270px;
+  border: 1px solid red;
+  margin: 100px auto;
+  position: relative;
+}
+.box img {
+  width: 100%;
+  height: 100%;
+}
+.box .left,
+.box .right {
+  position: absolute;
+  top: 0;
+  background-color: transparent;
+  width: 50%;
+  height: 100%;
+}
+.box .left {
+  left: 0;
+}
+.box .right {
+  right: 0;
+}
+/*# sourceMappingURL=index.css.map */

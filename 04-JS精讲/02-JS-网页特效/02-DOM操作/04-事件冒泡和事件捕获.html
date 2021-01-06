@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>04-事件冒泡和事件捕获</title>
+    <style>
+        .box1 {
+            width: 400px;
+            height: 400px;
+            background-color: red;
+        }
+        .box2 {
+            width: 300px;
+            height: 300px;
+            background-color: green;
+        }
+        .box3 {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+    </style>
+    <style>
+
+        .box {
+            width: 550px;
+            height: 300px;
+            background-color: tomato;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .box .item {
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            color: #fff;
+            background-color: darkcyan;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<div class="box1">
+    box1
+    <div class="box2">
+        box2
+        <div class="box3">
+            box3
+        </div>
+    </div>
+</div>
+
+<!--<div class="box">-->
+
+<!--    <div class="item">item1</div>-->
+<!--    <div class="item">item2</div>-->
+<!--    <div class="item">item3</div>-->
+<!--    <div class="item">item4</div>-->
+<!--    <div class="item">item5</div>-->
+<!--    <div class="item">item6</div>-->
+
+<!--</div>-->
+
+
+
+<script type="text/html">
+
+    // 事件冒泡
+
+    // 1. 获取到三个盒子
+    let box1 = document.getElementsByClassName("box1")[0];
+    let box2 = document.getElementsByClassName("box2")[0];
+    let box3 = document.getElementsByClassName("box3")[0];
+
+
+    box1.onclick = function () {
+        console.log("点击了 box1")
+    }
+    box2.onclick = function (event) {
+        event.stopPropagation()
+        console.log("点击了 box2")
+    }
+    box3.onclick = function (event) {
+        // event, 就是一个产生的事件对象
+        // 阻止事件的继续传递
+        event.stopPropagation();
+        console.log("点击了 box3")
+    }
+
+
+</script>
+
+<script type="text/html">
+
+    function handlerClick(event) {
+        console.log(event.target.innerText)
+    }
+
+    // 由 事件冒泡机制 产生的一种小技巧: 事件委托
+    let items = document.querySelectorAll(".box>.item");
+    for (let i = 0; i < items.length; i++) {
+        let item = items[i];
+        // console.log(item.innerText);
+        item.onclick = handlerClick;
+    }
+
+
+
+</script>
+
+<script type="text/html">
+    let box = document.getElementsByClassName("box")[0];
+    box.onclick = function (event) {
+        if (event.target !== box) {
+            console.log("点击了", event.target.innerText)
+        }
+    }
+
+
+</script>
+
+
+<script>
+
+    // 1. 获取到三个盒子
+    let box1 = document.getElementsByClassName("box1")[0];
+    let box2 = document.getElementsByClassName("box2")[0];
+    let box3 = document.getElementsByClassName("box3")[0];
+
+
+    // 参数3, 是否在捕获 阶段响应事件
+    box1.addEventListener("click", function (event){
+        event.stopPropagation();
+        console.log("box1")
+    }, true)
+    box2.addEventListener("click", function (event){
+        event.stopPropagation();
+        console.log("box2")
+    }, true)
+    box3.addEventListener("click", function (event){
+        event.stopPropagation();
+        console.log("box3")
+    }, true)
+
+
+</script>
+
+</body>
+</html>

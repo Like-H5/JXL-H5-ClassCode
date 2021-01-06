@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>二维码</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<div class="box">
+    <img class="small" src="images/e_coder_normal.png" alt="">
+    <img class="big" src="images/sz.jpg" alt="">
+</div>
+
+
+<script>
+    let box = document.getElementsByClassName("box")[0];
+    let big = document.getElementsByClassName("big")[0];
+    let small = document.getElementsByClassName("small")[0];
+    box.onmouseover = function () {
+        console.log("laile")
+        small.src = "images/e_coder_selected.png"
+        // big.style.display = "block";
+        // big.className = "big show";
+        // console.log(big.classList);
+        big.classList.add("show");
+    }
+    box.onmouseout = function () {
+        console.log("出去")
+        small.src = "images/e_coder_normal.png"
+        // big.style.display = "none";
+        // big.className = "big";
+        big.classList.remove("show");
+    }
+
+
+
+</script>
+
+</body>
+</html>

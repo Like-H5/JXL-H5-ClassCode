@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>评论发表</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+
+<div class="box">
+    <textarea class="content" placeholder="请输入评论内容, 回车结束"></textarea>
+    <ul class="items">
+        <li>
+            <span class="comment_content">占位内容1</span>
+            <button class="copy">复制</button>
+            <button class="del">删除</button>
+        </li>
+        <li>
+            <span class="comment_content">占位内容2</span>
+            <button class="copy">复制</button>
+            <button class="del">删除</button>
+        </li>
+    </ul>
+</div>
+
+<script>
+
+    let ul = document.getElementsByClassName("items")[0];
+    let contentT = document.getElementsByClassName("content")[0];
+
+
+    function handlerCopyDOM(evt) {
+        console.log("复制", evt)
+        let targetLi = evt.target.parentElement;
+        let cloneLi = targetLi.cloneNode(true);
+        // ul.appendChild(cloneLi);
+
+        // 监听li内部的复制和删除按钮单击事件
+        cloneLi.getElementsByClassName("copy")[0].onclick = handlerCopyDOM;
+        cloneLi.getElementsByClassName("del")[0].onclick = handlerDelDOM;
+
+        // ul.insertBefore(cloneLi, targetLi.nextElementSibling);
+        ul.insertBefore(cloneLi, targetLi);
+    }
+    function handlerDelDOM(evt) {
+        console.log("删除", evt)
+        let targetLi = evt.target.parentElement;
+        targetLi.remove()
+    }
+
+
+
+
+    contentT.onkeydown = function (evt) {
+        let key = evt.key;
+        console.log(key);
+        if (key === "Enter") {
+            evt.preventDefault()
+            // 1. 文本框内部内容
+            let content = contentT.value;
+
+            // 2. 根据内容, 创建一个li元素
+            let newLi = document.createElement("li");
+            newLi.innerHTML = `
+                <span class="comment_content">${content}</span>
+            `;
+            // <button className="copy">复制</button>
+            // <button className="del">删除</button>
+            let copyBtn = document.createElement("button");
+            copyBtn.className = "copy";
+            copyBtn.innerText = "复制";
+            copyBtn.onclick = handlerCopyDOM;
+            newLi.appendChild(copyBtn);
+
+            let delBtn = document.createElement("button");
+            delBtn.className = "del";
+            delBtn.innerText = "删除";
+            delBtn.onclick = handlerDelDOM;
+            newLi.appendChild(delBtn);
+
+            // 3. 插入到ul当中
+            ul.appendChild(newLi);
+            contentT.value = ""
+
+            // handlerClick()
+
+        }
+    }
+
+    function handlerClick() {
+        let copyDOMs = document.getElementsByClassName("copy");
+        let delDOMs = document.getElementsByClassName("del");
+
+        for (let i = 0; i < copyDOMs.length; i++) {
+            let copyDOM = copyDOMs[i];
+            copyDOM.onclick = handlerCopyDOM;
+
+            let delDOM = delDOMs[i];
+            delDOM.onclick = handlerDelDOM;
+        }
+    }
+    handlerClick()
+
+
+
+
+
+
+</script>
+
+
+
+</body>
+</html>

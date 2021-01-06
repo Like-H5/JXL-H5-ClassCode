@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片切换</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+
+<div class="box">
+    <img src="images/1.png" alt="">
+</div>
+
+
+<script>
+
+    window.onload = function () {
+
+        // 0. 通过一个变量, 记录当前的索引(名字)
+        let currentIndex = 1;
+
+        // 1. 获取box
+        let box = document.getElementsByClassName("box")[0];
+        let image = box.getElementsByTagName("img")[0];
+
+
+        // 2. 监听事件
+        box.onclick = function (evt) {
+            // 事件对象
+            let x = evt.offsetX;
+            if (x >= box.offsetWidth / 2) {
+                currentIndex ++;
+                if (currentIndex > 13) {
+                    currentIndex = 1;
+                }
+                image.src = `images/${currentIndex}.png`
+            }else {
+                currentIndex --;
+                if (currentIndex < 1) {
+                    currentIndex = 13;
+                }
+                image.src = `images/${currentIndex}.png`
+            }
+        }
+
+
+    }
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>皮肤切换</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+
+<div class="box">
+    <ul class="bg">
+        <li class="active"><img src="images/1.jpg" alt="1"></li>
+        <li><img src="images/2.jpg" alt="2"></li>
+    </ul>
+    <ul class="tab">
+        <li class="active"><img src="images/s1.jpg" alt=""></li>
+        <li><img src="images/s2.jpg" alt=""></li>
+    </ul>
+</div>
+
+
+<script>
+
+    // 长得想数组的, 但是本质是对象的玩意, 称作是"伪数组"
+    // let arr = {
+    //     0: dom,
+    //     1: dom,
+    //     length: 2
+    // }
+    //
+    // arr.forEach()
+
+    // 伪数组
+    let tabs = document.querySelectorAll(".box>.tab>li");
+    let bgs = document.querySelectorAll(".box>.bg>li");
+
+    // var es6 -
+    for (let i = 0; i < tabs.length; i++) {
+        let tab = tabs[i];
+
+        // 监听鼠标事件
+        tab.onmouseover = function () {
+            // console.log(i)
+            // 0
+
+            tabs.forEach(tab=>tab.className="")
+            tabs[i].className = "active";
+
+
+            bgs.forEach(bg=>bg.className="")
+            let bg_li = bgs[i]
+            bg_li.className = "active";
+
+        }
+    }
+
+
+    // console.log(i)
+
+
+</script>
+
+</body>
+</html>

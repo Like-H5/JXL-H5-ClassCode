@@ -1,0 +1,12 @@
+.box {
+  width: 180px;
+  height: 270px;
+  border: 1px solid orange;
+  margin: 100px auto;
+  position: relative;
+}
+.box img {
+  width: 100%;
+  height: 100%;
+}
+/*# sourceMappingURL=index.css.map */

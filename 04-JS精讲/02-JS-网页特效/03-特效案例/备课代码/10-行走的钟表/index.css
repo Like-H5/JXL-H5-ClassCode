@@ -1,0 +1,28 @@
+.box {
+  width: 600px;
+  height: 600px;
+  border: 1px solid red;
+  margin: 50px auto;
+  background-image: url(images/clock.jpg);
+  position: relative;
+}
+.box .seconds,
+.box .minutes,
+.box .hour {
+  width: 30px;
+  height: 600px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -15px;
+}
+.box .hour {
+  background-image: url(images/hour.png);
+}
+.box .minutes {
+  background-image: url(images/minute.png);
+}
+.box .seconds {
+  background-image: url(images/second.png);
+}
+/*# sourceMappingURL=index.css.map */

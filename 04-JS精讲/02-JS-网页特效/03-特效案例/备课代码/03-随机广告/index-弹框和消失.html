@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>随机广告</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+
+<div class="box">
+    <img src="images/close.png" alt="" class="close">
+</div>
+
+
+
+<script>
+
+    let box = document.getElementsByClassName("box")[0]
+    let close = document.getElementsByClassName("close")[0]
+
+    setTimeout(()=>{
+        console.log("2222")
+        box.style.bottom = "10px";
+    }, 200)
+
+    close.onclick = function () {
+        console.log("xxx")
+        // box.style.display = "none";
+        box.style.right = "-297px";
+        setTimeout(()=>{
+            box.remove()
+        }, 1000)
+
+    }
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

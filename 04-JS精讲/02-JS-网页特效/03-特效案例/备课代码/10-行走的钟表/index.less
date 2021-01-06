@@ -1,0 +1,34 @@
+.box {
+  width: 600px;
+  height: 600px;
+  border: 1px solid red;
+  margin: 50px auto;
+  background-image: url(images/clock.jpg);
+  position: relative;
+  .seconds,
+  .minutes,
+  .hour {
+    width: 30px;
+    height: 600px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -15px;
+    //transform: rotate(30deg);
+    //transform-origin: top left;
+  }
+  .hour {
+    background-image: url(images/hour.png);
+    //transform: rotate(90deg);
+
+  }
+  .minutes {
+    background-image: url(images/minute.png);
+    //transform: rotate(60deg);
+
+  }
+  .seconds {
+    background-image: url(images/second.png);
+    //transform: rotate(30deg);
+  }
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片放大镜</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<div class="box">
+    <div class="big-box">
+        <img src="images/l1.jpg" alt="" class="big-img">
+    </div>
+    <div class="container">
+        <img src="images/m1.jpg" alt="" class="middle-img">
+        <div class="mask"></div>
+    </div>
+    <div class="tab-bar">
+        <ul>
+            <li class="active"><img src="images/s1.jpg" alt="1" data-m-src="images/m1.jpg" data-b-src="images/l1.jpg">
+            </li>
+            <li><img src="images/s2.jpg" alt="2" data-m-src="images/m2.jpg" data-b-src="images/l2.jpg"></li>
+            <li><img src="images/s3.jpg" alt="3" data-m-src="images/m3.jpg" data-b-src="images/l3.jpg"></li>
+            <li><img src="images/s4.jpg" alt="4" data-m-src="images/m4.jpg" data-b-src="images/l4.jpg"></li>
+            <li><img src="images/s5.jpg" alt="5" data-m-src="images/m5.jpg" data-b-src="images/l5.jpg"></li>
+        </ul>
+    </div>
+</div>
+
+<script>
+
+    // ------------------------------图片切换特效--------------------------------
+    // 1. 获取tab-bar 所有的 li
+    let tabs = document.querySelectorAll(".box>.tab-bar>ul>li");
+
+    // 获取中等图片和大图片元素
+    let middleImg = document.querySelector(".box>.container>.middle-img")
+    let bigImg = document.querySelector(".box>.big-box>.big-img")
+
+    // 2. 遍历 li 数组, 然后, 给每个li 绑定一个 onmouseover 事件
+    for (let i = 0; i < tabs.length; i++) {
+        let tab = tabs[i];
+
+        // 绑定一个 onmouseover 事件
+        tab.onmouseover = function () {
+            // 这一个tab 对应的索引值
+
+            // 1. 加选中的标识 指示效果
+            tabs.forEach(li_tag => li_tag.className = "");
+            tab.className = "active";
+
+
+            // 2. 获取需要赋值的图片源
+            let li_img = tab.getElementsByTagName("img")[0]
+            let {bSrc, mSrc} = li_img.dataset;
+            // console.log(bSrc, mSrc)
+            middleImg.src = mSrc;
+            bigImg.src = bSrc;
+            // console.log(li_img.getAttribute("data-b-src"))
+
+
+            // 2. 切换图片源(中等图片, 大图片)
+            // let m_img_src = `images/m${i+1}.jpg`
+            // let b_img_src = `images/l${i+1}.jpg`
+            // middleImg.src = m_img_src;
+            // bigImg.src = b_img_src;
+            // 2.1 要切换哪一张图片
+            // 2.2 给哪一个元素 赋值
+
+        }
+    }
+
+
+    // ----------------------蒙版跟随特效-----------------------------------
+    // 1. 获取container 容器
+    let container = document.querySelector(".box>.container")
+    let mask = document.querySelector(".box>.container>.mask")
+    let box = document.querySelector(".box")
+
+
+
+
+    let boxLeft= box.offsetLeft;
+    let boxTop = box.offsetTop;
+
+    let containerW = container.offsetWidth;
+    let containerH = container.offsetHeight;
+
+
+    let maskW = mask.offsetWidth;
+    let maskH = mask.offsetHeight;
+
+    container.onmouseover = function () {
+        mask.style.display = "block";
+        maskW = mask.offsetWidth;
+        maskH = mask.offsetHeight;
+    }
+    container.onmouseout = function () {
+        mask.style.display = "none";
+    }
+
+    // 2. 监听container 鼠标移动事件
+    container.onmousemove = function (evt) {
+        let left_v = evt.clientX - boxLeft - maskW / 2;
+        let top_v = evt.clientY - boxTop - maskH / 2;
+
+        if(left_v < 0) {
+            left_v = 0;
+        }
+        if (left_v > containerW - maskW) {
+            left_v = containerW - maskW;
+        }
+
+        if (top_v < 0) {
+            top_v = 0;
+        }
+        if (top_v > containerH - maskH) {
+            top_v = containerH - maskH;
+        }
+
+        // console.log(box.offsetLeft, box.offsetTop);
+        // 需要在不断移动的过程当中, 获取鼠标的位置
+        // let left_v = evt.offsetX
+        // let top_v = evt.offsetY
+
+        mask.style.left = left_v + "px";
+        mask.style.top = top_v + "px";
+
+
+
+
+    // 设置值蒙版div  , 控制它的位置
+
+    }
+
+
+
+</script>
+
+
+</body>
+</html>

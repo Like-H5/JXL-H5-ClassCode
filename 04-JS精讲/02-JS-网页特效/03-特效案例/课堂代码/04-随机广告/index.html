@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>随机广告</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<div class="box">
+    <div class="close"></div>
+    <a href="#" class="ad_href">
+        <img class="ad_src" src="images/kongtiao.webp" alt="">
+    </a>
+</div>
+
+
+<script>
+
+    function showPane(dom) {
+        dom.style.bottom = "10px";
+        dom.style.right = "10px";
+    }
+    function hidePane(dom) {
+        let boxH = dom.offsetHeight;
+        let boxW = dom.offsetWidth;
+        if(Math.random() >= 0.5){
+            dom.style.right = `-${boxW}px`;
+        } else {
+            dom.style.bottom = `-${boxH}px`;
+        }
+    }
+
+    let box = document.getElementsByClassName("box")[0];
+
+    // 1s之后显示广告
+    setTimeout(function () {
+        showPane(box)
+    }, 1000)
+    // 如果用户5秒之后, 还没有关闭, 就自动关闭
+    let timer = setTimeout(function () {
+        hidePane(box)
+    }, 5000)
+    // 用户手动点击关闭按钮后关闭广告
+    let close = document.getElementsByClassName("close")[0];
+    close.onclick = function () {
+        clearTimeout(timer);
+        hidePane(box);
+    };
+
+
+</script>
+
+<script>
+
+    // 生成随机数据模型
+    function randomData() {
+        let data = [
+            {src: "images/kongtiao.webp", href: "http://www.baidu.com"},
+            {src: "images/lianxiang.webp", href: "http://www.jd.com"},
+            {src: "images/nf.webp", href: "http://www.itlike.com"},
+            {src: "images/shouji.jpg", href: "http://www.youku.com"},
+            {src: "images/win10.webp", href: "http://www.baidu.com"},
+            {src: "images/xiaomi.webp", href: "http://www.taobao.com"}
+        ]
+        // 数组: 索引(0 , length - 1)
+        // 随机获取一组数据 5
+        let randomIndex = Math.round(Math.random() * (data.length - 1))
+        return data[randomIndex];
+    }
+
+    // 给定数据, 它内部, 会帮你设置到广告面板上面
+    function setAdData(href, src) {
+        // 1. 拿到两个元素 a, img
+        let adHref = document.querySelector(".box .ad_href");
+        let adSrc = document.querySelector(".box .ad_src");
+
+        adHref.href = href;
+        adSrc.src = src;
+    }
+
+    let randomItem = randomData();
+    setAdData(randomItem.href, randomItem.src);
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>牛图浏览</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<div class="box">
+    <img class="big-img" src="images/long_img.jpg" alt="">
+    <div class="top"></div>
+    <div class="bottom"></div>
+</div>
+
+
+<script>
+
+    let timer;
+    let box = document.getElementsByClassName("box")[0];
+    let topDOM = document.getElementsByClassName("top")[0];
+    let bottomDOM = document.getElementsByClassName("bottom")[0];
+
+    let bigImg = document.getElementsByClassName("big-img")[0];
+
+    topDOM.onmouseover = function () {
+        // 让图片不断的往上去滚动
+        // top --
+        timer = setInterval(function () {
+            let currentTop = bigImg.offsetTop;
+            currentTop -= 10;
+            if (currentTop < box.offsetHeight - bigImg.offsetHeight) {
+                currentTop = box.offsetHeight - bigImg.offsetHeight
+                clearInterval(timer)
+            }
+            bigImg.style.top = currentTop + "px";
+        }, 20)
+    }
+
+    topDOM.onmouseout = function () {
+        clearInterval(timer)
+    }
+
+    bottomDOM.onmouseover = function () {
+        // 让图片不断的往上去滚动
+        // top --
+        timer = setInterval(function () {
+            let currentTop = bigImg.offsetTop;
+            currentTop += 10;
+            if (currentTop >= 0) {
+                currentTop = 0;
+                bigImg.style.top = currentTop + "px";
+                clearInterval(timer)
+            }
+            bigImg.style.top = currentTop + "px";
+        }, 20)
+    }
+
+    bottomDOM.onmouseout = function () {
+        clearInterval(timer)
+    }
+
+
+</script>
+
+</body>
+</html>

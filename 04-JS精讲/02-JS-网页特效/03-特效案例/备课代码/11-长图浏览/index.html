@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>长图浏览</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<div class="box">
+    <img src="images/long_img.jpg" alt="" class="big_img">
+    <div class="top"></div>
+    <div class="bottom"></div>
+</div>
+
+
+<script>
+
+    let box = document.getElementsByClassName("box")[0]
+    let top_dom = document.querySelector(".box>.top");
+    let bottom_dom = document.querySelector(".box>.bottom");
+    let big_img = document.querySelector(".box>.big_img");
+    let timer = null;
+    let max_height = big_img.offsetHeight - box.offsetHeight;
+
+    top_dom.onmouseover = function () {
+        timer = setInterval(function () {
+            let currentTop = big_img.offsetTop
+            currentTop -= 2
+
+            if (currentTop < -max_height) {
+                currentTop = -max_val;
+                clearInterval(timer)
+            }
+
+            big_img.style.top = currentTop + "px"
+        }, 20)
+    }
+
+    top_dom.onmouseout = function () {
+        clearInterval(timer);
+    }
+
+    bottom_dom.onmouseover = function () {
+        timer = setInterval(function () {
+            let currentTop = big_img.offsetTop
+            currentTop += 2
+
+            if (currentTop > 0) {
+                currentTop = 0;
+                clearInterval(timer)
+            }
+
+            big_img.style.top = currentTop + "px"
+        }, 20)
+    }
+
+    bottom_dom.onmouseout = function () {
+        clearInterval(timer)
+    }
+
+
+</script>
+
+
+</body>
+</html>

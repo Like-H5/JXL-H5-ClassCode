@@ -1,0 +1,24 @@
+.box {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.box .small {
+  width: 100%;
+  height: 100%;
+}
+.box .big {
+  width: 200px;
+  position: absolute;
+  top: 0;
+  left: 60px;
+  box-shadow: 5px 5px 5px 5px grey;
+  display: none;
+}
+.box .big.show {
+  display: block;
+}
+/*# sourceMappingURL=index.css.map */

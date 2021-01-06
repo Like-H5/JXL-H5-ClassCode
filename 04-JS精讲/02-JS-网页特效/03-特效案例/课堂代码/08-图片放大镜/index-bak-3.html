@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片放大镜</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+
+<div class="box">
+    <div class="m-img">
+        <img class="middle-img" src="images/m1.jpg" alt="">
+        <div class="mask"></div>
+    </div>
+    <div class="s-imgs">
+        <ul>
+            <li class="current"><img src="images/s1.jpg" alt="" data-m-src="images/m1.jpg" data-l-src="images/l1.jpg"></li>
+            <li><img src="images/s2.jpg" alt="" data-m-src="images/m2.jpg" data-l-src="images/l2.jpg"></li>
+            <li><img src="images/s3.jpg" alt="" data-m-src="images/m3.jpg" data-l-src="images/l3.jpg"></li>
+            <li><img src="images/s4.jpg" alt="" data-m-src="images/m4.jpg" data-l-src="images/l4.jpg"></li>
+            <li><img src="images/s5.jpg" alt="" data-m-src="images/m5.jpg" data-l-src="images/l5.jpg"></li>
+        </ul>
+    </div>
+    <div class="b-img">
+        <img class="large-img" src="images/l1.jpg" alt="">
+    </div>
+</div>
+
+
+<script>
+    let currentIndex = 0;
+    // 图片源切换效果
+    // 1. 获取所有小图片对应的li, 监听鼠标放放上去的事件
+    let sImgLis = document.querySelectorAll(".box>.s-imgs>ul>li");
+    let mImg = document.getElementsByClassName("middle-img")[0];
+    let lImg = document.getElementsByClassName("large-img")[0];
+
+    for (let i = 0; i < sImgLis.length; i++) {
+        let sImgLi = sImgLis[i];
+        sImgLi.onmouseover = function () {
+            // 2. 1. 修改标识样式 +
+            // console.log(i)
+            // sImgLi.classList.add("current");
+            sImgLis[currentIndex].className = "";
+            sImgLi.className = "current";
+            currentIndex = i;
+
+            // 修改中等+大图片源
+            // mImg.src = `images/m${i+1}.jpg`;
+            // lImg.src = `images/l${i+1}.jpg`;
+
+            let liImg = sImgLi.getElementsByTagName("img")[0];
+            let mSrc = liImg.dataset.mSrc;
+            let lSrc = liImg.dataset.lSrc;
+            mImg.src = mSrc;
+            lImg.src = lSrc;
+
+        }
+    }
+
+
+
+
+</script>
+
+
+
+</body>
+</html>

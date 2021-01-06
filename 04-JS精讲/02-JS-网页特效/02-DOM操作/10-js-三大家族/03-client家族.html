@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03-client家族</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            /*border: 10px solid tomato;*/
+            border-width: 5px 10px 15px 20px;
+            border-style: solid;
+            border-color: tomato;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+
+</div>
+
+<script>
+    let box = document.getElementsByClassName("box")[0];
+    box.onclick = function (evt) {
+        // console.log(box.clientWidth, box.clientHeight, box.clientLeft, box.clientTop);
+        console.log(evt);
+    }
+
+
+</script>
+
+
+</body>
+</html>
