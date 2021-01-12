@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02-闭包函数</title>
+    <style>
+        .box {
+            width: 500px;
+            height: 500px;
+            background-color: tomato;
+        }
+        .item {
+            width: 100px;
+            height: 100px;
+            background-color: cyan;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="box">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+</div>
+
+
+<script type="text/html">
+
+    // 会产生一个独立的作用域
+    // 在函数内部定义的所有东西, 外界统统访问不到
+    // 如果想要外界, 访问某一个(某一些); 可以通过返回值的形式, 返回给外界
+    function test() {
+        let a = 123;
+        const b = 456;
+        function other() {
+            console.log("abc", a, b)
+        }
+        return other;
+    }
+    let data = test();
+    console.log(data);
+    data();
+    // console.log(a)
+    // console.log(b)
+    // console.log(other)
+
+
+
+</script>
+
+
+<script type="text/html">
+
+
+    function test() {
+        let money = 100;
+
+        function win() {
+            money += 10;
+            return money;
+        }
+
+        function lose() {
+            money -= 10;
+            return money;
+        }
+
+        return {win: win, lose: lose};
+    }
+
+    let game = test();
+    console.log(game.win());
+    console.log(game.lose());
+
+
+</script>
+
+
+<script>
+
+    // for (var i = 0; i < 5; i++) {
+    //     setTimeout((function () {
+    //         var j = i;
+    //         return function () {
+    //             console.log(j)
+    //         }
+    //     })(), 1000)
+    // }
+    //
+    // console.log(i);
+
+
+    for (let i = 0; i < 5; i++) {
+        setTimeout(function () {
+            console.log(i)
+        }, 1000)
+    }
+
+    console.log(i);
+
+
+
+</script>
+
+<script>
+
+
+    // var items = document.getElementsByClassName("item");
+    // for (var i = 0; i < items.length; i++) {
+    //
+    //     (function () {
+    //         var item = items[i];
+    //         item.onclick = function () {
+    //             console.log(item)
+    //         }
+    //     })()
+    //
+    // }
+
+    let items = document.getElementsByClassName("item");
+    for (let i = 0; i < items.length; i++) {
+        let item = items[i];
+        item.onclick = function () {
+            console.log(item)
+        }
+    }
+
+
+</script>
+
+</body>
+</html>

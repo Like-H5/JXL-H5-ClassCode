@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03-递归函数</title>
+</head>
+<body>
+
+<script type="text/html">
+
+    // 传递
+    // 回归
+    function test() {
+        console.log("撩课-Sz");
+        test()
+    }
+
+    test();
+    console.log("end");
+
+
+</script>
+
+<script>
+    // 阶乘: 3 = 3 * 2 * 1
+    // 20
+    // 20 * 19!
+    // 20 * 19 * 18!
+
+    // 5 * jc(4)
+    // 5 * 4 * jc(3)
+    // 5 * 4 * 3 * jc(2)
+    // 5 * 4 * 3 * 2 * jc(1)
+    // 5 * 4 * 3 * 2 * 1
+    function jc(n) {
+        if (n === 1) return 1;
+        return n * jc(n - 1);
+    }
+
+    console.log(jc(5));
+
+
+</script>
+
+
+</body>
+</html>

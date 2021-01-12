@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01-Promise对象产生背景</title>
+</head>
+<body>
+
+<script type="text/html">
+
+    // 隔1s生成一个随机数
+    // 3个随机数 +
+    let num1, num2, num3;
+
+    setTimeout(function () {
+        num1 = Math.random()
+    }, 1000)
+
+    setTimeout(function () {
+        num2 = Math.random()
+    }, 1000)
+
+    setTimeout(function () {
+        num3 = Math.random()
+    }, 1000)
+
+    console.log(num1 + num2 + num3);
+
+</script>
+
+<script type="text/html">
+    // 异步操作
+
+    console.log(1)
+
+    // 100ms之后, 打印2
+    // 程序执行流程, 根本就没有等待100ms 然后才往后执行
+    // 而是, 直接跳过去, 先执行后面的操作,
+    // 等这边定时器时间到了之后, 就会再次回过头来, 去执行, 回调函数
+    // 非阻塞的一个操作, 并没有阻塞程序的执行流程
+    setTimeout(function () {
+        console.log(2)
+    }, 100)
+    console.log(3)
+
+</script>
+
+<script type="text/html">
+
+    // 隔1s生成一个随机数
+    // 3个随机数 +
+    let num1, num2, num3;
+
+    setTimeout(function () {
+        num1 = Math.random()
+        console.log("num1: ", num1)
+    }, 1000)
+
+    setTimeout(function () {
+        num2 = Math.random()
+        console.log("num2:", num2)
+
+    }, 1000)
+
+    setTimeout(function () {
+        num3 = Math.random()
+        console.log("num3: ", num3)
+
+    }, 1000)
+
+    setTimeout(function () {
+        console.log(num1 + num2 + num3);
+    }, 2000)
+
+
+</script>
+
+<script type="text/html">
+
+    // 并行执行
+    // 大家一起跑
+
+    // 串行执行
+    // 串成一串, 挨个执行
+
+    // 隔1s生成一个随机数
+    // 3个随机数 +
+    // let num1, num2, num3;
+
+
+    // 回调嵌套层级非常深, 称作"回调地狱"
+    // setTimeout(function () {
+    //     let num1 = Math.random()
+    //     // console.log("num1: ", num1)
+    //     setTimeout(function () {
+    //         let num2 = Math.random()
+    //         // console.log("num2:", num2)
+    //         setTimeout(function () {
+    //             let num3 = Math.random()
+    //             // console.log("num3: ", num3)
+    //             console.log(num1, num2, num3)
+    //         }, 1000)
+    //     }, 1000)
+    // }, 1000)
+
+
+    // console.dir(Promise)
+
+
+
+</script>
+
+
+</body>
+</html>

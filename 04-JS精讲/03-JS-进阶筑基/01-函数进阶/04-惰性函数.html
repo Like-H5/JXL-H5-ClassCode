@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>04-惰性函数</title>
+    <style>
+        #box,
+        #box1,
+        #box2,
+        #box3 {
+            width: 200px;
+            height: 200px;
+            background-color: tomato;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+
+<div id="box">
+
+</div>
+
+<div id="box1">
+
+</div>
+
+
+<div id="box2">
+
+</div>
+
+
+<div id="box3">
+
+</div>
+
+
+<script>
+    var box = document.getElementById("box");
+    var box1 = document.getElementById("box1");
+    var box2 = document.getElementById("box2");
+    var box3 = document.getElementById("box3");
+    // box.onclick = function () {
+    //     console.log("单击了")
+    // }
+
+    // function addEvent(dom, type, handler){
+    //     if(dom.addEventListener){
+    //         console.log("上面的")
+    //         dom.addEventListener(type, handler, false);
+    //     }else{
+    //         console.log("下面的")
+    //         dom.attachEvent('on' + type, handler);
+    //     }
+    // }
+
+    function addEvent(dom, type, handler){
+        if(dom.addEventListener){
+            console.log("上面的")
+            dom.addEventListener(type, handler, false);
+
+            // 惰性函数核心:
+            // 函数执行一遍之后, 修改函数的执行逻辑
+            addEvent = function (dom, type, handler) {
+                dom.addEventListener(type, handler, false);
+            }
+
+        }else{
+            console.log("下面的")
+            dom.attachEvent('on' + type, handler);
+            // 惰性函数核心:
+            // 函数执行一遍之后, 修改函数的执行逻辑
+            addEvent = function (dom, type, handler) {
+                dom.attachEvent('on' + type, handler);
+            }
+        }
+    }
+
+    addEvent(box, "click", function () {
+        console.log("单击")
+    })
+    addEvent(box1, "click", function () {
+        console.log("单击")
+    })
+    addEvent(box2, "click", function () {
+        console.log("单击")
+    })
+    addEvent(box3, "click", function () {
+        console.log("单击")
+    })
+
+
+</script>
+
+
+
+</body>
+</html>

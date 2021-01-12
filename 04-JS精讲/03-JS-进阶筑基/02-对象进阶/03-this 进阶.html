@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03-this 进阶</title>
+</head>
+<body>
+
+<script type="text/html">
+
+    // 谁调用这个函数, this就是谁
+    // function test() {
+    //     console.log(this)
+    // }
+    // // console.log(window)
+    //
+    // // window.test();
+    // // test();
+    //
+    // let obj = {name: "小撩"};
+    // obj.other = test;
+    //
+    // obj.other()
+
+
+    // let person = {
+    //     name: "sz",
+    //     age: 18,
+    //     run: function () {
+    //         console.log(this, "跑!")
+    //     }
+    // }
+    // // person.run()
+    // let other = person.run;
+    // other()
+
+</script>
+
+<script type="text/html">
+
+    function test() {
+        console.log(this)
+    }
+    new test()
+
+</script>
+
+<script type="text/html">
+
+
+    let person = {
+        name: "sz",
+        age: 18,
+        run:  function() {
+            // 箭头函数内部, 没有自己的this, 往外层作用域去找this
+            console.log(this.name, "跑!")
+        },
+        eat: function () {
+
+            console.log(this)
+            let that = this;
+            // setTimeout( () => {
+            //     console.log("吃完了", this)
+            //     this.run()
+            // }, 3000)
+            setTimeout(function () {
+                console.log("吃完了", that)
+                that.run()
+            }, 3000)
+        }
+    }
+
+    person.eat();
+
+</script>
+
+<script type="text/html">
+
+    function test() {
+        console.log(this)
+    }
+
+    let obj = {
+        name: "小撩"
+    }
+
+    // 绑定死, 函数内部的this指向 -> obj; 返回一个一模一样的函数
+    /*
+    function test() {
+        this = obj;
+        console.log(this)
+    }
+    */
+    let newFunc = test.bind(obj);
+    // console.log(newFunc)
+    // newFunc()
+
+    let person = {
+        name: "sz",
+        other: newFunc
+    }
+    person.other()
+
+
+</script>
+
+<script type="text/html">
+
+    // 伪数组
+    // 长的比较像数组的对象
+    let arr = ["a", "b", "c"];
+
+    arr.push("d");
+    console.log(arr);
+
+    // function push(item) {
+    //     this[this.length] = item;
+    //     this.length++
+    // }
+    //
+
+    let fadeArray = {
+        0: "a",
+        1: "b",
+        2: "c",
+        length: 3
+    }
+
+    // let newFunc = Array.prototype.push.bind(fadeArray)
+    // newFunc("d");
+
+
+    Array.prototype.push.call(fadeArray, "d", "e")
+    Array.prototype.push.apply(fadeArray, ["d", "e"])
+
+    console.log(fadeArray);
+    // fadeArray.push("d")
+    // console.log(fadeArray);
+
+
+</script>
+
+<script>
+    
+
+</script>
+
+</body>
+</html>

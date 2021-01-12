@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>05-重复使用的调用结果，事先保存到局部变量</title>
+</head>
+<body>
+
+<script type="text/html">
+
+    function jiecheng(n) {
+        if (n === 1) return 1;
+        return n * jiecheng(n - 1);
+    }
+    let temp = jiecheng(5);
+    console.log(temp + 3);
+    console.log(temp + 4);
+    console.log(temp + 5);
+    console.log(temp + 7);
+
+
+</script>
+
+<script>
+
+    (function () {
+        let resultObj = {
+
+        }
+        function jiecheng(n) {
+            // 先到缓存里面, 看一下有没有对应的计算好的结果
+            if (resultObj[n]) {
+                console.log("缓存结果")
+                return resultObj[n]
+            }
+            // 这一坨代码才是计算
+            console.log("没有缓存, 需要计算")
+            let result = 1;
+            for (let i = 1; i <= n; i++) {
+                result *= i
+            }
+            resultObj[n] = result
+            return result;
+        }
+        window.jiecheng = jiecheng
+    })()
+
+
+    console.log(jiecheng(5));
+    console.log(jiecheng(5));
+    console.log(jiecheng(5));
+    console.log(jiecheng(6));
+    console.log(jiecheng(6));
+    console.log(jiecheng(6));
+    console.log(jiecheng(7));
+    console.log(jiecheng(6));
+
+
+</script>
+
+</body>
+</html>

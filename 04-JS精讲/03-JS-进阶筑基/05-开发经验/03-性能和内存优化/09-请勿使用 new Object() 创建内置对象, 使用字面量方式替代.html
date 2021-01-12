@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>09-请勿使用 new Object() 创建内置对象, 使用字面量方式替代</title>
+</head>
+<body>
+
+
+<script>
+    function Person() {
+        this.name = "sz"
+        this.age = 18
+    }
+
+    let p = new Person();
+
+    let p2 = {
+        name: "sz",
+        age: 18
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02-Promise使用</title>
+</head>
+<body>
+
+<script type="text/html">
+    // 1. 创建一个Promise实例
+    // 创建的promise对象拥有三种状态
+    // 执行中
+    // 失败
+    // 成功
+
+    let promise = new Promise((resolve, reject) => {
+        // resolve: 函数
+        // reject: 函数
+        // 这两个函数, 都是Promise给你提供的, 让你来使用
+
+        // 我们需要做的事情
+        // 在这个函数内部, 合适的时机, 让promise状态 从执行中 -> 成功  或者 -> 失败
+        // resolve(): promise状态变为成功
+        // reject() : promise状态变为失败
+        setTimeout(function () {
+            let num = Math.random();
+            console.log(num)
+            if (num > 0.5) {
+                // promise状态变为成功
+                resolve(num);
+            } else {
+                // promise状态变为失败
+                reject("当前数值太小了" + num)
+            }
+        }, 2000)
+
+    })
+
+    // promise对象的使用
+    promise.then(function (val) {
+        console.log("promise状态变为成功时执行", val)
+    }).catch(function (err) {
+        console.log("promise状态变为失败时执行", err)
+    })
+
+
+</script>
+
+<script type="text/html">
+
+    // 1. 执行器, 会在promise对象创建的同时, 立即执行
+    // 2. promise状态不发生变更, .then, .catch 内部的回调永远都不会被执行
+    // 3. resolve执行, 和 then 绑定时机, 没有先后顺序
+    let promise = new Promise((resolve, reject) => {
+        console.log("执行")
+        resolve(123);
+        // 异步操作
+    })
+
+    setTimeout(function () {
+        promise.then(function (val) {
+            console.log("成功", val)
+        }).catch(error=>{
+            console.log("错误", error)
+        })
+    }, 3000)
+
+
+
+</script>
+
+<script type="text/html">
+
+    let numPromise = new Promise((resolve)=>{
+        setTimeout(function () {
+            let num = Math.random()
+            resolve(num)
+        }, 1000)
+    })
+
+    numPromise.then(function (num1) {
+        // throw new Error("xxxxx")
+        return new Promise((resolve)=>{
+            setTimeout(function () {
+                let num2 = Math.random()
+                resolve([num1, num2])
+            }, 1000)
+        })
+    }).then(function ([num1, num2]) {
+        return new Promise((resolve)=>{
+            setTimeout(function () {
+                let num3 = Math.random()
+                resolve([num1, num2, num3])
+            }, 1000)
+        })
+    }).then(([num1, num2, num3]) => {
+        console.log(num1, num2, num3)
+
+    }).catch(error=>{
+        console.log("捕获到异常错误", error)
+    })
+
+    // numPromise.then(function (result) {
+    //     console.log(result)
+    //     return new Promise((resolve)=>{
+    //         setTimeout(function () {
+    //             let num = Math.random()
+    //             resolve(num)
+    //         }, 1000)
+    //     })
+    // }).then(function (result2) {
+    //     console.log(result2)
+    //     return new Promise((resolve)=>{
+    //         setTimeout(function () {
+    //             let num = Math.random()
+    //             resolve(num)
+    //         }, 1000)
+    //     })
+    // }).then(result3=>{
+    //     console.log(result3)
+    // })
+
+
+</script>
+
+
+<script>
+    let p1 = new Promise((resolve)=>{
+        setTimeout(function () {
+            let num = Math.random()
+            resolve(num)
+        }, 1000)
+    })
+    let p2 = new Promise((resolve)=>{
+        setTimeout(function () {
+            let num = Math.random()
+            resolve(num)
+        }, 1000)
+    })
+    let p3 = new Promise((resolve)=>{
+        setTimeout(function () {
+            let num = Math.random()
+            resolve(num)
+        }, 1000)
+    })
+
+    Promise.all([p1, p2, p3]).then(results=>{
+        console.log(results)
+    })
+
+
+</script>
+
+</body>
+</html>

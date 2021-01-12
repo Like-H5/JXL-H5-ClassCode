@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>05-面向对象的三大特性-多态性</title>
+</head>
+<body>
+
+<script type="text/html">
+
+    let dog = {
+        name: "小花",
+        age: 2,
+        type: "dog"
+    }
+    let cat = {
+        name: "小黑",
+        age: 1,
+        type: "cat"
+    }
+
+    let sheep = {
+        name: "小绵",
+        age: 0.5,
+        type: "sheep"
+    }
+
+
+    function hitAnimal(animal) {
+        if (animal.type === "dog") {
+            console.log("小狗汪汪叫!")
+        } else if(animal.type === "cat") {
+            console.log("小猫喵喵叫")
+        }
+    }
+
+    hitAnimal(sheep)
+
+
+
+
+</script>
+
+<script>
+    let dog = {
+        name: "小花",
+        age: 2,
+        jiao() {
+            console.log("小狗汪汪叫!")
+        }
+    }
+    let cat = {
+        name: "小黑",
+        age: 1,
+        jiao() {
+            console.log("小猫喵喵叫!")
+        }
+    }
+
+    let sheep = {
+        name: "小绵",
+        age: 0.5,
+        jiao() {
+            console.log("小羊咩咩叫!")
+        }
+    }
+
+    let tiger = {
+        name: "小虎",
+        age: 6,
+        jiao() {
+            console.log("啊呜叫")
+        }
+    }
+
+
+    function hitAnimal(animal) {
+        // if (animal.type === "dog") {
+        //     console.log("小狗汪汪叫!")
+        // } else if(animal.type === "cat") {
+        //     console.log("小猫喵喵叫")
+        // }
+        if (animal.jiao instanceof Function) {
+            animal.jiao()
+        }
+
+    }
+
+    hitAnimal(cat)
+    hitAnimal(tiger)
+
+
+
+</script>
+
+</body>
+</html>

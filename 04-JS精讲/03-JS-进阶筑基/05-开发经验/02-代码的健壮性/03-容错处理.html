@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03-容错处理</title>
+</head>
+<body>
+
+
+<script>
+
+    function exec(cb, num=0) {
+        // if (typeof cb === "function") {
+        if(cb instanceof Function) {
+            let result = cb();
+            console.log(result);
+        }
+
+        num.toString()
+
+    }
+
+    exec(function () {
+        return 123;
+    })
+
+    exec(456)
+
+    function parsePersonAge(age) {
+        if (typeof age === "number") {
+            if (age < 0 || age > 300) {
+                console.log("age数据不正确!")
+            }
+        }
+    }
+
+    parsePersonAge(-10)
+
+</script>
+
+
+
+</body>
+</html>

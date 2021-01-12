@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>06-函数的防抖和节流</title>
+</head>
+<body>
+
+<p id="show"></p>
+
+<input type="text" id="itlike">
+
+<script type="text/html">
+
+    let input = document.getElementById("itlike");
+
+
+    let show = document.getElementById("show");
+
+    input.oninput = function () {
+    // console.log(input.value)
+    show.innerText = input.value;
+    }
+
+
+    // document.onmousemove = function () {
+    //     console.log("移动")
+    // }
+
+</script>
+
+<script type="text/html">
+    let input = document.getElementById("itlike");
+
+
+    let show = document.getElementById("show");
+
+    let timer;
+    input.oninput = function () {
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+    // 主要逻辑, 不要立即执行
+    show.innerText = input.value;
+    }, 1000)
+    }
+
+
+</script>
+
+
+<script type="text/html">
+    let input = document.getElementById("itlike");
+    let show = document.getElementById("show");
+
+    let timer;
+    // abc
+    input.oninput = function () {
+    if (!timer) {
+    timer = setTimeout(function () {
+    // 主要逻辑, 不要立即执行
+    show.innerText = input.value;
+    timer = null;
+    }, 2000)
+    }
+    }
+
+</script>
+
+
+<script type="text/html">
+
+    let input = document.getElementById("itlike");
+    let show = document.getElementById("show");
+
+    let preTime = 0;
+    // abc
+    input.oninput = function () {
+        // 时间戳: 最新的时间 举例 1970 1 1 0 0 0 毫秒数
+        let now = Date.now()
+        if (now - preTime > 2000) {
+            show.innerText = input.value;
+            preTime = now;
+        }
+    }
+
+</script>
+
+
+<script>
+
+    let input = document.getElementById("itlike");
+    let show = document.getElementById("show");
+
+    let preTime = 0;
+    let timer;
+    // abc
+    input.oninput = function () {
+        // 时间戳: 最新的时间 举例 1970 1 1 0 0 0 毫秒数
+        let now = Date.now()
+        if (now - preTime > 2000) {
+            show.innerText = input.value;
+            preTime = now;
+            clearTimeout(timer);
+        } else {
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                // 主要逻辑, 不要立即执行
+                show.innerText = input.value;
+                preTime = now;
+            }, 1000)
+        }
+    }
+
+
+
+</script>
+
+</body>
+</html>

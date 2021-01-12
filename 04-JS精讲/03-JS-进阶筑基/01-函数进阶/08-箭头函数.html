@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>08-箭头函数</title>
+</head>
+<body>
+
+
+<script type="text/html">
+
+    // function test(a, b, c) {
+    //     let result = a + b + c;
+    //     return result;
+    // }
+
+    // let sum = (a, b, c) => {
+    //     let result = a + b + c;
+    //     return result;
+    // }
+
+    let sum2 = a => {
+    return a * 3;
+    }
+
+    // let sum3 = a => console.log(a);
+    //
+    // sum3(123)
+
+    let sum = a => a * 3;
+    console.log(sum(6));
+
+</script>
+
+<script>
+
+
+    // let a = 10;
+    // function test() {
+    //     console.log(a)
+    // }
+
+    // let school = {
+    //     name: '撩课学院',
+    //     logThis: function () {
+    //         console.log(this)
+    //         // let that = this;
+    //         // setTimeout(function () {
+    //         //
+    //         //     console.log(that);
+    //         // }, 1000);
+    //         setTimeout(() => {
+    //             // console.log(a);
+    //             console.log(this)
+    //         },1000);
+    //     }
+    // };
+    // school.logThis();
+
+
+    // function sum() {
+    //     console.log(arguments)
+    // }
+    // let cheng = () => {
+    //     console.log(arguments)
+    // }
+    // console.log(cheng(1, 2, 3)
+
+
+    console.log([1, 2, 3, 4].map(v => v * v));
+    console.log([1, 2, 3, 4].map((v)=>{
+        return v ** 2
+    }));
+    console.log([1, 2, 3, 4].map(function (v) {
+        return v ** 2
+    }));
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02-对象的创建进阶</title>
+</head>
+<body>
+
+<script type="text/html">
+    // 简单的创建方式
+    // 字面量  Object
+    // let obj = {
+    //     name: "sz",
+    //     age: 18,
+    //     run() {
+    //         console.log(this.name, "跑起来!")
+    //     }
+    // }
+    // let obj2 = new Object();
+    // obj2.name = "sz";
+    // obj2.age = 18;
+    // console.log(obj2);
+
+
+    // request({
+    //     url: "http://www.baidu.com",
+    //     method: "get",
+    //     param: {
+    //         name: "Sz",
+    //         age: 18
+    //     }
+    // })
+
+</script>
+
+<script type="text/html">
+
+    let zhangsan = {
+    p_name: "张三",
+    age: 18,
+    address: "北京"
+    }
+    let lisi = {
+    p_name: "李四",
+    age : 17,
+    address: "上海"
+    }
+
+
+</script>
+
+<script type="text/html">
+    let zhangsan = {
+    name: "张三",
+    age: 18,
+    address: "北京",
+    run: function () {
+    console.log("跑!")
+    }
+    }
+
+    // 把一个对象, -> JSON格式的字符串
+    let result = JSON.stringify(zhangsan)
+    // console.log(result, typeof result)
+
+    // 把json格式的字符串 -> js当中的对象
+    let obj = JSON.parse(result);
+    // console.log(obj, typeof obj)
+
+    obj.name = "李四";
+    console.log(zhangsan, obj);
+
+    // let lisi = zhangsan;
+    //
+    // lisi.name = "李四";
+    //
+    // console.log(zhangsan, lisi);
+
+
+</script>
+
+<script type="text/html">
+    // 工厂函数
+    // 你把原材料, 传过来, 我给你一个加工好的产品
+    function createPerson(name, age, address) {
+    return {
+    name,
+    age,
+    address
+    }
+    }
+    function createDog(name, age, address) {
+    return {
+    name,
+    age,
+    address
+    }
+    }
+
+    let p1 = createPerson("张三", 18, "上海");
+    let p2 = createPerson("李四", 17, "北京");
+    let d1 = createDog("小花", 2, "北京");
+    console.log(p1, p2, d1)
+
+</script>
+
+<script type="text/html">
+    // 0. 构造函数: 构建出具体对象的函数
+    // 1. 可以追溯对象的类型
+    // 2. 合理的分配方法的资源存储
+    // let arr = [1,2,3];
+    // let arr2 = new Array(1,2,3);
+    // // arr.join()
+    // // arr.concat()
+    // function test() {}
+    // console.log(test.constructor.name)
+
+
+    // 首字母一般大写(标注它是一个类)
+    // 类 和 对象
+    // 人  张三
+    // 杯子
+    // 小狗
+    function Person(name, age) {
+    // {}
+    // this 就是新创建的空白对象(引用地址)
+    this.name = name;
+    this.age = age;
+
+    //
+    // return this;
+    }
+
+    function Dog(name, age) {
+    // console.log(this)
+    // this {}
+    this.name = name;
+    this.age = age;
+
+    return {xx:123};
+    }
+
+    let d = new Dog("xxx", 123);
+    console.log(d)
+
+    // function sum() {
+    //
+    // }
+    //
+    //
+    // let p1 = new Person("sz", 18);
+    // let p2 = new Person("小花", 2);
+    //
+    // let d1 = new Dog("小撩", 6)
+    //
+    // // console.log(p.constructor.name)
+    // console.log(p1, p2, d1)
+
+</script>
+
+<script type="text/html">
+    // 1. 可以追溯类型
+    // function Person(name, age) {
+    //     // this
+    //     this.name = name;
+    //     this.age = age;
+    // }
+    //
+    // let p = new Person("sz", 18);
+    //
+    // console.log(p, p.constructor.name)
+
+
+    // 2. 可以分配资源(方法资源)的存储
+    function Person(name, age) {
+    // this => {}
+    // this: 外界是通过new关键字创建的这么一个对象 -> {}
+    this.name = name;
+    this.age = age;
+
+    this.run = function () {
+    // this: 谁调用这个方法, this就是谁
+    console.log(window)
+    console.log(this.age, "跑起来!")
+    }
+    }
+
+    let p = new Person("sz", 18);
+
+    let other = p.run;
+    other()
+
+    // p.run();
+    //
+    // let p2 = new Person("xxx", 16);
+    // p2.run()
+    // console.log(p, p2)
+
+    // console.log(window)
+    // // Person("")
+    //
+    // let p = window.Person("sz", 18);
+    // console.log(p)
+
+</script>
+
+<script type="text/html">
+    // 类型
+    // 创建对象的一个模板
+    // 类
+    function Person(name, age) {
+    // this {}
+    this.name = name;
+    this.age = age;
+    this.run = function () {
+    console.log(this.name, "跑!")
+    }
+    }
+
+
+    Person.count = 123;
+    Person.log = function () {
+    console.log(456)
+    }
+
+    // 实例化
+
+    // 根据模板创建出来的一个具体的对象
+    // 实例
+    let p = new Person("sz", 18);
+    p.run()
+
+    // console.dir(Person)
+    // console.log(p);
+
+
+</script>
+
+<script type="text/html">
+
+    // Array
+    // 实例
+    // 类 x
+    // let arr = ["a", "b", "c"];
+    // console.log(arr.join("-"));
+
+
+    // Math.PI
+
+    // Number.MAX_VALUE
+
+    // 类
+    // 静态方法
+
+    // 伪数组 -> 真实的数组
+    // console.log(Array.from({0: "a", 1: "b", length: 2}));
+
+    // console.dir(Array)
+    // let arr2 = [];
+    // arr2.from({0: "a", 1: "b", length: 2})
+
+
+    function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    this.run = function () {
+
+    }
+    if (!Person.count) {
+    Person.count = 1;
+    } else {
+    Person.count++
+    }
+    }
+    Person.logCount = function () {
+    console.log("当前总共创建了实例个数: ", this.count)
+    }
+
+
+    // 对象类型
+    let p1 = new Person("sz", 18);
+    let p2 = new Person("xl", 2);
+
+    Person.logCount()
+
+
+</script>
+
+<script type="text/html">
+
+    //    function runFunc() {
+    //        // this
+    //        console.log(this.name, "跑!")
+    //    }
+    //
+    //
+    //    function Person(name, age) {
+    //        this.name = name;
+    //        this.age = age;
+    //        this.run = runFunc;
+    //    }
+    //
+    //    let p1 = new Person("sz", 18);
+    //    let p2 = new Person("xl", 2);
+    //
+    //    console.log(p1, p2);
+    //    p1.run();
+    //    p2.run();
+    //
+    //
+    //    runFunc()
+
+
+    let arr = [1, 2, 3];
+    console.log(arr.join("-"));
+    let arr2 = [4, 5, 6]
+    console.log(arr, arr2)
+</script>
+
+<script type="text/html">
+
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Person.prototype.run = function () {
+    //     console.log(this, "跑!")
+    // }
+    // Person.prototype.eat = function () {
+    //     console.log(this, "吃!")
+    // }
+    // Person.prototype.count = 123;
+
+
+    Person.prototype = {
+        constructor: Person,
+        run: function () {
+                console.log(this, "跑!")
+            },
+        eat: function () {
+            console.log(this, "吃!")
+        },
+        count: 123
+    }
+
+    let p1 = new Person("sz", 18);
+    let p2 = new Person("jh", 2);
+    // console.log(p)
+
+    // console.log(p1, p2);
+
+    p1.run();
+    p2.eat();
+    console.log(p1.constructor.name);
+
+    // p1.xxx = function () {
+    //     console.log("xxx")
+    // }
+    // console.log(p1)
+
+
+    // console.log(Array.prototype);
+
+</script>
+
+<script type="text/html">
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    Person.prototype.count = "abc";
+
+    let p1 = new Person("sz", 18);
+
+    console.log(p1.hasOwnProperty("name"))
+
+    console.log("count" in p1, p1);
+
+    // if (p1 instanceof Object) {
+    //     console.log("yes")
+    // } else {
+    //     console.log("no")
+    // }
+    //
+    // console.log(Person.prototype.isPrototypeOf(p1));
+
+    // Person.prototype = {
+    //     constructor: Person,
+    //     run: function () {
+    //         console.log(this, "跑!")
+    //     },
+    //     eat: function () {
+    //         console.log(this, "吃!")
+    //     },
+    //     count: 123
+    // }
+    //
+    //
+    // let p2 = new Person("jh", 2);
+    // p2.run = function () {
+    //     console.log("new run")
+    // }
+    //
+    // p2.run()
+
+    // p1.run();
+    // p2.eat();
+
+</script>
+
+<script type="text/html">
+    // 1. 为什么要设计自定义构造函数(类)
+    // 1.1 为了批量创建很多很多相同结构的对象
+    // 1.2 创建的每一个对象, 都可以追溯它所隶属的类型
+    // 1.3 合理的分配一些资源(属性和方法)
+
+    // 类  实例  原型对象
+
+    function Stu(name, age, num) {
+        // this : 实例属性
+        this.name = name;
+        this.age = age;
+        this.num = num;
+
+        Stu.count ++;
+
+    }
+
+    // 原型对象身上的方法: 实例调用
+    Stu.prototype.study = function () {
+        console.log(this.name, "学习!")
+    }
+
+    Stu.count = 0;
+    Stu.logCount = function () {
+        console.log("学生的个数: ", this.count)
+    }
+    Stu.from = function (obj) {
+        let {name, age, num} = obj;
+        return new Stu(name, age, num);
+    }
+
+    // let p1 = new Stu("sz1", 18, "001")
+    // let p2 = new Stu("sz2", 19, "002")
+    // let p3 = new Stu("sz3", 16, "003")
+    // console.log(p1, p2, p3);
+    // p1.study();
+    // p2.study();
+    // p3.study();
+    //
+    // Stu.logCount()
+
+    let obj = {
+        name: "sz",
+        age: 19,
+        address: "上海",
+        num: "008"
+    }
+    let stu = Stu.from(obj);
+    console.log(stu.constructor.name, stu);
+
+
+</script>
+
+<script>
+    // function Stu2() {
+    //
+    // }
+    class Stu {
+        // 实例属性
+        school = "北大";
+
+        // 实例方法
+        // study = function () {
+        //     console.log("学习")
+        // }
+        constructor(name, age, num) {
+            // 实例属性的设计
+            this.name = name;
+            this.age = age;
+            this.num = num;
+
+            // 实例方法
+            // this.study = function () {
+            //     console.log("学习")
+            // }
+        }
+
+
+        // 原型对象身上的方法
+        // 实例来调用
+        study () {
+            console.log("学习")
+        }
+
+
+        // 静态属性
+        // 静态方法
+        static count = 123;
+        static logCount() {
+            console.log("学生个数: ", this.count)
+        }
+
+    }
+
+    let s1 = new Stu("sz", 18, "001");
+    let s2 = new Stu("sz2", 16, "002");
+    console.log(s1, s2)
+
+</script>
+
+</body>
+</html>

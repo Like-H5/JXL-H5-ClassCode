@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>07-面向对象的三大特性-继承性-原型链资源访问优先级</title>
+</head>
+<body>
+
+
+<script>
+
+    class Animal {
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        static count = 123;
+        static logCount() {
+            console.log("总个数: ", this.count)
+        }
+        eat() {
+            console.log(this.name, "吃吃吃!")
+            console.log(1)
+            console.log(2)
+            console.log(3)
+            console.log(4)
+            console.log(5)
+        }
+    }
+
+
+    class Dog extends Animal{
+        constructor(name, age, color) {
+            super(name, age);
+            this.color = color;
+        }
+        eat() {
+            // console.log(this.name, "吃吃吃!")
+            super.eat()
+            console.log("汪汪汪")
+        }
+    }
+
+    let dog = new Dog("小红", 6, "black")
+    console.log(dog)
+    dog.eat()
+
+
+
+</script>
+
+</body>
+</html>

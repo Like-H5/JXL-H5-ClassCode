@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01-对象-ES6新增的使用小技巧</title>
+</head>
+<body>
+
+<script type="text/html">
+    let name = prompt("请输入你的姓名: ");
+    let age = prompt("请输入你的年龄: ");
+
+    // let person = {
+    //     name: name,
+    //     age: age
+    // }
+    let person = {
+        name,
+        age
+    }
+
+    console.log(person)
+
+</script>
+
+<script type="text/html">
+
+    // let person = {
+    //     name: "sz",
+    //     age: 18,
+    //     run: function () {
+    //         console.log(this.name, "跑起来!")
+    //     }
+    // }
+    let person = {
+        name: "sz",
+        age: 18,
+        run() {
+            console.log(this.name, "跑起来!")
+        }
+    }
+    console.log(person)
+    person.run()
+
+
+</script>
+
+<script type="text/html">
+   // let obj1 = {
+   //     name: "sz",
+   //     age: 18
+   // }
+   // let obj2 = {
+   //     address: "上海",
+   //     tel: "1888888888"
+   // }
+
+   // 把衣服剥掉
+   /*
+   * {
+       name: "sz",
+       age: 18,
+       address: "上海",
+       tel: "1888888888"
+   * }
+   *
+   * */
+   // let obj3 = {...obj1, ...obj2};
+   // console.log(obj3)
+
+
+   // let arr1 = [1, 2, 3];
+   // let arr2 = [4, 5, 6];
+   // // console.log(arr1.concat(arr2));
+   // let result = [...arr1, ...arr2];
+   // console.log(result)
+
+   let nums = [1, 4, 7, 2, 8, 9];
+   console.log(Math.max(...nums));
+
+
+   function min() {
+       console.log(Math.min(...arguments));
+   }
+   min(10, 109, 999);
+
+</script>
+
+<script type="text/html">
+    // let arr = ['张三', '李四', '王五'];
+    // // let p1 = arr[0];
+    // // let p2 = arr[1];
+    // // let p3 = arr[2];
+    // // console.log(p1, p2, p3);
+    // // 等价于
+    // let [p1, p2, p3] = arr;
+    // console.log(p1, p2, p3)
+
+
+    // let a = 123;
+    // let b = 456;
+    //
+    // [b, a] = [a, b]
+    //
+    // // let temp = a;
+    // // a = b;
+    // // b = temp;
+    // console.log(a, b)
+
+
+    let nums = [1,2,3,4];
+    let [,,three, four] = nums;
+    console.log(three, four)
+
+</script>
+
+<script>
+    // let obj = { name: '撩课学院', site: 'itLike.com', address: "北京" };
+    // // 找到对象当中名称为name的属性值, 赋值给 变量名为name的变量
+    // // let {name} = obj;
+    //
+    // // 找到对象当中名称为name的属性值, 赋值给 lkName
+    // // let {name: lkName} = obj;
+    // // console.log(lkName)
+    //
+    // let {address: addr="上海"} = obj;
+    // console.log(addr)
+
+
+    let [
+        { name: lkName, site: lkSite },
+        { colleges: [one, two, three] },
+        pets
+    ] = [
+        { name: '撩课学院', site: 'itLike.com'},
+        { colleges: ['Web', 'Java', 'Python'] },
+        '小撩'
+    ];
+    console.log(lkName, lkSite, one, pets);
+
+</script>
+
+</body>
+</html>

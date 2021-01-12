@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>06-减少循环中的处理</title>
+</head>
+<body>
+
+
+<script>
+    // let arr = ["a", "b", "c"];
+    // // let len = arr.length;
+    // for (let i = 0, len = arr.length; i < len; i++) {
+    //     console.log(arr[i])
+    // }
+
+
+    function jc(n) {
+        if (n === 1) return 1;
+        return n * jc(n - 1);
+    }
+
+    for (let i = 0, count = jc(5); i < count; i++) {
+        console.log(i)
+    }
+
+</script>
+
+
+</body>
+</html>

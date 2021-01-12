@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>07-ES6函数的语法特性-参数</title>
+</head>
+<body>
+
+<script type="text/html">
+
+    // function sum(x, y) {
+    //     y = y || 0;
+    //     return x + y;
+    // }
+
+    function sum(x=6, y=0) {
+        return x + y;
+    }
+
+    // console.log(sum(2, 3));
+    // console.log(sum(2));
+    console.log(sum());
+
+
+</script>
+
+<script type="text/html">
+
+    // function parse(arr, obj) {
+    //     console.log(arr[1], obj.name)
+    // }
+
+    function parse([,num], {name}) {
+        console.log(num, name)
+    }
+
+    parse([1, 2], {age: 18, name: "sz"})
+
+
+</script>
+
+<script type="text/html">
+
+    function required() {
+        throw new Error('缺少参数')
+    }
+
+
+    function add(a = required(), b = required()) {
+        return a + b;
+    }
+
+    add(1)
+
+
+</script>
+
+
+<script>
+
+    function add() {
+        let result = 0;
+        for (let i = 0; i < arguments.length; i++) {
+            result += arguments[i]
+        }
+        return result;
+    }
+    function cheng() {
+        let result = 1;
+        for (let i = 0; i < arguments.length; i++) {
+            result *= arguments[i]
+        }
+        return result;
+    }
+
+    // console.log(cheng(3, 2, 3));
+
+    function exec(func, ...nums) {
+        // console.log(func, nums);
+        return func(...nums)
+    }
+
+    console.log(exec(cheng, 1, 2, 3, 4, 5));
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>04-异常处理</title>
+</head>
+<body>
+
+<script type="text/html">
+
+
+    function sum(n1=0, n2=0) {
+        if (typeof n1 !== "number" || typeof n2 !== "number") {
+            // console.log("数据类型有问题!")
+            // throw
+            throw TypeError("类型错误")
+        }
+        return n1 + n2;
+    }
+
+    // console.log(sum(2, 3));
+    console.log(sum("a", 3));
+
+    console.log("下一行");
+    console.log("下一行");
+    console.log("下一行");
+
+
+</script>
+
+<script>
+
+    function sum(n1=0, n2=0) {
+        if (typeof n1 !== "number" || typeof n2 !== "number") {
+            // console.log("数据类型有问题!")
+            // throw
+            throw TypeError("类型错误")
+        }
+        return n1 + n2;
+    }
+
+    // console.log(sum(2, 3));
+
+    try {
+        // 芳有可能出现错误异常的代码
+        console.log(sum("a", 3));
+    } catch (e) {
+        // 如果说上面的代码, 出现错误了, 那么就会执行这个代码块
+        // 给你一个捕获到的错误对象 e
+        console.log("当前捕获到了错误")
+        console.dir(e)
+
+    } finally {
+        // 不管有没有错, 都会执行这一块
+        // 释放资源
+        console.log("都会执行")
+    }
+
+
+
+
+    console.log("下一行");
+    console.log("下一行");
+    console.log("下一行");
+
+</script>
+
+</body>
+</html>

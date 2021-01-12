@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>05-科里化函数</title>
+</head>
+<body>
+
+
+<script type="text/html">
+
+    function sum(a, b, c) {
+        return a + b + c;
+    }
+
+    function sumOther(a) {
+        return function (b) {
+            return function (c) {
+                return a + b + c;
+            }
+        }
+    }
+
+    console.log(sum(1, 2, 3));
+
+    console.log(sumOther(1)(2)(3));
+
+
+</script>
+
+
+<script type="text/html">
+
+    // 对数
+    // log24 === 2
+    // log10  100 = 2
+
+    function ds(di, num) {
+        for (let i = 1; i <= num; i++) {
+            if (di ** i === num) {
+                return i;
+            } else if(di ** i > num) {
+                return;
+            }
+        }
+    }
+
+    function ds_klh(di) {
+        return function (num) {
+            for (let i = 1; i <= num; i++) {
+                if (di ** i === num) {
+                    return i;
+                } else if(di ** i > num) {
+                    return;
+                }
+            }
+        }
+    }
+
+
+    // lg100 ==
+    let lg = ds_klh(10);
+    console.log(lg(100));
+    console.log(lg(1000));
+    console.log(lg(10000));
+    console.log(lg(100000));
+    console.log(lg(1000000));
+
+
+    let log2 = ds_klh(2);
+    console.log(log2(2));
+    console.log(log2(4));
+    console.log(log2(8));
+    console.log(log2(17));
+
+
+
+    //
+    // console.log(ds(10, 100));
+    // console.log(ds(10, 1000));
+    // console.log(ds(10, 10000));
+    // console.log(ds(10, 100000));
+
+
+</script>
+
+<script>
+    function login(account) {
+        if (account === "sz") {
+            return function (doST) {
+                console.log("管理员, 做事", doST);
+            }
+        } else {
+            return function () {
+                console.log("身份验证不通过, 请重新登录")
+            }
+        }
+    }
+
+    let person = login("sz2");
+    person("吃饭");
+    person("睡觉");
+</script>
+
+</body>
+</html>

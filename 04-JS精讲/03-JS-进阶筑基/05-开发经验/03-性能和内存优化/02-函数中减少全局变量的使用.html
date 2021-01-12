@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02-函数中减少全局变量的使用</title>
+</head>
+<body>
+
+<script>
+
+    function updateUI() {
+        let sz_getElementById = document.getElementById;
+        for (let i = 0; i < 10; i++) {
+            let dom = sz_getElementById("id" + i);
+        }
+    }
+
+    updateUI()
+
+
+</script>
+
+
+</body>
+</html>

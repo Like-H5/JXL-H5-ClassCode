@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>04-面向对象的三大特性-封装性</title>
+</head>
+<body>
+
+<script type="text/html">
+
+    // 1. 全局变量
+    //   生命周期比较长
+    //   污染全局变量名
+    //
+
+    let value = 0;
+
+    function clear() {
+        value = 0;
+    }
+    function jia(num) {
+        value += num;
+    }
+    function jian(num) {
+        value -= num;
+    }
+    function cheng(num) {
+        value *= num;
+    }
+    function logResult() {
+        console.log("计算结果是: ", value)
+    }
+
+
+    clear();
+    jia(3);
+    jian(1);
+    cheng(6);
+    value = 123;
+    logResult()
+
+
+
+
+</script>
+
+<script type="text/html">
+
+    function Calculate(initValue) {
+        this.value = initValue;
+
+        // this.jia = function (num) {
+        //     this.value += num;
+        // }
+    }
+    Calculate.prototype = {
+        constructor: Calculate,
+        clear() {
+          this.value = 0;
+        },
+        jia: function (num) {
+            this.value += num;
+        },
+        jian: function (num) {
+            this.value -= num;
+        },
+        cheng: function (num) {
+            this.value *= num;
+        },
+        logResult: function () {
+            console.log("计算结果是: ", this.value)
+        }
+    }
+
+    let cal = new Calculate(0);
+    cal.jia(2)
+    cal.jian(5)
+    cal.cheng(6)
+    cal.logResult();
+
+    cal.clear()
+    cal.jia(10)
+    cal.cheng(6)
+    cal.logResult()
+
+</script>
+
+<script type="text/html">
+
+
+    // 链式编程
+    class Calculate {
+        constructor(initValue) {
+            this.value = initValue;
+        }
+        clear() {
+            this.value = 0;
+            return this;
+        }
+        jia(num) {
+            this.value += num;
+            return this;
+        }
+        jian(num) {
+            this.value -= num;
+            return this;
+        }
+        cheng(num) {
+            this.value *= num;
+            return this;
+        }
+        logResult() {
+            console.log("计算结果是: ", this.value)
+            return this;
+        }
+    }
+
+    let cal = new Calculate(1);
+    // 1 + 6 * 3 输出
+    cal.value = 123;
+    cal.jia(6).cheng(3).logResult().clear().jia(10).logResult()
+
+</script>
+
+<script>
+
+    (function () {
+        let value = 0;
+        class Calculate {
+            constructor(initValue) {
+                value = initValue;
+            }
+            clear() {
+                value = 0;
+                return this;
+            }
+            jia(num) {
+                value += num;
+                return this;
+            }
+            jian(num) {
+                value -= num;
+                return this;
+            }
+            cheng(num) {
+                value *= num;
+                return this;
+            }
+            logResult() {
+                console.log("计算结果是: ", value)
+                return this;
+            }
+        }
+        // return Calculate
+        window.Calculate = Calculate
+    })()
+
+
+    let cal = new Calculate(1);
+    // 1 + 6 * 3 输出
+    cal.value = 123;
+    cal.jia(6).cheng(3).logResult().clear().jia(10).logResult()
+
+
+</script>
+
+</body>
+</html>

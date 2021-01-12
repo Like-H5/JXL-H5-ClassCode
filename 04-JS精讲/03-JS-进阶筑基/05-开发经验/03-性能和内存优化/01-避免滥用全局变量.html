@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01-避免滥用全局变量</title>
+</head>
+<body>
+
+
+<!--<script src="otherLib.js"></script>-->
+<script>
+
+    // let num = 0;
+    function logResult() {
+        function other() {
+            let num = 1 + 2;
+            console.log(num)
+        }
+        other()
+    }
+    logResult()
+
+
+</script>
+
+
+
+</body>
+</html>

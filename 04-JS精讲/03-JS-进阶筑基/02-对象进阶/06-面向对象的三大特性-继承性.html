@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>06-面向对象的三大特性-继承性</title>
+</head>
+<body>
+
+
+
+<script type="text/html">
+
+    class Animal {
+        constructor(height, weight, age, name) {
+            this.height = height;
+            this.weight = weight;
+            this.age = age;
+        }
+        eat() {
+            console.log("吃饭")
+        }
+        sleep() {
+            console.log("睡觉")
+        }
+        run() {
+            console.log("跑步")
+        }
+    }
+
+    class Dog extends Animal{
+        constructor(height, weight, age, color) {
+            super(height, weight, age);
+            this.color = color;
+        }
+        shout() {
+            console.log("叫")
+        }
+    }
+
+    class Erha {
+        constructor(height, weight, age, color, zhishang) {
+            this.height = height;
+            this.weight = weight;
+            this.age = age;
+            this.color = color;
+            this.zhishang = zhishang;
+        }
+        eat() {
+            console.log("吃饭")
+        }
+        sleep() {
+            console.log("睡觉")
+        }
+        run() {
+            console.log("跑步")
+        }
+        shout() {
+            console.log("叫")
+        }
+        chaijia() {
+            console.log("拆家")
+        }
+    }
+
+
+    let dog = new Dog(2, 3, 5, "red");
+    dog.run()
+
+
+</script>
+
+<script type="text/html">
+   // 子类 继承自 父类
+   // 静态资源
+   // 实例资源
+   // 原型资源
+   
+   function Animal() {
+       
+   }
+   Animal.count = 123;
+   Animal.logCount = function () {
+       console.log("总个数: ", this.count)
+   }
+   
+   
+   function Dog() {
+       
+   }
+
+   // 作用: 将父类, 设置为 子类的原型对象
+   Object.setPrototypeOf(Dog, Animal)
+
+   console.dir(Dog)
+
+   console.log(Dog.count);
+   Dog.logCount();
+
+
+</script>
+
+<script type="text/html">
+
+    // 子类 继承自 父类
+    // 静态资源
+    // 实例资源
+    // 原型资源
+
+    function Animal(name, age) {
+        // this -> 动物的空白对象
+        this.name = name;
+        this.age = age;
+    }
+    Animal.count = 123;
+    Animal.logCount = function () {
+        console.log("总个数: ", this.count)
+    }
+    let animal = new Animal("小黑", 6);
+    console.log(animal)
+
+    function Dog(name, age, color) {
+        // this.name = name;
+        // this.age = age;
+        // this -> 小狗的空白对象
+        Animal.call(this, name, age)
+        this.color = color;
+    }
+
+    // 作用: 将父类, 设置为 子类的原型对象
+    Object.setPrototypeOf(Dog, Animal)
+
+    let dog = new Dog("xxx", 2, "red");
+    console.log(dog);
+
+</script>
+
+<script type="text/html">
+
+    // 子类 继承自 父类
+    // 静态资源
+    // 实例资源
+    // 原型资源
+
+    function Animal(name, age) {
+        // this -> 动物的空白对象
+        this.name = name;
+        this.age = age;
+    }
+    Animal.count = 123;
+    Animal.logCount = function () {
+        console.log("总个数: ", this.count)
+    }
+
+    Animal.prototype.eat = function () {
+        console.log(this.name, "吃吃吃!")
+    }
+    let animal = new Animal("小红", 2);
+    animal.eat()
+
+
+
+    function Dog(name, age, color) {
+        // this.name = name;
+        // this.age = age;
+        // this -> 小狗的空白对象
+        Animal.call(this, name, age)
+        this.color = color;
+    }
+
+    // 作用: 将父类, 设置为 子类的原型对象
+    Object.setPrototypeOf(Dog, Animal)
+
+    Object.setPrototypeOf(Dog.prototype, Animal.prototype);
+
+
+    let dog = new Dog("小黑", 1, "red");
+    dog.eat()
+
+
+</script>
+
+<script>
+
+    class Animal {
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        static count = 123;
+        static logCount() {
+            console.log("总个数: ", this.count)
+        }
+        eat() {
+            console.log(this.name, "吃吃吃!")
+        }
+    }
+
+    // let animal = new Animal("小黑", 2);
+    // console.log(animal)
+    // console.dir(Animal)
+    // console.log(Animal.prototype)
+
+    class Dog extends Animal{
+        constructor(name, age, color) {
+            super(name, age);
+            this.color = color;
+        }
+    }
+
+    // console.log(Dog.count);
+    // Dog.logCount()
+    // console.dir(Dog)
+
+    let dog = new Dog("小红", 6, "black")
+    console.log(dog)
+    dog.eat()
+
+
+
+</script>
+
+</body>
+</html>

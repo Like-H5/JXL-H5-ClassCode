@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02-手动打造数组操作底层实现</title>
+</head>
+<body>
+
+<script type="text/html">
+    // szForEach
+
+    function logResult(item, index, arr) {
+        // 做一些关于结果的处理逻辑
+        console.log(item, index, arr)
+    }
+
+    function alertResult(item, index, arr) {
+        alert(item)
+        alert(index)
+    }
+
+
+    Array.prototype.szForEach = function (func) {
+        // this 数组
+        for (let i = 0; i < this.length; i++) {
+            let item = this[i];
+            // console.log(item, i, this)
+            // logResult(item , i, this)
+            // alertResult(item , i, this)
+            // let func = alertResult;
+            func(item, i, this)
+        }
+    }
+
+
+    let arr = ["a", "b", "c"];
+    // arr.szForEach(function (value, index, arr) {
+    //
+    // })
+
+    // console.log(arr);
+    arr.szForEach(function (item) {
+        // 做一些关于结果的处理逻辑
+        console.log(item + "sz")
+    })
+
+
+</script>
+
+
+<script type="text/html">
+
+    Array.prototype.szFind = function (cb) {
+        for (let i = 0; i < this.length; i++) {
+            let item = this[i];
+            // i
+            // this
+            let isTrue = cb(item, i, this)
+            if (isTrue) {
+                return item
+            }
+        }
+    }
+
+    let arr = [
+        {name: "sz0", age: 16},
+        {name: "sz1", age: 18},
+        {name: "sz2", age: 20}
+    ]
+    let result = arr.szFind((item, index, array)=>{
+        return item.age === 18
+    })
+    console.log(result)
+
+
+
+</script>
+
+<script type="text/html">
+
+    Array.prototype.szFilter = function (cb) {
+        let result = []
+        for (let i = 0; i < this.length; i++) {
+            let item = this[i];
+            // i
+            // this
+            let isTrue = cb(item, i, this)
+            if (isTrue) {
+                result.push(item)
+            }
+        }
+        return result;
+    }
+
+    let arr = [
+        {name: "sz0", age: 16},
+        {name: "sz1", age: 18},
+        {name: "sz2", age: 20}
+    ]
+    let result = arr.szFilter((item, index, array)=>item.age >= 18)
+    console.log(result)
+
+
+</script>
+
+
+<script>
+
+
+
+    Array.prototype.szMap = function (cb) {
+        let result = [];
+        for (let i = 0; i < this.length; i++) {
+            let item = this[i];
+            let temp = cb(item, i, this)
+            result.push(temp)
+        }
+        return result;
+    }
+
+
+    let arr = [2, 4, 6, 8];
+    console.log(arr.szMap(num => num ** 4));
+    console.log(arr.szMap(num => num / 2));
+
+
+</script>
+
+</body>
+</html>

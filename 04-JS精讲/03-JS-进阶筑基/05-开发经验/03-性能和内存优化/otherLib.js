@@ -1,0 +1,1 @@
+let n = 123;function t(){}
