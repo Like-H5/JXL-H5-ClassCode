@@ -1,0 +1,73 @@
+
+    =======================================
+    错误类型: ReferenceError
+    错误描述: abc is not defined
+    错误时间: 2021-1-20 15:14:6
+    错误堆栈: ReferenceError: abc is not defined
+    at C:\Users\50156\Desktop\JXL-H5-ClassCode\05-NodeJS精讲\02-Express精讲\04-Express路由中间件使用\02-应用中间件的挂载\demo\src\index.js:18:5
+    at Layer.handle [as handle_request] (C:\Users\50156\Desktop\JXL-H5-ClassCode\05-NodeJS精讲\02-Express精讲\04-Express路由中间件使用\02-应用中间件的挂载\demo\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\50156\Desktop\JXL-H5-ClassCode\05-NodeJS精讲\02-Express精讲\04-Express路由中间件使用\02-应用中间件的挂载\demo\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\50156\Desktop\JXL-H5-ClassCode\05-NodeJS精讲\02-Express精讲\04-Express路由中间件使用\02-应用中间件的挂载\demo\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\50156\Desktop\JXL-H5-ClassCode\05-NodeJS精讲\02-Express精讲\04-Express路由中间件使用\02-应用中间件的挂载\demo\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\50156\Desktop\JXL-H5-ClassCode\05-NodeJS精讲\02-Express精讲\04-Express路由中间件使用\02-应用中间件的挂载\demo\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\50156\Desktop\JXL-H5-ClassCode\05-NodeJS精讲\02-Express精讲\04-Express路由中间件使用\02-应用中间件的挂载\demo\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\50156\Desktop\JXL-H5-ClassCode\05-NodeJS精讲\02-Express精讲\04-Express路由中间件使用\02-应用中间件的挂载\demo\node_modules\express\lib\router\index.js:275:10)
+    at C:\Users\50156\Desktop\JXL-H5-ClassCode\05-NodeJS精讲\02-Express精讲\04-Express路由中间件使用\02-应用中间件的挂载\demo\src\middlewares\rizhiM.js:39:9
+    at Layer.handle [as handle_request] (C:\Users\50156\Desktop\JXL-H5-ClassCode\05-NodeJS精讲\02-Express精讲\04-Express路由中间件使用\02-应用中间件的挂载\demo\node_modules\express\lib\router\layer.js:95:5)
+    =======================================
+    
+        =======================================
+        错误类型: ReferenceError
+        错误描述: abc is not defined
+        错误时间: 2021-1-20 15:22:22
+        错误堆栈: ReferenceError: abc is not defined
+    at C:\Users\50156\Desktop\JXL-H5-ClassCode\05-NodeJS精讲\02-Express精讲\04-Express路由中间件使用\02-应用中间件的挂载\demo\src\index.js:18:5
+    at Layer.handle [as handle_request] (C:\Users\50156\Desktop\JXL-H5-ClassCode\05-NodeJS精讲\02-Express精讲\04-Express路由中间件使用\02-应用中间件的挂载\demo\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\50156\Desktop\JXL-H5-ClassCode\05-NodeJS精讲\02-Express精讲\04-Express路由中间件使用\02-应用中间件的挂载\demo\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\50156\Desktop\JXL-H5-ClassCode\05-NodeJS精讲\02-Express精讲\04-Express路由中间件使用\02-应用中间件的挂载\demo\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\50156\Desktop\JXL-H5-ClassCode\05-NodeJS精讲\02-Express精讲\04-Express路由中间件使用\02-应用中间件的挂载\demo\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\50156\Desktop\JXL-H5-ClassCode\05-NodeJS精讲\02-Express精讲\04-Express路由中间件使用\02-应用中间件的挂载\demo\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\50156\Desktop\JXL-H5-ClassCode\05-NodeJS精讲\02-Express精讲\04-Express路由中间件使用\02-应用中间件的挂载\demo\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\50156\Desktop\JXL-H5-ClassCode\05-NodeJS精讲\02-Express精讲\04-Express路由中间件使用\02-应用中间件的挂载\demo\node_modules\express\lib\router\index.js:275:10)
+    at C:\Users\50156\Desktop\JXL-H5-ClassCode\05-NodeJS精讲\02-Express精讲\04-Express路由中间件使用\02-应用中间件的挂载\demo\src\middlewares\rizhiM.js:39:9
+    at Layer.handle [as handle_request] (C:\Users\50156\Desktop\JXL-H5-ClassCode\05-NodeJS精讲\02-Express精讲\04-Express路由中间件使用\02-应用中间件的挂载\demo\node_modules\express\lib\router\layer.js:95:5)
+        =======================================
+        
+        =======================================
+        错误类型: ReferenceError
+        错误描述: abc is not defined
+        错误时间: 2021-1-20 15:49:50
+        错误堆栈: ReferenceError: abc is not defined
+    at C:\Users\50156\Desktop\JXL-H5-ClassCode\05-NodeJS精讲\02-Express精讲\04-Express路由中间件使用\02-应用中间件的挂载\demo\src\index.js:18:5
+    at Layer.handle [as handle_request] (C:\Users\50156\Desktop\JXL-H5-ClassCode\05-NodeJS精讲\02-Express精讲\04-Express路由中间件使用\02-应用中间件的挂载\demo\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\50156\Desktop\JXL-H5-ClassCode\05-NodeJS精讲\02-Express精讲\04-Express路由中间件使用\02-应用中间件的挂载\demo\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\50156\Desktop\JXL-H5-ClassCode\05-NodeJS精讲\02-Express精讲\04-Express路由中间件使用\02-应用中间件的挂载\demo\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\50156\Desktop\JXL-H5-ClassCode\05-NodeJS精讲\02-Express精讲\04-Express路由中间件使用\02-应用中间件的挂载\demo\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\50156\Desktop\JXL-H5-ClassCode\05-NodeJS精讲\02-Express精讲\04-Express路由中间件使用\02-应用中间件的挂载\demo\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\50156\Desktop\JXL-H5-ClassCode\05-NodeJS精讲\02-Express精讲\04-Express路由中间件使用\02-应用中间件的挂载\demo\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\50156\Desktop\JXL-H5-ClassCode\05-NodeJS精讲\02-Express精讲\04-Express路由中间件使用\02-应用中间件的挂载\demo\node_modules\express\lib\router\index.js:275:10)
+    at C:\Users\50156\Desktop\JXL-H5-ClassCode\05-NodeJS精讲\02-Express精讲\04-Express路由中间件使用\02-应用中间件的挂载\demo\src\middlewares\rizhiM.js:39:9
+    at Layer.handle [as handle_request] (C:\Users\50156\Desktop\JXL-H5-ClassCode\05-NodeJS精讲\02-Express精讲\04-Express路由中间件使用\02-应用中间件的挂载\demo\node_modules\express\lib\router\layer.js:95:5)
+        =======================================
+        
+        =======================================
+        错误类型: Error
+        错误描述: ENOENT: no such file or directory, stat 'C:\images\1.jpeg'
+        错误时间: 2021-1-20 16:5:58
+        错误堆栈: Error: ENOENT: no such file or directory, stat 'C:\images\1.jpeg'
+        =======================================
+        
+        =======================================
+        错误类型: Error
+        错误描述: ENOENT: no such file or directory, stat 'C:\images\1.jpeg'
+        错误时间: 2021-1-20 16:6:1
+        错误堆栈: Error: ENOENT: no such file or directory, stat 'C:\images\1.jpeg'
+        =======================================
+        
+        =======================================
+        错误类型: Error
+        错误描述: ENOENT: no such file or directory, stat 'C:\Users\50156\Desktop\JXL-H5-ClassCode\05-NodeJS精讲\02-Express精讲\04-Express路由中间件使用\02-应用中间件的挂载\demo\src\public\course'
+        错误时间: 2021-1-20 16:8:17
+        错误堆栈: Error: ENOENT: no such file or directory, stat 'C:\Users\50156\Desktop\JXL-H5-ClassCode\05-NodeJS精讲\02-Express精讲\04-Express路由中间件使用\02-应用中间件的挂载\demo\src\public\course'
+        =======================================
+        
