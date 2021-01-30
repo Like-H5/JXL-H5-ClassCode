@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ejs测试模板</title>
+    <style>
+        li span {
+            font-size: 30px;
+            color: tomato;
+        }
+    </style>
+</head>
+<body>
+
+<ul>
+    <%
+    for(let i = 0, len = data.length; i < len; i++ ) {
+    let item = data[i];
+    %>
+    <li>
+        <span><%=item.name%></span>
+        <% if(item.age >= 18) { %>
+        <h3>成年</h3>
+        <% } else { %>
+        <h4>未成年</h4>
+        <% } %>
+        <h4><%=item.sex === 0 ? "女" : "男" %></h4>
+    </li>
+    <% } %>
+</ul>
+
+
+</body>
+</html>

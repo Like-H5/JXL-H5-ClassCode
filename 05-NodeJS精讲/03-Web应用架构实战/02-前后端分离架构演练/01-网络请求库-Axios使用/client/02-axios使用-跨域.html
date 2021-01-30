@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01-axios使用</title>
+</head>
+<body>
+
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>
+    axios.get("http://localhost:5000/list").then(response=>{
+        console.log("yes", response)
+    }).catch(error=>{
+        console.log("no", error)
+    })
+
+
+</script>
+
+
+</body>
+</html>

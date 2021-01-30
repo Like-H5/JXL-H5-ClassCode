@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>撩课-留言板</title>
+</head>
+<body>
+<div class="container">
+    <h3 class="text-center mt-5 mb-2">编辑留言</h3>
+    <form role="form" id="sz_form">
+        <input type="hidden" name="id" value="">
+        <div class="form-group">
+            <label for="title">留言的标题:</label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="请输入标题..." required value="">
+        </div>
+        <div class="form-group">
+            <label for="title">留言的内容:</label>
+            <textarea rows="5" class="form-control" id="content" name="content" placeholder="请输入留言内容..." required></textarea>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="保存留言" class="btn btn-danger float-right">
+        </div>
+    </form>
+</div>
+<script src="./js/axios.min.js"></script>
+<script>
+
+    function renderDataToForm(data) {
+        const {id, title, content} = data;
+        // console.log(sz_form, id, title, content)
+        sz_form.id.value = id;
+        sz_form.title.value = title;
+        sz_form.content.value = content;
+    }
+
+    let id = location.search.split("=")[1];
+    axios.get("http://localhost:5000/bwl/detail/"+id).then(({data})=>{
+        if (data.code === 0) {
+            renderDataToForm(data.data)
+        }
+    }).catch(error=>{
+        console.log("错误", error)
+    })
+
+</script>
+
+<script>
+    sz_form.onsubmit = function (evt) {
+        evt.preventDefault();
+        let id = sz_form.id.value;
+        let title = sz_form.title.value;
+        let content = sz_form.content.value;
+        // console.log(id, title, content)
+        axios.post("http://localhost:5000/bwl/edit", {
+            id, title, content
+        }).then(({data}) => {
+            if (data.code === 0) {
+                window.location = "/index.html"
+            }
+        }).catch(error=>{
+            console.log("错误", error)
+        })
+
+    }
+
+
+</script>
+
+</body>
+</html>

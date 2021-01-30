@@ -56,7 +56,7 @@ app.post("/add_teacher", upload.single('header'), (req, resp)=>{
 
 
 // 2.4 404中间件
-app.use(notFoundMF(path.resolve(__dirname, "./defaultPages/404.html")))
+app.use(notFoundMF(path.resolve(__dirname, "./defaultPages/404.ejs")))
 
 // 2.5 错误处理中间件
 app.use(handlerErrorMF(path.resolve(__dirname, `./data/errors/${getCurrentDate()}.txt`), path.resolve(__dirname, "./defaultPages/500.html")))

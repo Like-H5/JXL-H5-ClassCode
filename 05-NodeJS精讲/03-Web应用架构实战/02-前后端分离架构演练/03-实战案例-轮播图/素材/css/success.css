@@ -1,0 +1,21 @@
+h3 {
+    text-align: center;
+    font-size: 30px;
+    color: tomato;
+    margin-top: 100px;
+}
+h3 .left-time {
+    color: green;
+    font-weight: bold;
+}
+.home {
+    width: 200px;
+    height: 40px;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 40px;
+    background-color: tomato;
+    color: #fff;
+    margin: 20px auto;
+    cursor: pointer;
+}

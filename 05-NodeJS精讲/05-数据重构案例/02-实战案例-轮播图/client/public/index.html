@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+
+<div class="box">
+    <div class="content">
+        <ul>
+
+        </ul>
+    </div>
+    <div class="tabs">
+        <ul>
+
+        </ul>
+    </div>
+</div>
+
+<script src="/js/axios.min.js"></script>
+<script>
+
+
+    let contentUL = document.querySelector(".content>ul");
+    let titleUL = document.querySelector(".tabs>ul");
+    let baseURL = "http://localhost:5000";
+
+    axios.get(baseURL + "/lb/list").then(response=>{
+        console.log(response.data)
+
+        let titleLis = response.data.map((item, index)=>{
+            return `
+                <li class="${index === 0 ? 'active': '' }">${item.title}</li>
+            `
+        })
+        titleUL.innerHTML = titleLis.join("")
+        let imgLis = response.data.map(item=>{
+            return `
+               <li><a href="#"><img src="${baseURL + item.imgSrc}" alt="1"></a></li>
+            `
+        })
+        contentUL.innerHTML = imgLis.join("")
+        tx()
+
+    }).catch(error=>{
+        console.warn(error.message)
+    })
+
+
+</script>
+
+
+<script>
+
+    function tx() {
+        let currentIndex = 0;
+        let timerID;
+
+        // 1. 获取 所有的标题 li, 以及 图片 ul
+        let titles = document.querySelectorAll(".box>.tabs>ul>li")
+        let contentUL = document.querySelector(".box>.content>ul")
+        let contentW = document.querySelector(".box>.content").offsetWidth;
+
+        function goToIndex(index) {
+            // 3. 根据放上去的标题li, 索引, 来去控制ul, Left值的变化:
+            // 0    left: 0
+            // 1    left: - 1 * contentW(604)
+            // 2    left: - 2 * contentW(604)
+            contentUL.style.left = - index * contentW + "px";
+            titles[currentIndex].className = "";
+            titles[index].className = "active";
+            currentIndex = index;
+        }
+
+
+        // 2. 监听每一个标题li, 鼠标放上去事件
+        for (let i = 0; i < titles.length; i++) {
+            let titleLi = titles[i];
+            titleLi.onmouseover = function () {
+                clearInterval(timerID)
+                goToIndex(i)
+            }
+            titleLi.onmouseout = function () {
+                autoChange()
+            }
+        }
+
+
+        // 自动轮播
+        // 定时器, 不断的 ++ 索引值
+        function autoChange() {
+            clearInterval(timerID)
+            timerID = setInterval(function () {
+                let newIndex = currentIndex + 1;
+                // 范围 0 ---
+                newIndex = newIndex % contentUL.children.length;
+                goToIndex(newIndex)
+            }, 2000)
+        }
+
+        autoChange()
+    }
+
+
+</script>
+
+
+
+</body>
+</html>

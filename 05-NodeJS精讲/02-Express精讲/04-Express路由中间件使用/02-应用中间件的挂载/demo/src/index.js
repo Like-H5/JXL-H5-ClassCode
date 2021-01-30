@@ -57,7 +57,7 @@ app.post("/register",upload.single("header"), (req, resp, next)=>{
 })
 
 // 前面所写的路由, 都没有匹配到
-app.use(notFoundMF(path.resolve(__dirname, "./defaultPages/404.html")))
+app.use(notFoundMF(path.resolve(__dirname, "./defaultPages/404.ejs")))
 
 // 在最后的位置, 注册一个错误处理中间件(4个参数的中间件)
 app.use(handlerErrorMF(path.resolve(__dirname, `./errors/${getCurrentDate()}.txt`), path.resolve(__dirname, "./defaultPages/500.html")))
