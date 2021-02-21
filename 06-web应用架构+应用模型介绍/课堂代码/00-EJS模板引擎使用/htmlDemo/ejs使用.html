@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ejs使用</title>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="./ejs.js"></script>
+<script>
+    // 将数据渲染到页面内部(模板语法, 进行编写) -> 页面结果字符串
+
+    let pageTMP = `
+        <div>
+            <h1>姓名: <%=name%></h1>
+            <h2>年龄: <%=age%></h2>
+            <h3>地址: <%=address%></h3>
+        </div>
+        <span>
+            是否是讲师:
+            <%=is_teacher===1?"是": "否"%>
+        </span>
+        <% if (is_star === 0) { %>
+         <span>非星级</span>
+        <% } else { %>
+         <p>星级</p>
+        <% } %>
+
+
+        <ul>
+
+       <% for(let i = 0, len = pets.length; i < len; i ++) { %>
+        <li><%=pets[i]%></li>
+       <% } %>
+    </ul>
+
+
+    `
+    let data = {
+        name: "Sz",
+        age: 18,
+        address: "上海",
+        is_teacher: 1,
+        is_star: 1,
+        pets: ["小花", "小黑", "小红"]
+    }
+
+
+    // console.log();
+    document.getElementById("root").innerHTML = ejs.render(pageTMP, data);
+
+</script>
+
+</body>
+</html>

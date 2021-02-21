@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+
+<div>
+    <h1>姓名: <%=name%></h1>
+    <h2>年龄: <%=age%></h2>
+    <h3>地址: <%=address%></h3>
+</div>
+<span>
+            是否是讲师:
+            <%=is_teacher===1?"是": "否"%>
+        </span>
+<% if (is_star === 0) { %>
+<span>非星级</span>
+<% } else { %>
+<p>星级</p>
+<% } %>
+
+
+<ul>
+
+    <% for(let i = 0, len = pets.length; i < len; i ++) { %>
+    <li><%=pets[i]%></li>
+    <% } %>
+</ul>
+
+</body>
+</html>
