@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>props默认值和约束</title>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="../lib/react.development.js"></script>
+<script src="../lib/react-dom.development.js"></script>
+<script src="../lib/prop-types.js"></script>
+<script src="../lib/babel.min.js"></script>
+
+<script type="text/babel">
+
+    class Circle extends React.Component {
+        static defaultProps = {
+            r: 50
+        }
+        static propTypes = {
+            r: PropTypes.number.isRequired
+        }
+        render() {
+            const {r} = this.props;
+            let style = {
+                width: r * 2,
+                height: r * 2,
+                backgroundColor: "tomato",
+                borderRadius: r,
+                border: "1px solid red",
+                boxSizing: "border-box",
+                textAlign: "center",
+                color: "#fff",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center"
+            }
+            return <div style={style}>
+                <p>圆的半径: {r}px</p>
+                <p>圆的直径: {r + r}px</p>
+                <p>圆的周长: {2 * Math.PI * r}px</p>
+                <p>圆的面积: {Math.PI * r ** 2}</p>
+            </div>
+        }
+    }
+
+    // let v_dom = <div>
+    //     <Circle r={100}/>
+    //     <Circle r={150}/>
+    //     <Circle r={200}/>
+    // </div>
+
+    let v_dom = <div>
+        <Circle/>
+    </div>
+
+    ReactDOM.render(v_dom, document.getElementById("root"))
+
+
+</script>
+
+
+</body>
+</html>

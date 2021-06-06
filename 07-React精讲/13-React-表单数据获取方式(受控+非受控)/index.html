@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单数据获取</title>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="../lib/react.development.js"></script>
+<script src="../lib/react-dom.development.js"></script>
+<script src="../lib/babel.min.js"></script>
+
+<script type="text/babel">
+
+    // 受控组件
+    // 组件内部展示的数据, 受状态机当中的数据进行控制
+    // class BwlPane extends React.Component {
+    //     state = {
+    //         content: "",
+    //         data: [
+    //             "备忘1",
+    //             "备忘2",
+    //         ]
+    //     }
+    //     _handlerChange = (evt) => {
+    //         let temp = evt.target.value;
+    //         if(temp.charCodeAt(temp.length - 1) === 10) {
+    //             console.log("你按了回车", temp)
+    //
+    //             this.state.data.push(this.state.content)
+    //             this.setState({
+    //                 content: "",
+    //                 data: this.state.data
+    //             })
+    //
+    //         } else {
+    //             this.setState({
+    //                 content: evt.target.value
+    //             })
+    //         }
+    //     }
+    //     render() {
+    //         const {data, content} = this.state;
+    //         return (
+    //             <div>
+    //                 <label><textarea value={content} onChange={this._handlerChange} placeholder="请输入备忘录内容, 并且按回车结束"/></label>
+    //                 <ul>
+    //                     {data.map(item=><li key={item}>{item}</li>)}
+    //                 </ul>
+    //             </div>
+    //         )
+    //     }
+    // }
+
+    // class BwlPane extends React.Component {
+    //     constructor() {
+    //         super();
+    //         this.inputRef = React.createRef()
+    //     }
+    //     state = {
+    //         data: [
+    //             "备忘1",
+    //             "备忘2",
+    //         ]
+    //     }
+    //     _handlerKeyDown = (evt) => {
+    //         console.log(evt)
+    //         if (evt.key === "Enter") {
+    //             evt.preventDefault()
+    //             let value = this.inputRef.current.value;
+    //             console.log("按了回车", value)
+    //
+    //             this.inputRef.current.value = ""
+    //             this.state.data.push(value);
+    //             this.forceUpdate()
+    //         }
+    //     }
+    //     render() {
+    //         const {data} = this.state;
+    //         return (
+    //             <div>
+    //                 <label><textarea ref={this.inputRef} onKeyDown={this._handlerKeyDown}  placeholder="请输入备忘录内容, 并且按回车结束"/></label>
+    //                 <ul>
+    //                     {data.map(item=><li key={item}>{item}</li>)}
+    //                 </ul>
+    //             </div>
+    //         )
+    //     }
+    // }
+
+    class BwlPane extends React.Component {
+
+        state = {
+            data: [
+                "备忘1",
+                "备忘2",
+            ]
+        }
+        _handlerKeyDown = (evt) => {
+            console.log(evt)
+            if (evt.key === "Enter") {
+                evt.preventDefault()
+                let value = this.inputDOM.value;
+                console.log("按了回车", value)
+
+                this.inputDOM.value = ""
+                this.state.data.push(value);
+                this.forceUpdate()
+            }
+        }
+        render() {
+            const {data} = this.state;
+            return (
+                <div>
+                    <label><textarea ref={(ele) => {this.inputDOM = ele}} onKeyDown={this._handlerKeyDown}  placeholder="请输入备忘录内容, 并且按回车结束"/></label>
+                    <ul>
+                        {data.map(item=><li key={item}>{item}</li>)}
+                    </ul>
+                </div>
+            )
+        }
+    }
+
+    ReactDOM.render(<BwlPane/>, document.getElementById("root"))
+
+
+</script>
+
+</body>
+</html>

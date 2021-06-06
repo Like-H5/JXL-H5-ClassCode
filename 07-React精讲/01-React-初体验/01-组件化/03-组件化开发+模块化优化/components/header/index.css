@@ -1,0 +1,17 @@
+.header {
+    height: 30px;
+    border-left: 5px solid darkorange;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .title {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.header .more {
+    color: #666;
+}

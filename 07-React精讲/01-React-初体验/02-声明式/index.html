@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>声明式</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            background-color: lightgray;
+            text-align: center;
+        }
+        p.btn {
+            font-size: 26px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="lib/react.development.js"></script>
+<script src="lib/react-dom.development.js"></script>
+<script src="lib/babel.min.js"></script>
+
+<script type="text/babel">
+
+    class Counter extends React.Component {
+        state = {
+            num: 0
+        }
+        _handlerClick = () => {
+            this.setState({
+                num: this.state.num + 1
+            })
+        }
+        render() {
+            // 你有没有, 自己手动的获取h1标签元素, 修改它内部的内容 x
+            return (
+                <div>
+                    <h1>{this.state.num}</h1>
+                    <p className="btn" onClick={this._handlerClick}>点击更新</p>
+                </div>
+            )
+        }
+    }
+
+</script>
+
+<script type="text/babel">
+
+    let v_dom = <Counter/>
+    console.log(v_dom)
+    ReactDOM.render(v_dom, document.getElementById("root"))
+
+
+
+</script>
+
+</body>
+</html>

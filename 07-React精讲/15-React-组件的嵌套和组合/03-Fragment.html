@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03-Fragment</title>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="../lib/react.development.js"></script>
+<script src="../lib/react-dom.development.js"></script>
+<script src="../lib/babel.min.js"></script>
+
+<script type="text/babel">
+
+    class Container extends React.Component {
+        render() {
+            return <ul>
+                {this.props.children}
+            </ul>
+        }
+    }
+
+    class LiPane extends React.Component {
+        render() {
+            return (
+                <>
+                    <li>xxx</li>
+                    <li>xxx</li>
+                    <li>xxx</li>
+                </>
+            )
+            // return (
+            //     <React.Fragment>
+            //         <li>xxx</li>
+            //         <li>xxx</li>
+            //         <li>xxx</li>
+            //     </React.Fragment>
+            // )
+        }
+    }
+
+    let v_dom = <Container>
+        <LiPane/>
+    </Container>
+
+
+    ReactDOM.render(v_dom, document.getElementById("root"));
+
+</script>
+
+
+</body>
+</html>

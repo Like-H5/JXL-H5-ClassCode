@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>非组件化实现案例</title>
+
+    <style>
+        #root {
+            width: 450px;
+            margin: 100px auto;
+            border: 2px dashed gray;
+        }
+
+        .header {
+            height: 30px;
+            border-left: 5px solid darkorange;
+            padding: 0 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header .title {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .header .more {
+            color: #666;
+        }
+
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .content .box {
+            width: 100px;
+            height: 150px;
+            background-color: rgba(0, 0, 0, 0.4);
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content .box .top {
+            height: 100px;
+        }
+        .content .box .top img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+
+        .content .box .bottom {
+            flex: 1;
+            text-align: center;
+            color: #fff;
+        }
+
+        .content .box .bottom .name {
+            font-size: 18px;
+        }
+
+        .content .box .bottom .level {
+            font-size: 16px;
+            color: orange;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<div id="root">
+
+    <div class="header">
+        <div class="title">热门讲师</div>
+        <div class="more">查看更多</div>
+
+    </div>
+    <div class="content">
+
+<!--        在编码阶段, 存在代码冗余 : 一遍一遍的重复去写,
+
+function TeacherCard() { 写组件对应界面 }
+
+<TeacherCard/>
+<TeacherCard/>
+<TeacherCard/>
+<TeacherCard/>
+<TeacherCard/>
+<TeacherCard/>
+<TeacherCard/>
+<TeacherCard/>
+
+借助另外一个方法,  对界面进行渲染
+
+less 代码 -> 编译css -> 浏览器 css
+组件化开发的模式 -> 渲染 html -> 浏览器
+
+-->
+        <div class="box">
+
+            <div class="top">
+
+                <img src="images/xl.png" alt="">
+
+            </div>
+
+            <div class="bottom">
+
+                <div class="name">小撩老师</div>
+
+                <div class="level">特级讲师</div>
+
+            </div>
+
+        </div>
+
+        <div class="box">
+
+            <div class="top">
+
+                <img src="images/xl.png" alt="">
+
+            </div>
+
+            <div class="bottom">
+
+                <div class="name">小撩老师</div>
+
+                <div class="level">特级讲师</div>
+
+            </div>
+
+        </div>
+
+        <div class="box">
+
+            <div class="top">
+
+                <img src="images/xl.png" alt="">
+
+            </div>
+
+            <div class="bottom">
+
+                <div class="name">小撩老师</div>
+
+                <div class="level">特级讲师</div>
+
+            </div>
+
+        </div>
+
+        <div class="box">
+
+            <div class="top">
+
+                <img src="images/xl.png" alt="">
+
+            </div>
+
+            <div class="bottom">
+
+                <div class="name">小撩老师</div>
+
+                <div class="level">特级讲师</div>
+
+            </div>
+
+        </div>
+
+        <div class="box">
+
+            <div class="top">
+
+                <img src="images/xl.png" alt="">
+
+            </div>
+
+            <div class="bottom">
+
+                <div class="name">小撩老师</div>
+
+                <div class="level">特级讲师</div>
+
+            </div>
+
+        </div>
+
+        <div class="box">
+
+            <div class="top">
+
+                <img src="images/xl.png" alt="">
+
+            </div>
+
+            <div class="bottom">
+
+                <div class="name">小撩老师</div>
+
+                <div class="level">特级讲师</div>
+
+            </div>
+
+        </div>
+
+        <div class="box">
+
+            <div class="top">
+
+                <img src="images/xl.png" alt="">
+
+            </div>
+
+            <div class="bottom">
+
+                <div class="name">小撩老师</div>
+
+                <div class="level">特级讲师</div>
+
+            </div>
+
+        </div>
+
+        <div class="box">
+
+            <div class="top">
+
+                <img src="images/xl.png" alt="">
+
+            </div>
+
+            <div class="bottom">
+
+                <div class="name">小撩老师</div>
+
+                <div class="level">特级讲师</div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</body>
+
+</html>

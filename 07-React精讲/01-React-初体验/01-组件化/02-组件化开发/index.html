@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件化案例体验</title>
+    <style>
+        #root {
+            width: 450px;
+            margin: 100px auto;
+            border: 2px dashed gray;
+        }
+    </style>
+    <style>
+        .header {
+            height: 30px;
+            border-left: 5px solid darkorange;
+            padding: 0 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header .title {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .header .more {
+            color: #666;
+        }
+    </style>
+    <style>
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+    </style>
+    <style>
+        .box {
+
+            width: 100px;
+
+            height: 150px;
+
+            background-color: rgba(0, 0, 0, 0.4);
+
+            margin-top: 10px;
+
+            display: flex;
+
+            flex-direction: column;
+
+        }
+        .box .top {
+
+            height: 100px;
+
+        }
+        .box .top img {
+
+            width: 100px;
+
+            height: 100px;
+
+            border-radius: 50%;
+
+        }
+        .box .bottom {
+
+            flex: 1;
+
+            text-align: center;
+
+            color: #fff;
+
+        }
+        .box .bottom .name {
+
+            font-size: 18px;
+
+        }
+        .box .bottom .level {
+
+            font-size: 16px;
+
+            color: orange;
+
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div id="root"></div>
+
+<!--1. 封装对应的组件-->
+
+
+<!--2. 把各个组件, 组装为另外一个页面(组件)-->
+<script src="lib/react.development.js"></script>
+<script src="lib/react-dom.development.js"></script>
+<script src="lib/babel.min.js"></script>
+
+<script type="text/babel">
+    class Header extends React.Component {
+
+        render() {
+            return (
+                <div className="header">
+                    <div className="title">热门讲师</div>
+                    <div className="more">查看更多</div>
+                </div>
+            )
+        }
+    }
+
+    class Container extends React.Component {
+        render() {
+            return (
+                <div className="content">
+                    {this.props.children}
+                </div>
+            )
+        }
+    }
+
+    class TeacherCard extends React.Component {
+        render() {
+            return (
+                <div className="box">
+                    <div className="top">
+                        <img src="images/xl.png" alt=""/>
+                    </div>
+                    <div className="bottom">
+                        <div className="name">小撩老师</div>
+                        <div className="level">特级讲师</div>
+                    </div>
+                </div>
+            )
+        }
+    }
+
+</script>
+
+<script type="text/babel">
+
+    let page = <div>
+        <Header/>
+        <Container>
+            <TeacherCard/>
+            <TeacherCard/>
+            <TeacherCard/>
+            <TeacherCard/>
+            <TeacherCard/>
+            <TeacherCard/>
+            <TeacherCard/>
+            <TeacherCard/>
+        </Container>
+    </div>
+
+
+    ReactDOM.render(page, document.getElementById("root"));
+
+</script>
+
+
+</body>
+</html>

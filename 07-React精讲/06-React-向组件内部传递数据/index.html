@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>向组件内部传递数据-组件props</title>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="../lib/react.development.js"></script>
+<script src="../lib/react-dom.development.js"></script>
+<script src="../lib/babel.min.js"></script>
+
+<script type="text/babel">
+
+    class One extends React.Component {
+        _handlerClick = () => {
+            let money = Math.random() * 100;
+            // console.log("赚钱: ", money)
+            this.props.cb(money)
+        }
+        render() {
+            // console.log(this.props)
+            const {name, age, address} = this.props.person;
+            return (
+                <div>
+                    <h1>{name}</h1>
+                    <h2>{age}</h2>
+                    <h3>{address}</h3>
+                    <button onClick={this._handlerClick}>赚钱</button>
+                </div>
+            )
+        }
+    }
+
+    // function One(props) {
+    //     console.log(props)
+    //     const {name, age, address} = props.person;
+    //     return (
+    //         <div>
+    //             <h1>{name}</h1>
+    //             <h2>{age}</h2>
+    //             <h3>{address}</h3>
+    //         </div>
+    //     )
+    // }
+
+
+    let personData = {
+        name: "撩课-Sz",
+        age: 20,
+        address: "上海浦东"
+    }
+
+    function hanlderMoney(moneyData) {
+        console.log("外界接收到了money", moneyData)
+    }
+
+    let v_dom = <div>
+        <One person={personData} level={"管理员"} cb={hanlderMoney}/>
+    </div>
+
+    ReactDOM.render(v_dom, document.getElementById("root"))
+
+</script>
+
+</body>
+</html>

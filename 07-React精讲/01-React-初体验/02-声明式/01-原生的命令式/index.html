@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>命令式</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            background-color: lightgray;
+            text-align: center;
+        }
+        p.btn {
+            font-size: 26px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h1>0</h1>
+<p class="btn">点击更新</p>
+
+
+<script>
+    // 1. 通过一个变量记录当前的数据
+    let num = 0;
+
+    // 2. 监听按钮的单击事件
+    let btn = document.getElementsByClassName("btn")[0];
+    btn.onclick = function () {
+        // 2.1 更新数据
+        num ++;
+
+        // 2.2 数据渲染->界面(获取)
+        let h1 = document.getElementsByTagName("h1")[0];
+        h1.innerText = num;
+    }
+
+
+
+</script>
+
+</body>
+</html>

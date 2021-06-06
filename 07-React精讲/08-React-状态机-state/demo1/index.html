@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>皮肤切换</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+
+<div id="root"></div>
+
+<script src="../../lib/react.development.js"></script>
+<script src="../../lib/react-dom.development.js"></script>
+<script src="../../lib/babel.min.js"></script>
+
+<script type="text/babel">
+
+    class SkinChange extends React.Component {
+
+        state = {
+            index: 1
+        }
+
+        _handlerChange = (num) => {
+            console.log("鼠标放上来了", num)
+            this.setState({
+                index: num
+            })
+        }
+        render() {
+            const {data} = this.props;
+            const {index} = this.state;
+            return (
+                <div className="box" style={{backgroundImage: `url(${data[index].skinB})`}}>
+                    <ul className="skin-small">
+                        {data.map((item, num) => {
+                            return <li className={num === index ? "current" : ""} onMouseOver={() => this._handlerChange(num)}>
+                                <img src={item.skinS} alt=""/>
+                                <span className="skin-title">{item.title}</span>
+                            </li>
+                        })}
+
+                    </ul>
+                </div>
+            )
+        }
+    }
+
+
+    let data = [
+        {
+            skinS: "//game.gtimg.cn/images/yxzj/img201606/heroimg/118/118-smallskin-6.jpg",
+            skinB: "//game.gtimg.cn/images/yxzj/img201606/skin/hero-info/118/118-bigskin-6.jpg",
+            title: "天狼运算者"
+        },
+        {
+            skinS: "//game.gtimg.cn/images/yxzj/img201606/heroimg/118/118-smallskin-5.jpg",
+            skinB: "//game.gtimg.cn/images/yxzj/img201606/skin/hero-info/118/118-bigskin-5.jpg",
+            title: "归虚梦演"
+        },
+        {
+            skinS: "//game.gtimg.cn/images/yxzj/img201606/heroimg/118/118-smallskin-4.jpg",
+            skinB: "//game.gtimg.cn/images/yxzj/img201606/skin/hero-info/118/118-bigskin-4.jpg",
+            title: "妖精王"
+        },
+        {
+            skinS: "//game.gtimg.cn/images/yxzj/img201606/heroimg/118/118-smallskin-3.jpg",
+            skinB: "//game.gtimg.cn/images/yxzj/img201606/skin/hero-info/118/118-bigskin-3.jpg",
+            title: "天使之翼"
+        },
+        {
+            skinS: "//game.gtimg.cn/images/yxzj/img201606/heroimg/118/118-smallskin-2.jpg",
+            skinB: "//game.gtimg.cn/images/yxzj/img201606/skin/hero-info/118/118-bigskin-2.jpg",
+            title: "未来旅行"
+        },
+        {
+            skinS: "//game.gtimg.cn/images/yxzj/img201606/heroimg/118/118-smallskin-1.jpg",
+            skinB: "//game.gtimg.cn/images/yxzj/img201606/skin/hero-info/118/118-bigskin-1.jpg",
+            title: "逆流之时"
+        }
+    ]
+
+    let v_dom =
+        <div>
+            <SkinChange data={data}/>
+        </div>
+    ReactDOM.render(v_dom, document.getElementById("root"));
+
+</script>
+
+
+</body>
+</html>

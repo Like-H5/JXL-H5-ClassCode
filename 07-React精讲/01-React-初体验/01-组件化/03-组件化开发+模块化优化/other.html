@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>讲师卡片组件使用</title>
+    <link rel="stylesheet" href="components/teacherCard/index.css">
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="lib/react.development.js"></script>
+<script src="lib/react-dom.development.js"></script>
+<script src="lib/babel.min.js"></script>
+
+<script src="components/teacherCard/index.js" type="text/babel"></script>
+
+<script type="text/babel">
+
+    let v_dom = <div>
+        <TeacherCard/>
+        <TeacherCard/>
+        </div>
+
+    ReactDOM.render(v_dom, document.getElementById("root"))
+</script>
+
+</body>
+</html>

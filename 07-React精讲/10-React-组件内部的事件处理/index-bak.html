@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件处理</title>
+</head>
+<body>
+
+<button onclick="handlerClick()">撩课</button>
+
+<script>
+
+    function handlerClick() {
+        console.log('撩课-Sz')
+    }
+
+</script>
+
+<script>
+    let btn = document.getElementsByTagName("button")[0];
+    btn.onclick = function () {
+        handlerClick()
+    }
+
+
+</script>
+
+</body>
+</html>

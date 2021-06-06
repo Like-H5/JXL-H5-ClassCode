@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01-传统的渲染方式低效体现</title>
+</head>
+<body>
+
+<div class="person">
+    <h3 class="name">姓名: sz</h3>
+    <h4 class="age">年龄: 18</h4>
+    <h5 class="address">地址: 上海</h5>
+</div>
+<button class="update">更新</button>
+
+
+<script>
+    let data = {
+        name: "sz",
+        age: 2,
+        address: "上海"
+    }
+    function renderData(data) {
+        let person = document.getElementsByClassName("person")[0];
+        let temp = `
+        <h3 class="name">姓名: ${data.name}</h3>
+        <h4 class="age">年龄: ${data.age}</h4>
+        <h5 class="address">地址: ${data.address}</h5>
+
+        `
+        person.innerHTML = temp;
+    }
+
+
+    let updateBtn = document.getElementsByClassName("update")[0];
+    updateBtn.onclick = function () {
+        renderData(data)
+        data.age=19;
+        renderData(data);
+        data.age = 20;
+        renderData(data)
+
+        // 1. 更新的不仅仅是数据部分, 还包括了DOM对象的重建
+        // 2. 即使, 数据没有变化, 也会全部重新渲染
+        // 3. 如果连续做了两个, 数据变更, 那么也会渲染两次
+    }
+
+
+</script>
+
+</body>
+</html>

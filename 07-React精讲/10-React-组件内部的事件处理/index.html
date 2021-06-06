@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件处理</title>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="../lib/react.development.js"></script>
+<script src="../lib/react-dom.development.js"></script>
+<script src="../lib/babel.min.js"></script>
+
+<script type="text/babel">
+
+    class Card extends React.Component {
+
+        constructor() {
+            super();
+            this._handlerTwo = this._handlerTwo.bind(this)
+        }
+
+        state = {
+            num: 1
+        }
+
+        _handlerOne = () => {
+            console.log(111, this)
+            this.setState({
+                num: this.state.num + 1
+            })
+        }
+
+        _handlerTwo() {
+            console.log(222, this)
+            this.setState({
+                num: this.state.num + 2
+            })
+        }
+
+        // _handlerAdd = (num) => {
+        //     this.setState({
+        //         num: this.state.num + num
+        //     })
+        // }
+
+        _handlerAdd(num) {
+            this.setState({
+                num: this.state.num + num
+            })
+        }
+
+        render() {
+
+            return (
+                <div>
+                    <h1>{this.state.num}</h1>
+                    {/*<button onClick={ this._handlerOne }>撩课-1</button>
+                    <button onClick={ this._handlerTwo }>撩课-2</button>*/}
+                    <button onClick={ () => this._handlerAdd(1) }>撩课-1</button>
+                    <button onClick={ () => this._handlerAdd(2) }>撩课-2</button>
+                    <a href="/itlike" onClick={ (evt) => {
+                        evt.preventDefault()
+                        console.log("监听到了单击")
+                    }}>跳转</a>
+                </div>
+            )
+        }
+
+
+        // render() {
+        //     return (
+        //         <div>
+        //             <button onClick={ () => {
+        //                 console.log(111, this)
+        //             } }>撩课-1</button>
+        //             <button onClick={ function () {
+        //                 console.log(222, this)
+        //             } }>撩课-2</button>
+        //         </div>
+        //     )
+        // }
+    }
+
+    let v_dom = <div>
+        <Card/>
+    </div>
+
+    ReactDOM.render(v_dom, document.getElementById("root"));
+
+
+
+</script>
+
+</body>
+</html>

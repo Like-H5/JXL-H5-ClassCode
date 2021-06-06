@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件提升状态-案例</title>
+</head>
+<body>
+
+
+<div id="root"></div>
+
+<script src="../lib/react.development.js"></script>
+<script src="../lib/react-dom.development.js"></script>
+<script src="../lib/babel.min.js"></script>
+
+<script type="text/babel">
+    class Top extends React.Component {
+        render() {
+            return (
+                <div>顶部组件</div>
+            )
+        }
+    }
+
+    class Content extends React.Component {
+        render() {
+            return (
+                <div>内容组件</div>
+            )
+        }
+    }
+
+    class Bottom extends React.Component {
+        render() {
+            return (
+                <div>底部组件</div>
+            )
+        }
+    }
+
+    class TodoPage extends React.Component {
+        render() {
+            return (
+                <div>
+                    <Top/>
+                    <Content/>
+                    <Bottom/>
+                </div>
+            )
+        }
+    }
+
+    let v_dom = <TodoPage/>
+    ReactDOM.render(v_dom, document.getElementById("root"));
+
+
+</script>
+
+
+</body>
+</html>

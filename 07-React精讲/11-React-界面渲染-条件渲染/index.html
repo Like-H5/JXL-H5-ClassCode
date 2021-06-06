@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>条件渲染</title>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="../lib/react.development.js"></script>
+<script src="../lib/react-dom.development.js"></script>
+<script src="../lib/babel.min.js"></script>
+
+<script type="text/babel">
+
+    class UserCard extends React.Component {
+        state = {
+            isLogin: true
+        }
+        render() {
+
+            let loginPane = <div>
+                <h2>欢迎你, 亲爱的管理员</h2>
+                <button onClick={() => {
+                    this.setState({
+                        isLogin: false
+                    })
+                }}>退出登录</button>
+            </div>
+
+            let logoutPane = <div>
+                <h2>当前未登录, 请登录</h2>
+                <button onClick={() => {
+                    this.setState({
+                        isLogin: true
+                    })
+                }}>立即登录</button>
+            </div>
+
+            if (this.state.isLogin) {
+                return loginPane
+            } else {
+                return logoutPane
+            }
+        }
+    }
+
+    class CourseCard extends React.Component {
+        state = {
+            isLogin: true
+        }
+        render() {
+            return (
+                <div>
+                    <h3>这里是一个图片</h3>
+                    {this.state.isLogin ? <button>立即报名</button>: <button>立即登录</button>}
+                </div>
+            )
+        }
+    }
+
+
+    let v_dom = <CourseCard/>
+
+    ReactDOM.render(v_dom, document.getElementById("root"));
+
+
+</script>
+
+</body>
+</html>

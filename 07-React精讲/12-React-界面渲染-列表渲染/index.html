@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>列表渲染</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .box {
+            width: 400px;
+            margin: 100px auto;
+            background-color: orange;
+        }
+        .menus {
+            list-style: none;
+            display: flex;
+            height: 40px;
+        }
+        .menus li {
+            text-align: center;
+            flex: 1;
+            line-height: 40px;
+        }
+        .menus li:not(:last-child) {
+            border-right: 1px solid grey;
+        }
+        .logs {
+            width: 100%;
+            background-color: lightgray;
+            list-style: none;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="../lib/react.development.js"></script>
+<script src="../lib/react-dom.development.js"></script>
+<script src="../lib/babel.min.js"></script>
+<script type="text/babel">
+    class LogPane extends React.Component {
+
+        state = {
+            logs: [],
+            menus: [
+                {id: 1, title: "首页"},
+                {id: 2, title: "讲师"},
+                {id: 3, title: "课程"}
+            ]
+        }
+
+        _handlerClick = (item) => {
+            console.log(item)
+            // this.state.logs.push("点击了: " + item);
+            this.state.logs.unshift({id: Date.now() + Math.random() + Math.random(), title: "点击了: " + item});
+            this.forceUpdate()
+            // this.setState(preState=>{
+            //     preState.logs.push(item)
+            //     return {
+            //         logs: preState.logs
+            //     }
+            // })
+        }
+
+        render() {
+            // 1. 每一组虚拟DOM之间, 保证: key是唯一; 多组之间没有限制
+            // 2. 不能每一次都不一样
+            const {menus, logs} = this.state;
+            return (
+                <div className="box">
+                    <ul className="menus">
+                        {menus.map(item => {
+                            return <li key={item.id} onClick={() => this._handlerClick(item.title)}>{item.title}</li>
+                        })}
+                    </ul>
+                    <ul className="logs">
+                        {logs.map(item=><li key={item.id}><input type="checkbox"/>{item.title}</li>)}
+                    </ul>
+                </div>
+            )
+        }
+    }
+
+    let v_dom = <LogPane/>
+    ReactDOM.render(v_dom, document.getElementById("root"));
+
+</script>
+
+</body>
+</html>

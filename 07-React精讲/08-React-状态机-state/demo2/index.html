@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计数器</title>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="../../lib/react.development.js"></script>
+<script src="../../lib/react-dom.development.js"></script>
+<script src="../../lib/babel.min.js"></script>
+
+<script type="text/babel">
+
+    class Counter extends React.Component {
+        state = {
+            num: 0,
+            name: "撩课-Sz"
+        }
+        _addOne = () => {
+            // this.setState({
+            //     num: this.state.num + 1
+            // })
+            // this.state.num += 1
+            // this.forceUpdate()
+            // 1. 不能直接修改状态机的数据, 需要借助特定的方法 setState({ 修改的数据 })
+            //    直接修改, 不会触发, 界面的重新渲染
+
+            // 2. setState 是增量式更新
+            //    修改你所传递的键值对, 没传的, 不会修改
+            // this.setState({
+            //     num: this.state.num + 1,
+            //     name: "like"
+            // })
+
+            // 异步更新
+            // this.setState({
+            //     num: this.state.num + 1
+            // })
+            //
+            // this.setState({
+            //     num: this.state.num + 1
+            // })
+
+            this.setState({
+                num: this.state.num + 1
+            }, () => {
+                console.log("state, 已经更新完毕", this.state.num)
+                this.setState({
+                    num: this.state.num + 1
+                })
+            })
+
+
+            //
+            // console.log(this.state.num)
+            //
+            // 定时器回调当中: setState == 同步
+            // setTimeout( () => {
+            //     this.setState({
+            //         num: this.state.num + 1
+            //     })
+            //
+            //     console.log(this.state.num)
+            // }, 2000)
+
+            // this.setState({
+            //     num: this.state.num + 1
+            // })
+        }
+        _jianOne = () => {
+            // this.setState({
+            //     num: this.state.num - 1
+            // })
+
+            this.setState(preState=>{
+                // 返回更新的数据
+                return {
+                    num: preState.num - 1
+                }
+            })
+        }
+        componentDidMount() {
+
+        }
+
+        render() {
+            // 不要在render内部, 调用setState, 会造成死循环
+            // this.setState({
+            //     num: 1
+            // })
+            return (
+                <div>
+                    <h1>{this.state.name}</h1>
+                    <h2>{this.state.num}</h2>
+                    <button onClick={this._addOne}>+1</button>
+                    <button onClick={this._jianOne}>-1</button>
+                </div>
+            )
+        }
+    }
+
+    let v_dom = <div>
+        <Counter/>
+    </div>
+
+    ReactDOM.render(v_dom, document.getElementById("root"));
+
+
+</script>
+
+
+</body>
+</html>

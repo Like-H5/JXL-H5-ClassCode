@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02-嵌套关系</title>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="../lib/react.development.js"></script>
+<script src="../lib/react-dom.development.js"></script>
+<script src="../lib/babel.min.js"></script>
+
+<script type="text/html">
+
+    class Container extends React.Component {
+        render() {
+            return (
+                <div>
+                    <div className="top">顶部提示条</div>
+                    <div className="content">
+                        {this.props.children}
+                    </div>
+                </div>
+            )
+        }
+    }
+
+
+    let v_dom = <Container>
+        <div className="card">卡片1</div>
+        <div className="card">卡片2</div>
+        <div className="card">卡片3</div>
+        <div className="card">卡片4</div>
+    </Container>;
+
+    ReactDOM.render(v_dom, document.getElementById("root"));
+
+</script>
+
+<script type="text/html">
+    class Container extends React.Component {
+        render() {
+            return (
+                <div>
+                    <div className="top">顶部提示条</div>
+                    <div className="content">
+                        <div className="left">
+                            {this.props.leftDOM}
+                        </div>
+                        <div className="right">
+                            {this.props.rightDOM}
+                        </div>
+                    </div>
+                </div>
+            )
+        }
+    }
+
+    let leftDOM = <div>
+        <div className="card">左侧卡片1</div>
+        <div className="card">左侧卡片1</div>
+        <div className="card">左侧卡片1</div>
+    </div>
+
+    let rightDOM = <div>
+        <div className="card">右侧卡片1</div>
+        <div className="card">右侧卡片1</div>
+        <div className="card">右侧卡片1</div>
+    </div>
+
+    let v_dom = <Container leftDOM={leftDOM} rightDOM={rightDOM}/>;
+
+
+    ReactDOM.render(v_dom, document.getElementById("root"));
+</script>
+
+</body>
+</html>

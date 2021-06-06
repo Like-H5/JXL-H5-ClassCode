@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>props 和 state 对比</title>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="../lib/react.development.js"></script>
+<script src="../lib/react-dom.development.js"></script>
+<script src="../lib/prop-types.js"></script>
+<script src="../lib/babel.min.js"></script>
+<script type="text/html">
+
+    class Counter extends React.Component {
+        render() {
+            const {num} = this.props;
+            return <div>
+                <h1>{num}</h1>
+            </div>
+        }
+    }
+
+    let v_dom = <Counter num={10}/>
+    ReactDOM.render(v_dom, document.getElementById("root"))
+
+</script>
+
+<script type="text/html">
+    class DTimer extends React.Component {
+        state = {
+            num: 6
+        }
+
+        // 补充一个生命周期方法:
+        componentDidMount() {
+            console.log("组件被加载之后, 会调用这个方法")
+            this.timer = setInterval(() => {
+                this.setState(preState=>{
+                    return {
+                        num: preState.num - 1
+                    }
+                })
+                if (this.state.num === 0) {
+                    console.log("倒计时结束")
+                    clearInterval(this.timer)
+                }
+            }, 1000)
+        }
+
+        render() {
+            const {num} = this.state;
+            return (
+                <div>
+                    <h1>{num}</h1>
+                </div>
+            )
+        }
+    }
+
+    let v_dom = <div>
+        <DTimer/>
+    </div>
+
+    ReactDOM.render(v_dom, document.getElementById("root"));
+
+
+</script>
+
+<script type="text/babel">
+    class DTimer extends React.Component {
+        // constructor(props) {
+        //     super();
+        //     this.state = {
+        //         num: props.num
+        //     }
+        // }
+        static defaultProps = {
+            num: 0,
+            endCB: () => {}
+        }
+        static propTypes = {
+            num: PropTypes.number.isRequired,
+            endCB: PropTypes.func
+        }
+
+
+        state = {
+            num: this.props.num
+        }
+        // 补充一个生命周期方法:
+        componentDidMount() {
+            console.log("组件被加载之后, 会调用这个方法")
+            this.timer = setInterval(() => {
+                if (this.state.num <= 0) {
+                    clearInterval(this.timer)
+                    this.props.endCB()
+                    return;
+                }
+                this.setState(preState=>{
+                    return {
+                        num: preState.num - 1
+                    }
+                })
+
+            }, 1000)
+        }
+
+        render() {
+            const {num} = this.state;
+            return (
+                <div>
+                    <h1>{num}</h1>
+                </div>
+            )
+        }
+    }
+
+    function handlerEnd() {
+        console.log("外界知道了倒计时结束, 开始做其他事情")
+    }
+
+    let v_dom = <div>
+        <DTimer num={10} endCB={handlerEnd}/>
+        <DTimer  endCB={handlerEnd}/>
+        <DTimer num={"abc"} endCB={handlerEnd}/>
+    </div>
+
+    ReactDOM.render(v_dom, document.getElementById("root"));
+</script>
+
+</body>
+</html>

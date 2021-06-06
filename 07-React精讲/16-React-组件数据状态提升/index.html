@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件提升状态-案例</title>
+    <style>
+        .page {
+            width: 400px;
+            border: 1px solid tomato;
+            margin: 100px auto;
+        }
+    </style>
+    <style>
+        .top {
+            height: 40px;
+            background-color: lightcyan;
+        }
+        .top input {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+    <style>
+        .content ul{
+            list-style: none;
+            padding: 0;
+        }
+    </style>
+    <style>
+        .bottom {
+            height: 40px;
+            /*background-color: grey;*/
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 1px -3px 5px grey;
+        }
+        .bottom .right {
+            padding: 10px 15px;
+            background-color: tomato;
+            color: #fff;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="../lib/react.development.js"></script>
+<script src="../lib/react-dom.development.js"></script>
+<script src="../lib/babel.min.js"></script>
+
+<script type="text/babel">
+    class Top extends React.Component {
+        _handlerKeyDown = (evt) => {
+            if (evt.key === "Enter") {
+
+                let val = this.inputDOM.value;
+                // console.log("回车", val);
+                this.props.addFunc(val)
+                this.inputDOM.value = ""
+            }
+        }
+        render() {
+            return (
+                <div className="top">
+                    <label>
+                        <input ref={ele=>this.inputDOM = ele} onKeyDown={this._handlerKeyDown} type="text" placeholder="请输入内容, 回车技术"/>
+                    </label>
+                </div>
+            )
+        }
+    }
+
+    class Content extends React.Component {
+        _handlerChange = (id, isFinished) => {
+            // console.log(id, isFinished)
+            this.props.editFunc(id, isFinished)
+        }
+        render() {
+            const {data} = this.props;
+            return (
+                <div className="content">
+                    <ul>
+                        {data.map(item=>{
+                            return <li key={item.id}>
+                                <label><input type="checkbox" checked={item.isFinished} onChange={(evt) => {
+                                    this._handlerChange(item.id, evt.target.checked)
+                                }}/>{item.title}</label>
+                            </li>
+                        })}
+                    </ul>
+                </div>
+            )
+        }
+    }
+
+    class Bottom extends React.Component {
+        render() {
+            const {finishedCount, totalCount} = this.props;
+            return (
+                <div className="bottom">
+                    <div className="left">已完成/总共: {finishedCount}/{totalCount}</div>
+                    <div className="right" onClick={() => {
+                        this.props.delFunc()
+                    }}>清空已完成</div>
+                </div>
+            )
+        }
+    }
+
+    class TodoPage extends React.Component {
+        state = {
+            todoList: [
+                {id: 1, title: "吃饭", isFinished: false},
+                {id: 2, title: "睡觉", isFinished: true},
+                {id: 3, title: "吃着饭睡觉", isFinished: false},
+            ]
+        }
+
+        // 数据源在哪, 操作数据源的方法, 也应该在哪里
+        _addItem = (title) => {
+            console.log("拿到标题, 做后续处理", title)
+            this.state.todoList.unshift({id: Date.now(), title, isFinished: false})
+            this.forceUpdate()
+        }
+        _editItem = (id, isFinished) => {
+            this.state.todoList.find(item=>item.id === id).isFinished = isFinished;
+            this.forceUpdate()
+        }
+        _deleteFinishedItems = () => {
+            this.setState({
+                todoList: this.state.todoList.filter(item=>!item.isFinished)
+            })
+        }
+
+        render() {
+            const {todoList} = this.state;
+            let finishedCount = todoList.filter(item=>item.isFinished).length;
+            let totalCount = todoList.length;
+            return (
+                <div className="page">
+                    <Top addFunc={this._addItem}/>
+                    <Content data={todoList} editFunc={this._editItem}/>
+                    <Bottom finishedCount={finishedCount} totalCount={totalCount} delFunc={this._deleteFinishedItems}/>
+                </div>
+            )
+        }
+    }
+
+    let v_dom = <TodoPage/>
+    ReactDOM.render(v_dom, document.getElementById("root"));
+
+
+</script>
+
+
+</body>
+</html>

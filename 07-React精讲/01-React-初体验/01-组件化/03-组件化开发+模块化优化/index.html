@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件化案例体验</title>
+    <style>
+        #root {
+            width: 450px;
+            margin: 100px auto;
+            border: 2px dashed gray;
+        }
+    </style>
+
+<!--    1. 头部组件对应的样式-->
+    <link rel="stylesheet" href="./components/header/index.css">
+
+<!--    2. 容器对应的样式-->
+    <link rel="stylesheet" href="./components/container/index.css">
+
+<!--    3. 讲师卡片对应的样式-->
+    <link rel="stylesheet" href="components/teacherCard/index.css">
+
+</head>
+<body>
+
+<div id="root"></div>
+
+<!--1. 封装对应的组件-->
+
+
+<!--2. 把各个组件, 组装为另外一个页面(组件)-->
+<script src="lib/react.development.js"></script>
+<script src="lib/react-dom.development.js"></script>
+<script src="lib/babel.min.js"></script>
+
+<script src="components/header/index.js" type="text/babel"></script>
+<script src="components/container/index.js" type="text/babel"></script>
+<script src="components/teacherCard/index.js" type="text/babel"></script>
+
+<script type="text/babel">
+
+    let page = <div>
+        <Header/>
+        <Container>
+            <TeacherCard/>
+            <TeacherCard/>
+            <TeacherCard/>
+            <TeacherCard/>
+            <TeacherCard/>
+            <TeacherCard/>
+            <TeacherCard/>
+            <TeacherCard/>
+        </Container>
+    </div>
+
+
+    ReactDOM.render(page, document.getElementById("root"));
+
+</script>
+
+
+</body>
+</html>

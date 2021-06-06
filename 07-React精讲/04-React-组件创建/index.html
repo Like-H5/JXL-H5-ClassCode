@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件的使用</title>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="../lib/react.development.js"></script>
+<script src="../lib/react-dom.development.js"></script>
+<script src="../lib/babel.min.js"></script>
+
+<script type="text/babel">
+
+    // 1. 组件的创建:
+    // 1.1 函数的方式
+    // function Person() {
+    //     return <div>
+    //         <h1>sz</h1>
+    //         <h2>18</h2>
+    //         <h3>上海</h3>
+    //     </div>
+    // }
+
+    // 1.2 类的创建方式
+    class Person extends React.Component{
+        render() {
+            return (
+                <div>
+                    <h1>sz</h1>
+                    <h2>18</h2>
+                    <h3>上海</h3>
+                </div>
+            )
+        }
+    }
+
+    class Dog extends React.Component {
+        render() {
+            return <div>小狗</div>
+        }
+    }
+
+
+    class Page extends React.Component {
+        render() {
+            return (
+                <div>
+                    <Person/>
+                    <Person/>
+                    <Person/>
+                    <Person/>
+                    <Person/>
+                </div>
+            )
+        }
+    }
+
+
+    let Animal = {
+        Person1: function () {
+            return <div>人</div>
+        },
+        Dog1: function () {
+            return <div>小狗</div>
+        }
+    }
+
+    let v_dom = <Animal.Person1 />
+
+    ReactDOM.render(v_dom, document.getElementById("root"));
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02-虚拟DOM的高效体验</title>
+</head>
+<body>
+
+<div id="root">
+
+</div>
+
+<script src="lib/react.development.js"></script>
+<script src="lib/react-dom.development.js"></script>
+<script src="lib/babel.min.js"></script>
+
+
+<script type="text/babel">
+
+    class Person extends React.Component {
+        state = {
+            name: "sz-2",
+            age: 2,
+            address: "北京"
+        }
+        updateData = () => {
+            this.setState({
+                name: "sz-2",
+                age: 3,
+                address: "北京"
+            })
+            this.setState({
+                name: "sz-2",
+                age: 10,
+                address: "北京"
+            })
+        }
+        render() {
+            console.log("做了渲染")
+            const {name, age, address} = this.state;
+            return (
+                <div className="person">
+                    <h3 className="name">姓名: {name}</h3>
+                    <h4 className="age">年龄: {age}</h4>
+                    <h5 className="address">地址: {address}</h5>
+                    <button className="update" onClick={this.updateData}>更新</button>
+                </div>
+            )
+        }
+    }
+
+    // 每次数据变更, -> 重新获取最新的虚拟DOM
+    // 最新的虚拟DOM -> 真实的DOM对应的虚拟DOM 做一个对比,
+    ReactDOM.render(<Person/>, document.getElementById("root"))
+
+</script>
+
+
+
+</body>
+</html>

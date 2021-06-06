@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>生命周期</title>
+</head>
+<body>
+
+<div id="root">
+</div>
+
+<script src="../lib/react.development.js"></script>
+<script src="../lib/react-dom.development.js"></script>
+<script src="../lib/babel.min.js"></script>
+
+<script type="text/babel">
+    class Todo extends React.Component {
+
+        constructor(props) {
+
+            super(props);
+
+            this.state = {
+
+                count: 0
+
+            }
+
+            this._handlerKeyDown = this._handlerKeyDown.bind(this)
+
+            this.contentRef = React.createRef()
+
+
+
+        }
+
+        _handlerKeyDown(event) {
+
+            if(event.key === "Enter") {
+
+                let value = this.contentRef.current.value
+
+                console.log(value)
+
+                this.setState({
+
+                    count: value
+
+                })
+
+            }
+
+        }
+
+        static getDerivedStateFromProps(nextProps, prevState) {
+
+            console.log("props或者state改变, 需要返回一个state的增量数据, 自动合并到state中", nextProps, prevState)
+
+            // 因为会调用多次, 需要需要比对nextProps是否和上一次props一样, 一样的话, 就不要更新, 否则就更新
+
+            const {count} = nextProps
+
+            const {preProps} = prevState
+
+            if (!preProps || count !== preProps.count) {
+
+                return {
+
+                    count: count,
+
+                    preProps: nextProps
+
+                }
+
+            }
+
+            return null
+
+        }
+
+        render() {
+
+            return (
+
+                <div>
+
+                    <h1>{this.state.count}</h1>
+
+                    <input ref={this.contentRef} type="number" placeholder="请输入数值" onKeyDown={this._handlerKeyDown}/>
+
+                </div>
+
+            )
+
+        }
+
+        componentDidMount() {
+
+            // 根据props初始化输入框的数值
+
+            this.contentRef.current.value = this.props.count
+
+            // 定时器
+
+            this.timer = setInterval(()=>{
+                console.log("123123")
+                this.setState({
+
+                    count: this.state.count - 1
+
+                })
+
+            }, 1000)
+
+        }
+
+        // 组件被卸载后, 释放资源
+
+        componentWillUnmount() {
+
+            clearInterval(this.timer)
+
+        }
+
+    }
+
+    ReactDOM.render(<Todo  count={20}/>, document.getElementById("root"))
+
+    setTimeout(()=>{
+
+        ReactDOM.render(<div>另一个组件</div>, document.getElementById("root"))
+
+    }, 3000)
+</script>
+
+
+<script type="text/html">
+    class Todo extends React.Component {
+
+        constructor(props) {
+
+            super(props);
+
+            this.state = {
+
+                count: 0
+
+            }
+
+            this._handlerKeyDown = this._handlerKeyDown.bind(this)
+
+            this.contentRef = React.createRef()
+
+
+
+        }
+
+        _handlerKeyDown(event) {
+
+            if(event.key === "Enter") {
+
+                let value = this.contentRef.current.value
+
+                console.log(value)
+
+                this.setState({
+
+                    count: value
+
+                })
+
+            }
+
+        }
+
+        static getDerivedStateFromProps(nextProps, prevState) {
+
+            console.log("props或者state改变, 需要返回一个state的增量数据, 自动合并到state中", nextProps, prevState)
+
+            // 因为会调用多次, 需要需要比对nextProps是否和上一次props一样, 一样的话, 就不要更新, 否则就更新
+
+            const {count} = nextProps
+
+            const {preProps} = prevState
+
+            if (!preProps || count !== preProps.count) {
+
+                return {
+
+                    count: count,
+
+                    preProps: nextProps
+
+                }
+
+            }
+
+            return null
+
+        }
+
+        render() {
+
+            return (
+
+                <div>
+
+                    <h1>{this.state.count}</h1>
+
+                    <input ref={this.contentRef} type="number" placeholder="请输入数值" onKeyDown={this._handlerKeyDown}/>
+
+                </div>
+
+            )
+
+        }
+
+        componentDidMount() {
+
+            // 根据props初始化输入框的数值
+
+            this.contentRef.current.value = this.props.count
+
+        }
+
+    }
+
+
+
+    ReactDOM.render(<Todo count={20}/>, document.getElementById("root"))
+</script>
+
+
+<script type="text/html">
+    class Todo extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                count: 0
+            }
+
+            this._handlerKeyDown = this._handlerKeyDown.bind(this)
+
+            this.contentRef = React.createRef()
+
+            // console.log(this.contentRef.current)
+        }
+
+        _handlerKeyDown(event) {
+
+            if(event.key === "Enter") {
+
+                let value = this.contentRef.current.value
+
+                console.log(value)
+
+                this.setState({
+
+                    count: value
+
+                })
+
+            }
+
+        }
+
+        render() {
+
+            return (
+
+                <div>
+
+                    <h1>{this.state.count}</h1>
+
+                    <input ref={this.contentRef} type="number" placeholder="请输入数值" onKeyDown={this._handlerKeyDown}/>
+
+                </div>
+
+            )
+
+        }
+
+    }
+
+
+</script>
+
+<script type="text/html">
+
+    class Test extends React.Component {
+        constructor(props) {
+            super(props);
+            console.log("constructor")
+            this.state = {}
+        }
+
+        static getDerivedStateFromProps(nextProps, preState) {
+            console.log("getDerivedStateFromProps")
+            return null
+        }
+        render() {
+            console.log("render")
+            return (
+                <div>渲染组件</div>
+            )
+        }
+        componentDidMount() {
+            console.log("componentDidMount")
+            // setTimeout(() => {
+            //     this.forceUpdate()
+            //     // this.setState({
+            //     //
+            //     // })
+            // }, 1000)
+
+        }
+        shouldComponentUpdate(nextProps, nextState) {
+            console.log("shouldComponentUpdate")
+            return true
+        }
+
+        getSnapshotBeforeUpdate(prevProps, prevState) {
+            console.log("getSnapshotBeforeUpdate")
+            return null
+        }
+
+        componentDidUpdate(prevProps, prevState, snapshot) {
+            console.log("componentDidUpdate")
+        }
+        componentWillUnmount() {
+            console.log("componentWillUnMount")
+        }
+    }
+
+
+    ReactDOM.render(<Test/>, document.getElementById("root"))
+
+    // setTimeout(()=>{
+    //     ReactDOM.render(<Test count={20}/>, document.getElementById("root"))
+    // }, 2000)
+
+    setTimeout(() => {
+
+        ReactDOM.render(<div>other</div>, document.getElementById("root"))
+
+    }, 2000)
+
+
+</script>
+
+</body>
+</html>

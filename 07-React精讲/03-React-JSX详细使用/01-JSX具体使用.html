@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01-JSX具体使用</title>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="../lib/react.development.js"></script>
+<script src="../lib/react-dom.development.js"></script>
+<script src="../lib/babel.min.js"></script>
+
+<script type="text/babel">
+
+    function Card(props) {
+        // console.log(props)
+        const {name, age} = props;
+
+        return <div>
+            <h1>{name}</h1>
+            <h2>{age}</h2>
+        </div>
+    }
+
+
+    // 1. 创建一个虚拟dom对象
+    // 1.1 单个JSX语句
+    // let v_dom = <div>内容</div>;
+    // let v_dom = <img src="images/xl.png" alt=""/>;
+    // let v_dom = <Card/>
+
+
+    // 1.2 属性的设置
+    // let v_dom = <img src="images/xl.png" alt="123"/>;
+    // let v_dom = <a href="/123">123</a>;
+    // let v_dom = <div className="xxx">sz</div>;
+    // let v_dom = <label htmlFor="xxx"><input type="text" id="xxx"/></label>;
+    // let v_dom = <Card name="test" age="22"/>
+    // let v_dom = <Card name="sz" age="66"/>
+
+
+    // 1.3 js表达式的嵌入
+    // let content = "撩课学院";
+    // let v_dom = <div>{ content }</div>
+
+    // let list = ["a", "b", "c"];
+    // let list2 = [<li>a</li>, <li>b</li>, <li>c</li>]
+    // let v_dom = <div>
+    //     {list}
+    // </div>
+
+    // let v_dom = <ul>
+    //     {/* list2 */}
+    //     { list.map(item=><li>{item}</li>) }
+    // </ul>
+
+    // let v_dom = <div>
+    //     { 1 + 2 + 3 }
+    // </div>
+
+    // let sex = 0;
+    // let v_dom = <div>
+    //     { sex === 1 ? "男" : "女" }
+    // </div>
+
+    // let src = "images/xl.png";
+    // let styleValues = {width: "100px", height: "60px"}
+    // let v_dom = <div>
+    //     {/* <img src={src} alt="123" style="width: 100px;height: 60px;"/> */}
+    //     <img src={src} alt="123" style={ styleValues }/>
+    //     <a href="#/xxx">123</a>
+    // </div>
+
+
+    // 1.4 JSX的嵌套
+
+    function Container(props) {
+        console.log(props)
+        return <div style={{ width: 200, height: 300, backgroundColor: "tomato" }}>
+            {props.children}
+        </div>
+    }
+
+    // let v_dom =
+    //     <div>
+    //         <h1>123</h1>
+    //         <h2>abc</h2>
+    //     </div>
+
+    let v_dom = <Container>
+        <h1>元素1</h1>
+        <h1>元素2</h1>
+    </Container>
+
+
+
+    // 2. 渲染虚拟的dom对象, 到具体的容器内部
+    ReactDOM.render(v_dom, document.getElementById("root"));
+
+</script>
+
+
+</body>
+</html>

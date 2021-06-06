@@ -1,0 +1,50 @@
+.box {
+
+    width: 100px;
+
+    height: 150px;
+
+    background-color: rgba(0, 0, 0, 0.4);
+
+    margin-top: 10px;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+.box .top {
+
+    height: 100px;
+
+}
+.box .top img {
+
+    width: 100px;
+
+    height: 100px;
+
+    border-radius: 50%;
+
+}
+.box .bottom {
+
+    flex: 1;
+
+    text-align: center;
+
+    color: #fff;
+
+}
+.box .bottom .name {
+
+    font-size: 18px;
+
+}
+.box .bottom .level {
+
+    font-size: 16px;
+
+    color: orange;
+
+}
